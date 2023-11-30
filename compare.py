@@ -106,12 +106,22 @@ def comparer_dictionnaires_v2(resultat_final) -> dict:
     return comparaisons  # Retourner le dictionnaire de résultats des comparaisons
 
 
+# Définition de la fonction 'mise_en_forme' prenant un argument 'comparaison' de type dictionnaire
 def mise_en_forme(comparaison):
+    # Affichage d'une ligne de séparation pour marquer le début du traitement des données
     print("-----------------------Premier echantillon-----------------------")
+
+    # Extraction des clés du dictionnaire 'comparaison' et conversion en liste
     cles = list(comparaison.keys())
+
+    # Itération à travers la liste 'cles' avec indice et valeur associée
     for i, cle in enumerate(cles):
+        # Affichage des informations relatives à chaque paire clé-valeur du dictionnaire
         print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaison[cle])
+        
+        # Vérification pour savoir s'il s'agit du dernier élément et si la première partie de la clé est différente de la suivante
         if i < len(cles) - 1 and cle[:3] != cles[i + 1][:3]:
+            # Affichage d'une ligne de séparation entre les groupes de données distincts
             print("-----------------------Echantillon suivant-----------------------")
 
 
@@ -158,9 +168,7 @@ def main():
     formalité = mise_en_forme (resultat)
     print (formalité)
     #fin de la mise en forme
-    
-    
-    
+
     #si la fonction sépciale s'appelle main alors il faut lancer la fonction main
 
 if __name__ == "__main__":
