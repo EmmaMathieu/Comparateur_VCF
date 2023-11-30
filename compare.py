@@ -74,9 +74,6 @@ def comparer_dictionnaires(resultat_final) -> dict:
     return comparaisons
 
 
-
-
-
 def comparer_dictionnaires_v2(resultat_final) -> dict:
     comparaisons = {}  # Dictionnaire pour stocker les résultats des comparaisons
 
@@ -105,11 +102,20 @@ def comparer_dictionnaires_v2(resultat_final) -> dict:
                 # Clé pour identifier la comparaison
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
                 comparaisons[cle_comparaison] = compteur_communs  # Stocker le nombre de paires identiques dans le dictionnaire de résultats
-
+    
     return comparaisons  # Retourner le dictionnaire de résultats des comparaisons
 
 
+def mise_en_forme(comparaison):
+    print("-----------------------Premier echantillon-----------------------")
+    cles = list(comparaison.keys())
+    for i, cle in enumerate(cles):
+        print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaison[cle])
+        if i < len(cles) - 1 and cle[:3] != cles[i + 1][:3]:
+            print("-----------------------Echantillon suivant-----------------------")
 
+
+"""
 def comparer_dictionnaires_v3(resultat_final) -> dict:
     comparaisons = {}  # Dictionnaire pour stocker les résultats des comparaisons
 
@@ -137,14 +143,23 @@ def comparer_dictionnaires_v3(resultat_final) -> dict:
                     cle_comparaison = f"{fichier_1} - {fichier_2}"
                     comparaisons[cle_comparaison] = 1  # Incrémenter de 1 pour les paires qui dépassent le seuil de similitude
 
-    return comparaisons  # Retourner le dictionnaire de résultats des comparaisons
-
+    return comparaisons # Retourner le dictionnaire de résultats des comparaisons"
+"""
 
 def main():
     chemin = sys.argv[1]
     echantillon_et_replicats = parcourir.parc(chemin)
-    resultat = comparer_dictionnaires_v3(dictionnaire_final(echantillon_et_replicats))
-    print (resultat)
+    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
+    
+    #debug
+    #print (resultat)
+
+    #pour la mise en forme
+    formalité = mise_en_forme (resultat)
+    print (formalité)
+    #fin de la mise en forme
+    
+    
     
     #si la fonction sépciale s'appelle main alors il faut lancer la fonction main
 
