@@ -4,11 +4,12 @@
 
 
 
-echo -e "\nBienvenue dans ce programme qui analyse les variants génétiques.\nVous avez à disposition un dossier Data dans lequel vous pouvez mettre vos échantillons et vos réplicats au format VCF.\nAvec un nom comme ceci : P+numéro_echantillon-numéro_réplicat.vcf.\nCe programe vous donneras le nombre de variants uniquement pour une insertion connue et commune entre chaque réplicats deux à deux.\nSoit par :\n\t\t1) Position Identique.\n\t\t2) Position +/-10b.\n\t\t3) Avec une positon +/- 10b mais seulement lorsque les séquences se ressemblent à 75%.\n"
+echo -e "\nBienvenue dans ce programme qui analyse les variants génétiques.\nVous avez à disposition un dossier Data dans lequel vous pouvez mettre vos échantillons et vos réplicats au format VCF.\nAvec un nom comme ceci : P+numéro_echantillon-numéro_réplicat.vcf.\nCe programe vous donneras le nombre de variants uniquement pour une insertion connue et commune entre chaque réplicats deux à deux.\nSoit par :\n\t\t1) Positions et séquences identiques.\n\t\t2) Positions avec +/- 10 nucléotides de différences et séquences identiques.\n\t\t3) Positon avec +/- 10 nucléotides de différences mais seulement lorsque les séquences se ressemblent au minimum à 75%.\n"
+echo -e "Pistes d interprétation : si un variant est compris dans tout les réplicats d un échantillon, il y a de fortes chances pour que ce variant provienne d une réelle mutation dans l échantillon. A l inverse, si une variation ne se trouve que dans un seul réplicat, il y a de fortes chances pour que cette mutation soit une erreur d'amplification fortuite.\n"
 # -e pour echo permet l'interpretation par bash des chars {'\t' (permet une tabulation) et '\n' (permet de mettre a la ligne)} 
 
 if [ $# -ne 1 ] || [ $1 = "-h" ]; then
-    echo -e "\tUtilisation : \n\t\tVous avez donné le mauvais nombre d'arguments, veuillez mettre l'unique chemin après : $0"
+    echo -e "\tUtilisation : \n\t\tVous avez donné le mauvais nombre d'arguments ou vous voulez des informations sur l'utilisation, veuillez mettre l'unique chemin après : $0"
     exit 1
 fi
 # Vérifie si un argument (chemin vers le dossier Data) est passé en ligne de commande
@@ -20,6 +21,6 @@ racine="$1"
 
 # Appel du script compare.py
 python3 compare.py "$racine"
-
+#debug
 #python3 parcourir.py "$racine"
 # Cree par Emma MATHIEU : https://github.com/EmmaMathieu

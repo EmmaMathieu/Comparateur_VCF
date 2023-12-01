@@ -32,7 +32,7 @@ def parc(chemin : str) -> dict:
 
     return echantillon_et_replicats  # Renvoie le dictionnaire contenant les échantillons et leurs fichiers VCF associés
 
-
+"""
 #fonction principale pour pouvoir appeler les autres fonction dans le script
 def main():
     chemin = sys.argv[1]
@@ -42,3 +42,4 @@ def main():
 #si la fonction sépciale s'appelle main alors il faut lancer la fonction main
 if __name__ == "__main__":
     main()
+"""

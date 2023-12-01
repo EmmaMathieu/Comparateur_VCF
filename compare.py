@@ -42,9 +42,17 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 
         # Ajoute le dictionnaire associé à l'échantillon au dictionnaire final
         resultat_final[echantillon] = dic
-
     return resultat_final  # Renvoie le dictionnaire final avec les informations organisées
 
+# resultat_final = {
+#		'P30': {
+#			'P30-1.trimed1000.sv_sniffles.vcf': {'22620': ['GTAGTAGTGGT'], '37879': ['TGTGGTG', 'TGTGTGTG', 'TGACAGAGAC']}, 
+#			'P30-2.trimed1000.sv_sniffles.vcf': {'196282': ['TCTCTCTCAAA']}}, 
+#		'P15': {
+#			'P15-3.trimed1000.sv_sniffles.vcf': {'3243': ['TAATGTGATGGGCCTCGGCG'], '11375': ['GTAAGTACATCAATTAAGACAGAC']}, 
+#			'P15-1.trimed1000.sv_sniffles.vcf': {'1210': ['TGTGATGTATTG'], '11375': ['GTAAGGTGTCCTCC']}, 
+#			'P15-2.trimed1000.sv_sniffles.vcf': {'11375': ['GTAAGTACATCTGT']}}                                              
+# } 
 
 
 def comparer_dictionnaires(resultat_final) -> dict:
@@ -70,8 +78,14 @@ def comparer_dictionnaires(resultat_final) -> dict:
                 # Clé pour identifier la comparaison
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
                 comparaisons[cle_comparaison] = compteur_communs
-
     return comparaisons
+
+# comparaison = {   'P30-1.trimed1000.sv_sniffles.vcf - P30-2.trimed1000.sv_sniffles.vcf': 0,
+#                   'P30-1.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 6, 
+#                   'P30-2.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 0, 
+#                   'P15-3.trimed1000.sv_sniffles.vcf - P15-1.trimed1000.sv_sniffles.vcf': 14, 
+#                   'P15-3.trimed1000.sv_sniffles.vcf - P15-2.trimed1000.sv_sniffles.vcf': 3, 
+#                   'P15-1.trimed1000.sv_sniffles.vcf - P15-2.trimed1000.sv_sniffles.vcf': 3        }  
 
 
 def comparer_dictionnaires_v2(resultat_final) -> dict:
@@ -106,6 +120,7 @@ def comparer_dictionnaires_v2(resultat_final) -> dict:
     return comparaisons  # Retourner le dictionnaire de résultats des comparaisons
 
 
+
 # Définition de la fonction 'mise_en_forme' prenant un argument 'comparaison' de type dictionnaire
 def mise_en_forme(comparaison):
     # Affichage d'une ligne de séparation pour marquer le début du traitement des données
@@ -122,7 +137,8 @@ def mise_en_forme(comparaison):
         # Vérification pour savoir s'il s'agit du dernier élément et si la première partie de la clé est différente de la suivante
         if i < len(cles) - 1 and cle[:3] != cles[i + 1][:3]:
             # Affichage d'une ligne de séparation entre les groupes de données distincts
-            print("-----------------------Echantillon suivant-----------------------")
+            print("\n-----------------------Echantillon suivant-----------------------")
+
 
 
 """
@@ -160,16 +176,11 @@ def main():
     chemin = sys.argv[1]
     echantillon_et_replicats = parcourir.parc(chemin)
     resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
+    mise_en_forme(resultat)
     
     #debug
-    #print (resultat)
-
-    #pour la mise en forme
-    formalité = mise_en_forme (resultat)
-    print (formalité)
-    #fin de la mise en forme
-
-    #si la fonction sépciale s'appelle main alors il faut lancer la fonction main
-
-if __name__ == "__main__":
-    main()
+    #print(resultat)
+  
+    
+if __name__ == "__main__": #si la fonction sépciale s'appelle main alors il faut lancer la fonction main
+    main() 
