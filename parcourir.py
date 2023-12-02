@@ -1,6 +1,7 @@
 import os
 import sys
 
+
 # Cette fonction prend en entrée un chemin de type string et renvoie un dictionnaire contenant des échantillons et le path+leurs réplicats associés.
 def parc(chemin : str) -> dict:
     echantillon_et_replicats = {}  # Initialise un dictionnaire vide pour stocker les échantillons et leurs réplicats
@@ -31,15 +32,3 @@ def parc(chemin : str) -> dict:
                         echantillon_et_replicats[echantillon] = [chemin_complet_vcf]
 
     return echantillon_et_replicats  # Renvoie le dictionnaire contenant les échantillons et leurs fichiers VCF associés
-
-"""
-#fonction principale pour pouvoir appeler les autres fonction dans le script
-def main():
-    chemin = sys.argv[1]
-    resultat = parc(chemin)
-    #debug
-    print (resultat)
-#si la fonction sépciale s'appelle main alors il faut lancer la fonction main
-if __name__ == "__main__":
-    main()
-"""
