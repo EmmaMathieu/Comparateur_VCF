@@ -5,13 +5,13 @@ import re
 import parcourir
 
 
-def dictionnaire_final(echantillon_et_replicats) -> dict: # Cette fonction prend en entrée un dictionnaire contenant des échantillons et le path+leurs réplicats associés et renvoie un dictionnaire contenant des échantillons et le path+leurs réplicats associés avec les valeurs de la colonne 1 et 4.
-    resultat_final = {} # Initialise un dictionnaire vide pour stocker les échantillons et leurs réplicats avec les valeurs de la colonne 1 et 4.
+def dictionnaire_final(echantillon_et_replicats) -> dict:
+    resultat_final = {}
     for echantillon, chemins in echantillon_et_replicats.items(): # Itère à travers les échantillons et les chemins associés.
-        dic = {} # Initialise un dictionnaire vide pour stocker les échantillons et les chemins associés avec les valeurs de la colonne 1 et 4.
-        for chemin in chemins: # Itère à travers les chemins associés aux échantillons.
+        dic = {} 
+        for chemin in chemins: # Itère à travers les chemins 
             nom_fichier = chemin.split('/')[-1] # Sépare le chemin du nom de fichier et récupère le nom de fichier.
-            valeurs_colonne_1_4 = {} # Initialise un dictionnaire vide pour stocker les valeurs de la colonne 1 et 4.
+            valeurs_colonne_1_4 = {} 
             with open(chemin, 'r') as f: # Ouvre le fichier en mode lecture.
                 for ligne in f: # Itère à travers les lignes du fichier.
                     if ligne.startswith('#'): # Vérifie si la ligne commence par '#'.
@@ -33,11 +33,11 @@ def dictionnaire_final(echantillon_et_replicats) -> dict: # Cette fonction prend
 #			'P15-3.trimed1000.sv_sniffles.vcf': {'3243': ['TAATGTGATGGGCCTCGGCG'], '11375': ['GTAAGTACATCAATTAAGACAGAC']}, 
 #			'P15-1.trimed1000.sv_sniffles.vcf': {'1210': ['TGTGATGTATTG'], '11375': ['GTAAGGTGTCCTCC']}, 
 #			'P15-2.trimed1000.sv_sniffles.vcf': {'11375': ['GTAAGTACATCTGT']}}                                              
-# } 
+# }
 
 
-def comparer_dictionnaires(resultat_final: dict) -> dict: # Cette fonction prend en entrée un dictionnaire contenant des échantillons et le path+leurs réplicats associés avec les valeurs de la colonne 1 et 4 et renvoie un dictionnaire contenant des échantillons et le path+leurs réplicats associés avec les valeurs de la colonne 1 et 4 et le nombre de variant commun.
-    comparaisons = {} # Initialise un dictionnaire vide pour stocker les échantillons et les chemins associés avec les valeurs de la colonne 1 et 4 et le nombre de variant commun.
+def comparer_dictionnaires(resultat_final: dict) -> dict:
+    comparaisons = {}
     for echantillon, dic in resultat_final.items(): # Itère à travers les échantillons et les chemins associés avec les valeurs de la colonne 1 et 4.
         fichiers = list(dic) # Récupère les noms des fichiers du dictionnaire.
         for i, fichier_1 in enumerate(fichiers): # Itère à travers les noms des fichiers du dictionnaire.
@@ -47,7 +47,7 @@ def comparer_dictionnaires(resultat_final: dict) -> dict: # Cette fonction prend
                 compteur_communs = sum(1 for k, v in valeurs_1.items() if k in valeurs_2 and set(v) == set(valeurs_2.get(k, []))) # Compte le nombre de variant commun.
                 cle_comparaison = f"{fichier_1} - {fichier_2}" # Crée une nouvelle clé pour le dictionnaire.
                 comparaisons[cle_comparaison] = compteur_communs # Ajoute le nombre de variant commun au dictionnaire.
-    return comparaisons # Renvoie le dictionnaire contenant les échantillons et les chemins associés avec les valeurs de la colonne 1 et 4 et le nombre de variant commun.
+    return comparaisons
 
 
 # comparaisons = {  'P30-1.trimed1000.sv_sniffles.vcf - P30-2.trimed1000.sv_sniffles.vcf': 0,
@@ -74,34 +74,23 @@ def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
                 comparaisons[cle_comparaison] = compteur_communs
     return comparaisons
 
-"""
-# Définition de la fonction 'mise_en_forme' prenant un argument 'comparaison' de type dictionnaire
-def mise_en_forme(comparaison):
+
+def mise_en_forme(comparaisons: dict) -> None:
     # Affichage d'une ligne de séparation pour marquer le début du traitement des données
     print("-----------------------Premier echantillon-----------------------")
 
-    # Extraction des clés du dictionnaire 'comparaison' et conversion en liste
-    cles = list(comparaison.keys())
+    # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
+    cles = list(comparaisons.keys())
 
-    # Itération à travers la liste 'cles' avec indice et valeur associée
+    # Pour chaque clé dans la liste cles : enumerate() associe chaque élément de la liste à un index, en générant des paires (index, élément)
     for i, cle in enumerate(cles):
         # Affichage des informations relatives à chaque paire clé-valeur du dictionnaire
-        print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaison[cle])
-        
-        # Vérification pour savoir s'il s'agit du dernier élément et si la première partie de la clé est différente de la suivante
-        if i < len(cles) - 1 and cle[:3] != cles[i + 1][:3]:
-            # Affichage d'une ligne de séparation entre les groupes de données distincts
-            print("\n-----------------------Echantillon suivant-----------------------")  
-"""
-
-
-def mise_en_forme(comparaisons: dict) -> None : 
-    print("-----------------------Premier echantillon-----------------------")
-    cles = list(comparaisons.keys())
-    for i, cle in enumerate(cles):
         print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaisons[cle])
+        # comparaisons[cle] fait référence à une valeur dans le dictionnaire comparaisons. 
         if i < len(cles) - 1 and cle[:3] != cles[i + 1][:3]:
-            print("\n-----------------------Echantillon suivant-----------------------") 
+            # Vérification pour savoir s'il s'agit du dernier élément et si la première partie de la clé est différente de la suivante
+            print("\n-----------------------Echantillon suivant-----------------------")  
+            # Affichage d'une ligne de séparation entre les échantillons distincts
 
 
 def main():
