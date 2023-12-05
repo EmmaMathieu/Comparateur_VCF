@@ -4,7 +4,7 @@
 
 
 
-echo -e "\nBienvenue dans ce programme qui analyse les variants génétiques.\nCe programe vous donneras le nombre de variants uniquement pour une insertion connue et commune entre chaque réplicats deux à deux.\nSoit par :\n\t\t1) Positions et séquences identiques.\n\t\t2) Positions avec +/- 10 nucléotides de différences et séquences identiques.\n\t\t2) Positions avec +/- 10 nucléotides de différences et des séquences avec un pourcentage d'identité <= à 75%.\n"
+echo -e "\nBienvenue dans ce programme qui analyse les variants génétiques.\nCe programe vous donneras le nombre de variants uniquement pour une insertion connue et commune entre chaque réplicats deux à deux.\nPar :\n\t\t1) Positions et séquences identiques.\n\t\t2) Positions avec +/- 10 nucléotides de différences et séquences identiques.\n\t\t2) Positions avec +/- 10 nucléotides de différences et des séquences avec un pourcentage d'identité <= à 75%.\n"
 
 # -e pour echo permet l'interpretation par bash des chars {'\t' (permet une tabulation) et '\n' (permet de mettre a la ligne)} 
 
