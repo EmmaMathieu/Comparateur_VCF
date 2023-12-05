@@ -10,7 +10,7 @@ import parcourir
 #                             'P15': ['Data/Data/P15/P15-3.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-1.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-2.trimed1000.sv_sniffles.vcf']} 
 
 
-def dictionnaire_final(echantillon_et_replicats) -> dict:
+def dictionnaire_final(echantillon_et_replicats) -> dict:  
     resultat_final = {}  # Initialise le dictionnaire final pour stocker les résultats par échantillon.
 
     # Itère à travers chaque échantillon et ses chemins associés.
@@ -129,6 +129,39 @@ def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
 
 
 
+def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
+    comparaisons = {}  # Initialise le dictionnaire pour stocker les résultats de comparaison.
+
+    # Itère à travers chaque échantillon et les fichiers associés avec les valeurs de la colonne 1 et 4.
+    for echantillon, fichiers_valeurs in resultat_final.items():
+        fichiers = list(fichiers_valeurs)  # Récupère les noms des fichiers du dictionnaire.
+
+        # Itère à travers chaque paire de fichiers.
+        for i, fichier_1 in enumerate(fichiers):
+            valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs associées au fichier 1.
+
+            # Itère à travers les autres fichiers (à partir du fichier suivant après fichier_1).
+            for fichier_2 in fichiers[i + 1:]:
+                valeurs_2 = fichiers_valeurs[fichier_2] # Récupère les valeurs associées au fichier 2.
+
+                # Compte le nombre de clé identiques (à 10 nucléotides près) avec des valeurs identiques entre les fichiers 1 et 2.
+                compteur_communs = sum(
+                        1
+                        for cle1, valeur1 in valeurs_1.items()
+                        for cle2, valeur2 in valeurs_2.items()
+                        for a, b in zip(valeur1, valeur2)
+                        if abs(int(cle1) - int(cle2)) <= 10 and (sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= 75
+                    )
+                # Crée une clé pour le dictionnaire de comparaison.
+                cle_comparaison = f"{fichier_1} - {fichier_2}"
+                # Ajoute le nombre de valeurs communes au dictionnaire de comparaison.
+                comparaisons[cle_comparaison] = compteur_communs
+
+    return comparaisons  # Renvoie le dictionnaire contenant les comparaisons entre les fichiers.
+
+
+
+
 # comparaisons = {  'P30-1.trimed1000.sv_sniffles.vcf - P30-2.trimed1000.sv_sniffles.vcf': 0,
 #                   'P30-1.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 6, 
 #                   'P30-2.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 0, 
@@ -138,8 +171,9 @@ def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
 
 
 
-def mise_en_forme(comparaisons: dict) -> None:
-    print("-----------------------Premier echantillon-----------------------")
+def mise_en_forme(comparaisons: dict,str) -> None:
+    print ("\n"+str)
+    print("\n-----------------------Premier echantillon-----------------------")
     cles = list(comparaisons.keys())  # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
 
     # Itère à travers chaque clé et son index dans la liste 'cles'
@@ -157,9 +191,12 @@ def mise_en_forme(comparaisons: dict) -> None:
 def main():
     chemin = sys.argv[1]
     echantillon_et_replicats = parcourir.parc(chemin)
-    #resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
-    resultat = comparer_dictionnaires_v2(dictionnaire_final(echantillon_et_replicats))
-    mise_en_forme(resultat)
+    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
+    resultat2 = comparer_dictionnaires_v2(dictionnaire_final(echantillon_et_replicats))
+    resultat3 = comparer_dictionnaires_v3(dictionnaire_final(echantillon_et_replicats))
+    mise_en_forme(resultat, "Version 1 : ")
+    mise_en_forme(resultat2, "Version 2 : ")
+    mise_en_forme(resultat3, "Version 3 : ")
     
 if __name__ == "__main__": # Si la fonction sépciale s'appelle main alors il faut lancer la fonction main
     main() 
