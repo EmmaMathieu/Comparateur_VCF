@@ -13,27 +13,24 @@ import parcourir
 def dictionnaire_final(echantillon_et_replicats) -> dict:  
     resultat_final = {}  # Initialise le dictionnaire final pour stocker les résultats par échantillon.
 
-    # Itère à travers chaque échantillon et ses chemins associés.
-    for echantillon, chemins in echantillon_et_replicats.items():
-        resultat_echantillon = {}  # Initialise le dictionnaire pour stocker les résultats de l'échantillon.
+    # Crée un dictoinnaire a chaque échantillon .items() retourne une vue sur le dictionnaire qui est itérée.
+    for echantillon, chemins_rep in echantillon_et_replicats.items():
+        resultat_echantillon = {}
 
-        # Itère à travers chaque chemin de l'échantillon.
-        for chemin in chemins:
-            valeurs_colonne_1_4 = {}  # Initialise le dictionnaire pour stocker les valeurs des colonnes 1 et 4.
-            nom_fichier = chemin.split('/')[-1]  # Récupère le nom du fichier à partir du chemin complet.
+        # Pour chaque réplicat, il crée un nouveau dictionnaire
+        for chemin_r in chemins_rep:
+            valeurs_colonne_1_4 = {} 
+            nom_fichier = chemin_r.split('/')[-1]  # Récupère le nom du fichier à partir du chemin complet.
 
-            # Ouvre le fichier correspondant en mode lecture.
-            with open(chemin, 'r') as f:
-                # Itère à travers chaque ligne du fichier.
+            with open(chemin_r, 'r') as f:
                 for ligne in f:
-                    # Vérifie si la ligne commence par '#' et continue à la prochaine si c'est le cas.
                     if ligne.startswith('#'):
                         continue
-                    
+
                     # Divise la ligne en colonnes en utilisant la tabulation comme séparateur.
                     colonne = ligne.split('\t')
                     # Récupère les valeurs des colonnes 1 et 4 en supprimant les espaces vides autour.
-                    valeur_colonne_1, valeur_colonne_4 = colonne[1].strip(), colonne[4].strip()
+                    valeur_colonne_1, valeur_colonne_4 = colonne[1], colonne[4]
                     
                     # Vérifie si la valeur de la colonne 4 n'est pas '<DUP>', '<DEL>', ou '<INS>'.
                     if valeur_colonne_4 not in ('<DUP>', '<DEL>', '<INS>'):
@@ -48,11 +45,12 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
             if valeurs_colonne_1_4:
                 resultat_echantillon[nom_fichier] = valeurs_colonne_1_4
         
-        # Associe les résultats de l'échantillon au dictionnaire final.
+        # Associe les dictionnaitres de l'échantillon au dictionnaire final.
         if resultat_echantillon:
             resultat_final[echantillon] = resultat_echantillon
     
-    return resultat_final  # Renvoie le dictionnaire final contenant les résultats pour chaque échantillon.
+    return resultat_final
+
 
 
 # resultat_final = {
@@ -69,11 +67,11 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 def comparer_dictionnaires(resultat_final: dict) -> dict:
     comparaisons = {}  # Initialise le dictionnaire pour stocker les résultats de comparaison.
 
-    # Itère à travers chaque échantillon et les fichiers associés avec les valeurs de la colonne 1 et 4.
+    # Récupère dans une liste les noms des réplicats et leur résultat
     for echantillon, fichiers_valeurs in resultat_final.items():
         fichiers = list(fichiers_valeurs)  # Récupère les noms des fichiers du dictionnaire.
 
-        # Itère à travers chaque paire de fichiers.
+        # .enumerate() permet d'itérer tout en gardant l'indice.
         for i, fichier_1 in enumerate(fichiers):
             valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs associées au fichier 1.
 
@@ -81,7 +79,7 @@ def comparer_dictionnaires(resultat_final: dict) -> dict:
             for fichier_2 in fichiers[i + 1:]:
                 valeurs_2 = fichiers_valeurs[fichier_2]  # Récupère les valeurs associées au fichier 2.
 
-                # Compte le nombre de clé valeurs identiques entre les fichiers 1 et 2.
+                # Compte le nombre de couple clé-valeurs identiques entre les fichiers 1 et 2.
                 compteur_communs = sum(
                     1 # On incrémente de 1 à chaque fois qu'on trouve une valeur commune
                     for cle1, valeur1 in valeurs_1.items()
@@ -98,19 +96,17 @@ def comparer_dictionnaires(resultat_final: dict) -> dict:
 
 
 def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
-    comparaisons = {}  # Initialise le dictionnaire pour stocker les résultats de comparaison.
+    comparaisons = {}  
 
-    # Itère à travers chaque échantillon et les fichiers associés avec les valeurs de la colonne 1 et 4.
+   
     for echantillon, fichiers_valeurs in resultat_final.items():
-        fichiers = list(fichiers_valeurs)  # Récupère les noms des fichiers du dictionnaire.
+        fichiers = list(fichiers_valeurs) 
 
-        # Itère à travers chaque paire de fichiers.
         for i, fichier_1 in enumerate(fichiers):
-            valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs associées au fichier 1.
-
-            # Itère à travers les autres fichiers (à partir du fichier suivant après fichier_1).
+            valeurs_1 = fichiers_valeurs[fichier_1] 
+           
             for fichier_2 in fichiers[i + 1:]:
-                valeurs_2 = fichiers_valeurs[fichier_2] # Récupère les valeurs associées au fichier 2.
+                valeurs_2 = fichiers_valeurs[fichier_2]
 
                 # Compte le nombre de clé identiques (à 10 nucléotides près) avec des valeurs identiques entre les fichiers 1 et 2.
                 compteur_communs = sum(
@@ -120,31 +116,27 @@ def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
                     if abs(int(cle1) - int(cle2)) <= 10 and valeur1 == valeur2 # Vérifie si la différence entre les valeurs de la colonne 1 est inférieure ou égale à 10.
                 )
 
-                # Crée une clé pour le dictionnaire de comparaison.
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
-                # Ajoute le nombre de valeurs communes au dictionnaire de comparaison.
                 comparaisons[cle_comparaison] = compteur_communs
 
-    return comparaisons  # Renvoie le dictionnaire contenant les comparaisons entre les fichiers.
+    return comparaisons
 
 
 
 def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
-    comparaisons = {}  # Initialise le dictionnaire pour stocker les résultats de comparaison.
+    comparaisons = {} 
 
-    # Itère à travers chaque échantillon et les fichiers associés avec les valeurs de la colonne 1 et 4.
     for echantillon, fichiers_valeurs in resultat_final.items():
-        fichiers = list(fichiers_valeurs)  # Récupère les noms des fichiers du dictionnaire.
-
-        # Itère à travers chaque paire de fichiers.
+        fichiers = list(fichiers_valeurs)  
+       
         for i, fichier_1 in enumerate(fichiers):
-            valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs associées au fichier 1.
+            valeurs_1 = fichiers_valeurs[fichier_1]  
 
-            # Itère à travers les autres fichiers (à partir du fichier suivant après fichier_1).
+           
             for fichier_2 in fichiers[i + 1:]:
-                valeurs_2 = fichiers_valeurs[fichier_2] # Récupère les valeurs associées au fichier 2.
+                valeurs_2 = fichiers_valeurs[fichier_2] 
 
-                # Compte le nombre de clé identiques (à 10 nucléotides près) avec des valeurs identiques entre les fichiers 1 et 2.
+                # Compte le nombre de clé identiques (à 10 nucléotides près) avec des valeurs avec un pourcentage d'identité superieur à 75%
                 compteur_communs = sum(
                         1
                         for cle1, valeur1 in valeurs_1.items()
@@ -152,12 +144,11 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
                         for a, b in zip(valeur1, valeur2)
                         if abs(int(cle1) - int(cle2)) <= 10 and (sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= 75
                     )
-                # Crée une clé pour le dictionnaire de comparaison.
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
-                # Ajoute le nombre de valeurs communes au dictionnaire de comparaison.
+                
                 comparaisons[cle_comparaison] = compteur_communs
 
-    return comparaisons  # Renvoie le dictionnaire contenant les comparaisons entre les fichiers.
+    return comparaisons  
 
 
 
@@ -176,9 +167,9 @@ def mise_en_forme(comparaisons: dict,str) -> None:
     print("\n-----------------------Premier echantillon-----------------------")
     cles = list(comparaisons.keys())  # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
 
-    # Itère à travers chaque clé et son index dans la liste 'cles'
     for i, cle in enumerate(cles):
         print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaisons[cle])
+        
         # Trouve l'index du premier "-" dans la clé
         premier_tiret_cle = cle.index('-') if '-' in cle else len(cle)
         

@@ -9,7 +9,7 @@ echo -e "\nBienvenue dans ce programme qui analyse les variants génétiques.\nC
 # -e pour echo permet l'interpretation par bash des chars {'\t' (permet une tabulation) et '\n' (permet de mettre a la ligne)} 
 
 if [ $1 = "-h" ]; then # Vérifie si le premier argument est égal à "-h" alors afficher l'aide
-    echo -e "\nVeuillez mettre le nom de l unique fichier contenant les fichier a comparer après : $0.\nVos fichiers de réplicats doivent etres au format VCF (.vcf) avec un nom comme ceci : P+numéro_echantillon-numéro_réplicat.vcf"
+    echo -e "\nVeuillez mettre le nom de l unique dossier contenant les fichier à comparer après : $0.\nVos fichiers de réplicats doivent etres au format VCF (.vcf) avec un nom comme ceci : P+numéro_echantillon-numéro_réplicat.vcf"
     exit 1 # Le exit sert a sortir du programme et ne pas faire la suite du programme
 fi
 
