@@ -1,7 +1,5 @@
 import os
 
-
-
 def parc(chemin: str) -> dict: 
     echantillon_et_replicats = {} 
     for racine, dossiers, fichiers in os.walk(chemin): 
