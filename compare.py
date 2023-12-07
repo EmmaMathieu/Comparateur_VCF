@@ -5,9 +5,12 @@ import re
 import parcourir
 
 
-
-# echantillon_et_replicats = {'P30': ['Data/Data/P30/P30-1.trimed1000.sv_sniffles.vcf', 'Data/Data/P30/P30-2.trimed1000.sv_sniffles.vcf', 'Data/Data/P30/P30-3.trimed1000.sv_sniffles.vcf'],
-#                             'P15': ['Data/Data/P15/P15-3.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-1.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-2.trimed1000.sv_sniffles.vcf']} 
+# echantillon_et_replicats ={   'P30': ['/home/emmamlinux/documents/Aide/Data/Data/P30/P30-1.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P30/P30-2.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P30/P30-3.trimed1000.sv_sniffles.vcf'], 
+#                               'P15': ['/home/emmamlinux/documents/Aide/Data/Data/P15/P15-3.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P15/P15-1.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P15/P15-2.trimed1000.sv_sniffles.vcf']} 
 
 
 def dictionnaire_final(echantillon_et_replicats) -> dict:  
@@ -48,7 +51,6 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
         # Associe les dictionnaitres de l'échantillon au dictionnaire final.
         if resultat_echantillon:
             resultat_final[echantillon] = resultat_echantillon
-    
     return resultat_final
 
 
@@ -147,7 +149,6 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
                 
                 comparaisons[cle_comparaison] = compteur_communs
-
     return comparaisons  
 
 
@@ -163,13 +164,15 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
 
 
 def mise_en_forme(comparaisons: dict,str) -> None:
+    if comparaisons == {}: 
+        print ("Aucun fichier VCF trouvé dans le répertoire")
+        exit()
     print ("\n"+str)
     print("\n-----------------------Premier echantillon-----------------------")
     cles = list(comparaisons.keys())  # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
 
     for i, cle in enumerate(cles):
         print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaisons[cle])
-        
         # Trouve l'index du premier "-" dans la clé
         premier_tiret_cle = cle.index('-') if '-' in cle else len(cle)
         
@@ -185,9 +188,9 @@ def main():
     resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
     resultat2 = comparer_dictionnaires_v2(dictionnaire_final(echantillon_et_replicats))
     resultat3 = comparer_dictionnaires_v3(dictionnaire_final(echantillon_et_replicats))
-    mise_en_forme(resultat, "Version 1 : ")
-    mise_en_forme(resultat2, "Version 2 : ")
-    mise_en_forme(resultat3, "Version 3 : ")
+    mise_en_forme(resultat, "Version 1 : Positions et séquences identiques.")
+    mise_en_forme(resultat2, "Version 2 : Positions avec +/- 10 nucléotides de différences et séquences identiques.")
+    mise_en_forme(resultat3, "Version 3 : Positions avec +/- 10 nucléotides de différences et des séquences avec un pourcentage d'identité <= à 75%.")
     
 if __name__ == "__main__": # Si la fonction sépciale s'appelle main alors il faut lancer la fonction main
     main() 

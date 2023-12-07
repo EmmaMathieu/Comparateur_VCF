@@ -23,5 +23,10 @@ def parc(chemin: str) -> dict:
                     # Ensuite, avec la méthode .append, chemin_complet_vcf est ajouté à cette liste comme valeur.
     return echantillon_et_replicats
 
-# echantillon_et_replicats = {'P30': ['Data/Data/P30/P30-1.trimed1000.sv_sniffles.vcf', 'Data/Data/P30/P30-2.trimed1000.sv_sniffles.vcf', 'Data/Data/P30/P30-3.trimed1000.sv_sniffles.vcf'],
-#                             'P15': ['Data/Data/P15/P15-3.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-1.trimed1000.sv_sniffles.vcf', 'Data/Data/P15/P15-2.trimed1000.sv_sniffles.vcf']} 
+
+# echantillon_et_replicats ={   'P30': ['/home/emmamlinux/documents/Aide/Data/Data/P30/P30-1.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P30/P30-2.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P30/P30-3.trimed1000.sv_sniffles.vcf'], 
+#                               'P15': ['/home/emmamlinux/documents/Aide/Data/Data/P15/P15-3.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P15/P15-1.trimed1000.sv_sniffles.vcf', 
+#                                       '/home/emmamlinux/documents/Aide/Data/Data/P15/P15-2.trimed1000.sv_sniffles.vcf']} 
