@@ -165,7 +165,7 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
 
 def mise_en_forme(comparaisons: dict,str) -> None:
     if comparaisons == {}: 
-        print ("Aucun fichier VCF trouvé dans le répertoire")
+        print ("\nAucun fichier VCF trouvé dans le répertoire ou répertoire non trouvé.\n")
         exit()
     print ("\n"+str)
     print("\n-----------------------Premier echantillon-----------------------")
@@ -188,7 +188,7 @@ def main():
     resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
     resultat2 = comparer_dictionnaires_v2(dictionnaire_final(echantillon_et_replicats))
     resultat3 = comparer_dictionnaires_v3(dictionnaire_final(echantillon_et_replicats))
-    mise_en_forme(resultat, "Version 1 : Positions et séquences identiques.")
+    mise_en_forme(resultat, "Bienvenue dans ce programme qui analyse le nombre de variants (par insertions connues) commun entre chaque réplicats deux à deux au sein d'un échantillon.\n\nVersion 1 : Positions et séquences identiques.")
     mise_en_forme(resultat2, "Version 2 : Positions avec +/- 10 nucléotides de différences et séquences identiques.")
     mise_en_forme(resultat3, "Version 3 : Positions avec +/- 10 nucléotides de différences et des séquences avec un pourcentage d'identité <= à 75%.")
     

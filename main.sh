@@ -4,7 +4,7 @@
 
 
 
-echo -e "\nBienvenue dans ce programme qui analyse le nombre de variants (insertions connues) commun entre chaque réplicats deux à deux au sein d'un échantillon." 
+ 
 # -e pour echo permet l'interpretation par bash des chars {'\t' (permet une tabulation) et '\n' (permet de mettre a la ligne)} 
 
 if [ $1 = "-h" ]; then # Vérifie si le premier argument est égal à "-h" alors afficher l'aide
@@ -24,5 +24,5 @@ racine=$(readlink -e "$1")
 python3 compare.py "$racine"
 
 
-echo -e "\nPistes d interprétation : si un variant est compris dans tout les réplicats d un échantillon, il y a de fortes chances pour que ce variant provienne d une réelle mutation dans l échantillon. A l inverse, si une variation ne se trouve que dans un seul réplicat, il y a de fortes chances pour que cette mutation soit une erreur d'amplification fortuite.\n"
+# echo -e "\nPistes d interprétation : si un variant est compris dans tout les réplicats d un échantillon, il y a de fortes chances pour que ce variant provienne d une réelle mutation dans l échantillon. A l inverse, si une variation ne se trouve que dans un seul réplicat, il y a de fortes chances pour que cette mutation soit une erreur d'amplification fortuite.\n"
 # Cree par Emma MATHIEU : https://github.com/EmmaMathieu
