@@ -73,65 +73,8 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 # }
 
 
-def comparer_dictionnaires(resultat_final: dict) -> dict:
-    comparaisons = {}  # Initialise le dictionnaire pour stocker les résultats de comparaison.
 
-    # Récupère dans une liste les noms des réplicats et leur résultat
-    for echantillon, fichiers_valeurs in resultat_final.items():
-        fichiers = list(fichiers_valeurs)  # Récupère les noms des fichiers du dictionnaire.
-
-        # .enumerate() permet d'itérer tout en gardant l'indice.
-        for i, fichier_1 in enumerate(fichiers):
-            valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs associées au fichier 1.
-
-            # Itère à travers les autres fichiers (à partir du fichier suivant après fichier_1).
-            for fichier_2 in fichiers[i + 1:]:
-                valeurs_2 = fichiers_valeurs[fichier_2]  # Récupère les valeurs associées au fichier 2.
-
-                # Compte le nombre de couple clé-valeurs identiques entre les fichiers 1 et 2.
-                compteur_communs = sum(
-                    1 # On incrémente de 1 à chaque fois qu'on trouve une valeur commune
-                    for cle1, valeur1 in valeurs_1.items()
-                    for cle2, valeur2 in valeurs_2.items()
-                    if int(cle1) == int(cle2) and valeur1 == valeur2
-                )
-                # Crée une clé pour le dictionnaire de comparaison.
-                cle_comparaison = f"{fichier_1} - {fichier_2}"
-                # Ajoute le nombre de valeurs communes au dictionnaire de comparaison.
-                comparaisons[cle_comparaison] = compteur_communs
-
-    return comparaisons  # Renvoie le dictionnaire contenant les comparaisons entre les fichiers.
-
-
-
-def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
-    comparaisons = {}  
-    for echantillon, fichiers_valeurs in resultat_final.items():
-        fichiers = list(fichiers_valeurs) 
-
-        for i, fichier_1 in enumerate(fichiers):
-            valeurs_1 = fichiers_valeurs[fichier_1] 
-           
-            for fichier_2 in fichiers[i + 1:]:
-                valeurs_2 = fichiers_valeurs[fichier_2]
-
-                # Compte le nombre de clé identiques (à 10 nucléotides près) avec des valeurs identiques entre les fichiers 1 et 2.
-                compteur_communs = sum(
-                    1
-                    for cle1, valeur1 in valeurs_1.items()
-                    for cle2, valeur2 in valeurs_2.items()
-                    if abs(int(cle1) - int(cle2)) <= 10 and valeur1 == valeur2 # Vérifie si la différence entre les valeurs de la colonne 1 est inférieure ou égale à 10.
-                )
-
-                cle_comparaison = f"{fichier_1} - {fichier_2}"
-                comparaisons[cle_comparaison] = compteur_communs
-
-    return comparaisons
-
-
-
-
-def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
+def comparer_dictionnaires(resultat_final: dict,decalage,pourcentage) -> dict:
     comparaisons = {} 
 
     for echantillon, fichiers_valeurs in resultat_final.items():
@@ -150,7 +93,7 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
                         for cle1, valeur1 in valeurs_1.items()
                         for cle2, valeur2 in valeurs_2.items()
                         for a, b in zip(valeur1, valeur2)
-                        if abs(int(cle1) - int(cle2)) <= 10 and (sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= 75
+                        if abs(int(cle1) - int(cle2)) <= decalage and (sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= pourcentage
                     )
                 cle_comparaison = f"{fichier_1} - {fichier_2}"
                 
@@ -158,10 +101,8 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
     return comparaisons  
 
 
-
-
 # comparaisons = {  'P30-1 - P30-2': 0,
-#                   'P30-1 - P30-3': 6, 
+#                   'P30-1 - P30-3': 7, 
 #                   'P30-2 - P30-3': 0, 
 #                   'P15-3 - P15-1': 14, 
 #                   'P15-3 - P15-2': 3, 
@@ -186,15 +127,23 @@ def mise_en_forme(comparaisons: dict,str) -> None:
 
 
 def main():
+
     chemin = sys.argv[1]
-    echantillon_et_replicats = parcourir.parc(chemin)
-    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats))
-    resultat2 = comparer_dictionnaires_v2(dictionnaire_final(echantillon_et_replicats))
-    resultat3 = comparer_dictionnaires_v3(dictionnaire_final(echantillon_et_replicats))
-    mise_en_forme(resultat, "Bienvenue dans ce programme qui analyse le nombre de variants (par insertions connues) commun entre chaque réplicats deux à deux au sein d'un échantillon.\n\nVersion 1 : Positions et séquences identiques.")
-    mise_en_forme(resultat2, "Version 2 : Positions avec +/- 10 nucléotides de différences et séquences identiques.")
-    mise_en_forme(resultat3, "Version 3 : Positions avec +/- 10 nucléotides de différences et des séquences avec un pourcentage d'identité <= à 75%.")
+
+    if len(sys.argv) == 4: 
+        decalage = int(sys.argv[2])
+        pourcentage = int(sys.argv[3])
+    elif len(sys.argv) == 3 :
+        decalage = int(sys.argv[2])
+        pourcentage = 100
+    else : 
+        decalage = 0
+        pourcentage = 100
     
+    echantillon_et_replicats = parcourir.parc(chemin)
+    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats),decalage,pourcentage)
+    mise_en_forme(resultat, "Bienvenue dans ce programme qui analyse le nombre de variants (par insertions connues) commun entre chaque réplicats deux à deux au sein d'un échantillon.\n")
+
 if __name__ == "__main__": # Si la fonction sépciale s'appelle main alors il faut lancer la fonction main
     main() 
 
