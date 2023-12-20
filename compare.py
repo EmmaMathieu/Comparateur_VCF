@@ -162,11 +162,7 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
 #                   'P15-1.trimed1000.sv_sniffles.vcf - P15-2.trimed1000.sv_sniffles.vcf': 3        }  
 
 
-
 def mise_en_forme(comparaisons: dict,str) -> None:
-    if comparaisons == {}: 
-        print ("\nAucun fichier VCF trouvé dans le répertoire ou répertoire non trouvé.\n")
-        exit()
     print ("\n"+str)
     print("\n-----------------------Premier echantillon-----------------------")
     cles = list(comparaisons.keys())  # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
@@ -194,3 +190,5 @@ def main():
     
 if __name__ == "__main__": # Si la fonction sépciale s'appelle main alors il faut lancer la fonction main
     main() 
+
+
