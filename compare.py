@@ -47,22 +47,29 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
             # Associe les valeurs des colonnes 1 et 4 au nom du fichier.
             if valeurs_colonne_1_4:
                 resultat_echantillon[nom_fichier] = valeurs_colonne_1_4
+
+        # Modification des clés du dictionnaire final pour enlever les informations supplémentaires et rendre la sortie plus visible
+        resultat_echantillon_modifie = {}
+        for cle, valeur in resultat_echantillon.items():
+            nouvelle_cle = cle.split('.')[0] if '.' in cle else cle
+            resultat_echantillon_modifie[nouvelle_cle] = valeur
         
-        # Associe les dictionnaitres de l'échantillon au dictionnaire final.
-        if resultat_echantillon:
-            resultat_final[echantillon] = resultat_echantillon
+        if resultat_echantillon_modifie:
+            resultat_final[echantillon] = resultat_echantillon_modifie
+
     return resultat_final
 
+    
 
 
 # resultat_final = {
 #		'P30': {
-#			'P30-1.trimed1000.sv_sniffles.vcf': {'22620': ['GTAGTAGTGGT'], '37879': ['TGTGGTG', 'TGTGTGTG', 'TGACAGAGAC']}, 
-#			'P30-2.trimed1000.sv_sniffles.vcf': {'196282': ['TCTCTCTCAAA']}}, 
+#			'P30-1': {'22620': ['GTAGTAGTGGT'], '37879': ['TGTGGTG', 'TGTGTGTG', 'TGACAGAGAC']}, 
+#			'P30-2': {'196282': ['TCTCTCTCAAA']}}, 
 #		'P15': {
-#			'P15-3.trimed1000.sv_sniffles.vcf': {'3243': ['TAATGTGATGGGCCTCGGCG'], '11375': ['GTAAGTACATCAATTAAGACAGAC']}, 
-#			'P15-1.trimed1000.sv_sniffles.vcf': {'1210': ['TGTGATGTATTG'], '11375': ['GTAAGGTGTCCTCC']}, 
-#			'P15-2.trimed1000.sv_sniffles.vcf': {'11375': ['GTAAGTACATCTGT']}}                                              
+#			'P15-3': {'3243': ['TAATGTGATGGGCCTCGGCG'], '11375': ['GTAAGTACATCAATTAAGACAGAC']}, 
+#			'P15-1': {'1210': ['TGTGATGTATTG'], '11375': ['GTAAGGTGTCCTCC']}, 
+#			'P15-2': {'11375': ['GTAAGTACATCTGT']}}                                              
 # }
 
 
@@ -99,8 +106,6 @@ def comparer_dictionnaires(resultat_final: dict) -> dict:
 
 def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
     comparaisons = {}  
-
-   
     for echantillon, fichiers_valeurs in resultat_final.items():
         fichiers = list(fichiers_valeurs) 
 
@@ -122,6 +127,7 @@ def comparer_dictionnaires_v2(resultat_final: dict) -> dict:
                 comparaisons[cle_comparaison] = compteur_communs
 
     return comparaisons
+
 
 
 
@@ -154,12 +160,12 @@ def comparer_dictionnaires_v3(resultat_final: dict) -> dict:
 
 
 
-# comparaisons = {  'P30-1.trimed1000.sv_sniffles.vcf - P30-2.trimed1000.sv_sniffles.vcf': 0,
-#                   'P30-1.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 6, 
-#                   'P30-2.trimed1000.sv_sniffles.vcf - P30-3.trimed1000.sv_sniffles.vcf': 0, 
-#                   'P15-3.trimed1000.sv_sniffles.vcf - P15-1.trimed1000.sv_sniffles.vcf': 14, 
-#                   'P15-3.trimed1000.sv_sniffles.vcf - P15-2.trimed1000.sv_sniffles.vcf': 3, 
-#                   'P15-1.trimed1000.sv_sniffles.vcf - P15-2.trimed1000.sv_sniffles.vcf': 3        }  
+# comparaisons = {  'P30-1 - P30-2': 0,
+#                   'P30-1 - P30-3': 6, 
+#                   'P30-2 - P30-3': 0, 
+#                   'P15-3 - P15-1': 14, 
+#                   'P15-3 - P15-2': 3, 
+#                   'P15-1 - P15-2': 3       }  
 
 
 def mise_en_forme(comparaisons: dict,str) -> None:
@@ -176,6 +182,7 @@ def mise_en_forme(comparaisons: dict,str) -> None:
         if i < len(cles) - 1 and cle[:premier_tiret_cle] != cles[i + 1][:premier_tiret_cle]:
             print("\n-----------------------Echantillon suivant-----------------------")
             # Affiche une ligne de séparation entre les échantillons distincts
+
 
 
 def main():
