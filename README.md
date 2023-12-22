@@ -27,7 +27,7 @@ Ce programme compare les fichiers VCF issus de réplicats biologiques provenant 
 
 Pour exécuter ce programme sous un environnement Linux, utilisez le fichier bash `main.sh` dans le terminal avec la commande :
 
-1. `./main.sh ./chemin/du/dossier/contenant/les/fichiers/a/comparer` `décalage_max` `pourcentage_d'identité_min` 
+1. `./main.sh ./chemin/du/dossier/contenant/les/fichiers/a/comparer décalage_max pourcentage_d'identité_min` 
 Pour trouver le chemin absolu, utilisez `pwd` dans le terminal après vous être placé dans le dossier, puis ajoutez a la fin du chemin `/Nom/du/dossier/contenant/les/fichiers/VCF/a/comparer`.
 
 
@@ -54,7 +54,7 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 
 ## Support
 
-Pour toute question ou difficulté dans l'utilisation du programme, contactez : Emma MATHIEU(mailto:emma.mathieu02@etu.umontpellier.fr)
+Pour toute question ou difficulté dans l'utilisation du programme, contactez : Emma MATHIEU (emma.mathieu02@etu.umontpellier.fr)
 
 Merci d'avoir lu et d'utiliser ce programme.
 
