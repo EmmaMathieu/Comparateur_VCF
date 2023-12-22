@@ -137,7 +137,6 @@ def mise_en_forme(comparaisons: dict, str) -> str:
         
         if i < len(cles) - 1 and cle[:premier_tiret_cle] != cles[i + 1][:premier_tiret_cle]:
             resultat += "\n-----------------------Echantillon suivant-----------------------\n"
-    print(resultat)
     return resultat
 
 def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
@@ -167,7 +166,7 @@ def main():
     # Compare les dictionnaires pour trouver les variants communs
     resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats), decalage, pourcentage)    
     # Affiche les résultats avec la phrase décrivant les paramètres
-    mise_en_forme(resultat, phrase)
+    print(mise_en_forme(resultat, phrase))
 
 
     # Chemin où sauvegarder le fichier de resultat
