@@ -42,3 +42,52 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 Si vous avez des questions ou des difficultés pour utiliser le programme : emma.mathieu02@etu.umontpellier.fr
 
 Merci d'avoir lu et utiliser ce programme.
+
+
+COMPARATEUR DE VCF
+
+
+
+# Nom du Programme
+
+## Description
+
+Ce programme analyse les variants communs entre les réplicats dans un échantillon en utilisant des fichiers VCF.
+
+## Utilisation
+
+### Prérequis
+
+- Python 3.x
+- Modules requis : [Liste des modules avec les versions](lien_vers_requirements.txt)
+
+### Installation
+
+1. Clonez ce dépôt : `git clone https://github.com/votre-utilisateur/votre-projet.git`
+2. Installez les dépendances : `pip install -r requirements.txt`
+
+### Exécution
+
+Pour exécuter le programme, utilisez la commande suivante :
+
+```bash
+python analyse_variants.py chemin_vers_dossier
+```
+
+- `chemin_vers_dossier` : Chemin absolu du dossier contenant les fichiers VCF à analyser.
+
+#### Options
+
+- `-h`, `--help` : Affiche l'aide sur l'utilisation du programme.
+
+## Interprétation Biologique
+
+Ce programme identifie les variants communs entre les réplicats d'un échantillon en se basant sur les fichiers VCF fournis. Il utilise des critères spécifiques pour évaluer la similarité entre les variants, permettant ainsi de détecter les mutations réelles et les erreurs d'amplification fortuites.
+
+Les résultats fournissent des informations sur les variations partagées entre les réplicats, ce qui peut indiquer des mutations pertinentes pour l'échantillon ou des erreurs techniques dans l'expérience.
+
+## Support
+
+Pour toute question, suggestion ou problème avec le programme, veuillez ouvrir une [issue](lien_vers_issue) ou contacter [Nom de l'auteur](lien_vers_profil).
+
+
