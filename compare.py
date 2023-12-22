@@ -126,20 +126,23 @@ def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
 #                   'P15-1 - P15-2': 3       }  
 
 
-def mise_en_forme(comparaisons: dict,str) -> None:
-    print ("\n"+str)
-    print("\n-----------------------Premier echantillon-----------------------")
-    cles = list(comparaisons.keys())  # Extraction des clés du dictionnaire 'comparaisons' et conversion en liste
+def mise_en_forme(comparaisons: dict, str) -> str:
+    resultat = "\n" + str + "\n"
+    resultat += "\n-----------------------Premier echantillon-----------------------\n"
+    cles = list(comparaisons.keys())
 
     for i, cle in enumerate(cles):
-        print("le couple de réplicat : ", cle, "a un nombre de variant commun égal à : ", comparaisons[cle])
-        # Trouve l'index du premier "-" dans la clé
+        resultat += f"le couple de réplicat : {cle} a un nombre de variant commun égal à : {comparaisons[cle]}\n"
         premier_tiret_cle = cle.index('-') if '-' in cle else len(cle)
         
-        # Vérifie si ce n'est pas le dernier élément et si la sous-chaîne jusqu'au premier "-" est différente de la suivante
         if i < len(cles) - 1 and cle[:premier_tiret_cle] != cles[i + 1][:premier_tiret_cle]:
-            print("\n-----------------------Echantillon suivant-----------------------")
-            # Affiche une ligne de séparation entre les échantillons distincts
+            resultat += "\n-----------------------Echantillon suivant-----------------------\n"
+    print(resultat)
+    return resultat
+
+def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
+    with open(chemin_sortie, 'w') as fichier:
+        fichier.write(resultat_concatene)
 
 
 def main():
@@ -155,19 +158,23 @@ def main():
         pourcentage = 100  # Initialise le pourcentage à 100
     else:  # Sinon (moins de 3 arguments) :
         decalage = 0  # Initialise le décalage à 0
-        pourcentage = 100  # Initialise le pourcentage à 100
-    
+        pourcentage = 100  # Initialise le pourcentage à 100   
+
     # Crée une phrase décrivant les paramètres
     phrase = "Bienvenue dans ce programme qui analyse le nombre de variants communs entre chaque réplicats deux à deux au sein d'un échantillon.\nLes paramètres sont les suivants :\n\n\tPourcentage de similarité minimum entre les séquences communes : " + str(pourcentage) + "\n\tDécalage d'alignement maximum entre les variants (shift) : " + str(decalage)
-    
     # Obtient les échantillons et les réplicats à partir du chemin fourni
-    echantillon_et_replicats = parcourir.parc(chemin)
-    
+    echantillon_et_replicats = parcourir.parc(chemin)    
     # Compare les dictionnaires pour trouver les variants communs
-    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats), decalage, pourcentage)
-    
+    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats), decalage, pourcentage)    
     # Affiche les résultats avec la phrase décrivant les paramètres
     mise_en_forme(resultat, phrase)
+
+
+    # Chemin où sauvegarder le fichier de resultat
+    chemin_sortie = str(sys.argv[1]) + "/Resultat_comparaison_VCF.txt"
+
+    # Écriture le contenu dans le fichier
+    ecrire_dans_fichier(chemin_sortie, mise_en_forme(resultat, phrase))
 
 if __name__ == "__main__":
     # Si le fichier est exécuté en tant que programme principal, appelle la fonction main

@@ -2,10 +2,12 @@
 
 ## Description
 
-Ce programme compare les fichiers VCF dans un dossier spécifié pour analyser les variants communs entre les réplicats d'un échantillon.
+Ce programme compare les fichiers VCF dans un dossier spécifié pour analyser les variants communs entre les réplicats d'un échantillon. 
+Ce programme crée un document nommé Resultat_comparaison_VCF.txt dans le répertoire de vos données a comparer, ce document contiendra les informations de sortie du programme qui seront également affichée sur le terminal
+
 Pour déterminer si les variants sont identiques, le programme prendra en compte :
 
-1. la séquence et la position si la séquence de variation est spécifiée
+1. La séquence et la position si la séquence de variation est spécifiée.
 2. Le type, la position et la longueur si la séquence de variation n'est pas spécifiée.
 
 ## Utilisation
@@ -18,9 +20,9 @@ Pour déterminer si les variants sont identiques, le programme prendra en compte
 ### Installation
 
 1. Clonez ce dépôt : `git clone https://github.com/EmmaMathieu/Comparateur_VCF.git`
-2. Ouvrez un terminal dans le dossier cloné 
+2. Ouvrez un terminal dans le dossier cloné.
 
-Pour ce programme, il est inutile d'installer des modules supplémentaires
+Pour ce programme, il est inutile d'installer des modules supplémentaires.
 
 ### Fichiers Principaux
 
@@ -28,14 +30,12 @@ Pour ce programme, il est inutile d'installer des modules supplémentaires
 - `parcourir.py` : Fichier Python pour parcourir le dossier en argument et stocker une liste des réplicats ainsi que leurs chemins.
 - `compare.py` : Fichier Python pour comparer les réplicats et déterminer les variants communs au sein d'un même échantillon.
 
-
 ### Exécution du Programme
 
 Pour exécuter ce programme sous un environnement Linux, utilisez le fichier bash `main.sh` dans le terminal avec la commande :
 
-1. `./main.sh ./chemin/du/dossier/contenant/les/fichiers/a/comparer décalage_max pourcentage_d'identité_min` 
-Pour trouver le chemin absolu, utilisez `pwd` dans le terminal après vous être placé dans le dossier, puis ajoutez a la fin du chemin `/Nom/du/dossier/contenant/les/fichiers/VCF/a/comparer`.
-
+1. `./main.sh ./chemin/du/dossier/contenant/les/fichiers/a/comparer décalage_max pourcentage_d'identité_min`
+   - Pour trouver le chemin absolu, utilisez `pwd` dans le terminal après vous être placé dans le dossier, puis ajoutez `/Nom/du/dossier/contenant/les/fichiers/VCF/a/comparer`.
 
 #### Options
 
@@ -63,4 +63,3 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 Pour toute question ou difficulté dans l'utilisation du programme, contactez Emma MATHIEU : emma.mathieu02@etu.umontpellier.fr
 
 Merci d'avoir lu et d'utiliser ce programme.
-
