@@ -22,7 +22,7 @@ fi
 #fi
 
 # Vérifie si le premier argument est égal à "-h" pour afficher l'aide
-if [ "$1" = "-h" ]; then 
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
     echo -e "\nCe script compare les fichiers VCF dans un dossier spécifié pour analyser les variants communs entre les réplicats d'un échantillon.\nPour déterminer si les variants sont identiques, le programme prendra en compte :\n\n\t- la séquence et la position si la séquence de variation est spécifiée\n\t- Le type, la position et la longueur si la séquence de variation n'est pas spécifiée.\n"
     echo -e "Utilisation : $0 [chemin_dossier] [décalage_position] [pourcentage_identité]\n" 
     echo -e "Arguments :"
@@ -32,7 +32,6 @@ if [ "$1" = "-h" ]; then
     echo -e "\nInformations : Les fichiers doivent être au format VCF (.vcf) avec un nom tel que P+numéro_echantillon-numéro_réplicat.vcf\n"
     exit 1 
 fi
-
 
 # Erreur si le dossier donné n'existe pas
 if [ ! -d "$1" ];then
