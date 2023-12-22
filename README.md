@@ -2,19 +2,25 @@
 
 ## Description
 
-Ce programme compare les fichiers VCF issus de réplicats biologiques provenant d'un même échantillon afin d'identifier les variants communs entre ces réplicats.
+Ce programme compare les fichiers VCF dans un dossier spécifié pour analyser les variants communs entre les réplicats d'un échantillon.
+Pour déterminer si les variants sont identiques, le programme prendra en compte :
+
+1. la séquence et la position si la séquence de variation est spécifiée
+2. Le type, la position et la longueur si la séquence de variation n'est pas spécifiée.
 
 ## Utilisation
 
 ### Prérequis
 
-- Système linux
+- Environnement Linux
 - Python 3
 
 ### Installation
 
 1. Clonez ce dépôt : `git clone https://github.com/EmmaMathieu/Comparateur_VCF.git`
-2. Pour ce programme, il est inutile d'installez des dépendances
+2. Ouvrez un terminal dans le dossier cloné 
+
+Pour ce programme, il est inutile d'installer des modules supplémentaires
 
 ### Fichiers Principaux
 
@@ -54,7 +60,7 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 
 ## Support
 
-Pour toute question ou difficulté dans l'utilisation du programme, contactez : Emma MATHIEU (emma.mathieu02@etu.umontpellier.fr)
+Pour toute question ou difficulté dans l'utilisation du programme, contactez Emma MATHIEU : emma.mathieu02@etu.umontpellier.fr
 
 Merci d'avoir lu et d'utiliser ce programme.
 
