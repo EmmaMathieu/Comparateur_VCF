@@ -41,7 +41,7 @@ Pour exécuter ce programme sous un environnement Linux, utilisez le fichier bas
 
 - `-h`, `--help` : Affiche l'aide sur l'utilisation du programme.
 
-### Interprétation Biologique
+### Interprétations biologiques
 
 A. Moins de similarité entre réplicats :
    - Une faible similarité peut indiquer des variations pouvant résulter de mutations aléatoires lors de l'amplification par exemple et donc une faible qualité des échantillons et des réplicats de ceux-ci.
