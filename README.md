@@ -1,36 +1,35 @@
-# Nom du Programme
+# Comparateur_VCF
 
 ## Description
 
-Ce programme compare les fichiers VCF issus de réplicats biologiques provenant d'un même échantillon afin d'identifier les variants communs entre ces réplicats. Ce test a une grande spécificité mais une faible sensibilité.
+Ce programme compare les fichiers VCF issus de réplicats biologiques provenant d'un même échantillon afin d'identifier les variants communs entre ces réplicats.
 
 ## Utilisation
 
 ### Prérequis
 
-- Python 3.x
-- Modules requis : [Liste des modules avec les versions](lien_vers_requirements.txt)
+- Système linux
+- Python 3
 
 ### Installation
 
-1. Clonez ce dépôt : `git clone https://github.com/votre-utilisateur/votre-projet.git`
-2. Installez les dépendances : `pip install -r requirements.txt`
+1. Clonez ce dépôt : `git clone https://github.com/EmmaMathieu/Comparateur_VCF.git`
+2. Pour ce programme, il est inutile d'installez des dépendances
 
 ### Fichiers Principaux
 
-Ce projet contient trois fichiers principaux :
-
+- `main.sh` : Fichier bash pour exécuter le programme principal en utilisant le terminal.
 - `parcourir.py` : Fichier Python pour parcourir le dossier en argument et stocker une liste des réplicats ainsi que leurs chemins.
 - `compare.py` : Fichier Python pour comparer les réplicats et déterminer les variants communs au sein d'un même échantillon.
-- `main.sh` : Fichier bash pour exécuter le programme principal en utilisant le terminal.
+
 
 ### Exécution du Programme
 
 Pour exécuter ce programme sous un environnement Linux, utilisez le fichier bash `main.sh` dans le terminal avec la commande :
 
-1. `./main.sh ./cheminAbsoluDossierContenantLesFichiersAComparer`
-2. Pour trouver le chemin absolu, utilisez `pwd` dans le terminal après vous être placé dans le dossier, puis ajoutez `/NomDuDossierContenantLesFichiersAComparer`.
-3. Le programme accepte également l'option `-h` pour afficher l'aide. Pour afficher l'aide, exécutez : `./main.sh -h`
+1. `./main.sh ./chemin/du/dossier/contenant/les/fichiers/a/comparer` `décalage_max` `pourcentage_d'identité_min` 
+Pour trouver le chemin absolu, utilisez `pwd` dans le terminal après vous être placé dans le dossier, puis ajoutez a la fin du chemin `/Nom/du/dossier/contenant/les/fichiers/VCF/a/comparer`.
+
 
 #### Options
 
@@ -50,12 +49,12 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 
 ### Attention
 
-- Vos fichiers de réplicats doivent être au format VCF (.vcf) avec un nom comme ceci : `P+numéro_echantillon-numéro_réplicat.vcf`.
+- Vos fichiers doivent être au format VCF (.vcf) avec un nom comme ceci : `P+numéro_echantillon-numéro_réplicat.vcf`.
 - Assurez-vous que le fichier ait les permissions d'exécution, sinon, utilisez la commande suivante pour donner la permission : `chmod +777 main.sh compare.py parcourir.py`
 
 ## Support
 
-Pour toute question ou difficulté dans l'utilisation du programme, contactez : [Nom de l'auteur](mailto:emma.mathieu02@etu.umontpellier.fr)
+Pour toute question ou difficulté dans l'utilisation du programme, contactez : Emma MATHIEU(mailto:emma.mathieu02@etu.umontpellier.fr)
 
-Merci d'avoir lu et utilisé ce programme.
+Merci d'avoir lu et d'utiliser ce programme.
 
