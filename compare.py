@@ -5,7 +5,7 @@ import parcourir
 
 
 def dictionnaire_final(echantillon_et_replicats) -> dict:
-    resultat_final = {}  # Initialise le dictionnaire final pour stocker les résultats par échantillon.
+    resultat_final = {}
 
     # Crée un dictionnaire pour chaque échantillon.
     for echantillon, chemins_rep in echantillon_et_replicats.items():
@@ -20,9 +20,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                 for ligne in f:
                     if ligne.startswith('#'):
                         continue
-                    # Divise la ligne en colonnes en utilisant la tabulation comme séparateur.
                     colonne = ligne.split('\t')
-                    # Récupère les valeurs des colonnes 1, 4 et 7.
                     valeur_colonne_1, valeur_colonne_4, valeur_colonne_7 = colonne[1], colonne[4], colonne[7]
 
                     # Si la valeur de la colonne 4 est '<DUP>', '<DEL>', ou '<INS>'.
@@ -36,6 +34,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 
                         # Ajoute la valeur de la colonne 1, 4 et SVLEN à la liste correspondante dans le dictionnaire.
                         valeurs_colonnes[valeur_colonne_1].append((valeur_colonne_4, svlen))
+                        
                     # Si la valeur de la colonne 4 est une séquence de nucléotides.
                     else:
                         # Si la valeur de la colonne 1 n'est pas déjà présente, crée une nouvelle entrée dans le dictionnaire.
