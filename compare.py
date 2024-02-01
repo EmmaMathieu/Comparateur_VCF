@@ -23,6 +23,8 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                     colonne = ligne.split('\t')
                     valeur_colonne_1, valeur_colonne_4, valeur_colonne_7 = colonne[1], colonne[4], colonne[7]
 
+                    freq = valeur_colonne_7.split('AF=')[1].split(';')[0] if 'AF=' in valeur_colonne_7 else None
+
                     # Si la valeur de la colonne 4 est '<DUP>', '<DEL>', ou '<INS>'.
                     if valeur_colonne_4 in ('<DUP>', '<DEL>', '<INS>'):
                         # Récupère la partie du texte après "SVLEN=" jusqu'au prochain ";" dans la colonne 7 pour avoir la longueur de la variation (seulement si cette valeur existe).
@@ -33,16 +35,16 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                             valeurs_colonnes[valeur_colonne_1] = []
 
                         # Ajoute la valeur de la colonne 1, 4 et SVLEN à la liste correspondante dans le dictionnaire.
-                        valeurs_colonnes[valeur_colonne_1].append((valeur_colonne_4, svlen))
-                        
+                        valeurs_colonnes[valeur_colonne_1].append([(valeur_colonne_4, svlen), freq])
+
                     # Si la valeur de la colonne 4 est une séquence de nucléotides.
                     else:
                         # Si la valeur de la colonne 1 n'est pas déjà présente, crée une nouvelle entrée dans le dictionnaire.
                         if valeur_colonne_1 not in valeurs_colonnes:
                             valeurs_colonnes[valeur_colonne_1] = []
-                            
                         # Ajoute la valeur de la colonne 1 et 4 à la liste correspondante dans le dictionnaire.
-                        valeurs_colonnes[valeur_colonne_1].append(valeur_colonne_4)
+                        valeurs_colonnes[valeur_colonne_1].append([valeur_colonne_4, freq])
+                        # print(valeurs_colonnes[valeur_colonne_1])
 
             # Associe les valeurs des colonnes 1 et 4 au nom du fichier.
             if valeurs_colonnes:
@@ -74,41 +76,39 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
     comparaisons = {}  # Dictionnaire pour stocker les comparaisons
 
-    for echantillon, fichiers_valeurs in resultat_final.items():  # Parcourt les échantillons et leurs fichiers de valeurs
+    for fichiers_valeurs in resultat_final.values():  # Parcourt les échantillons et leurs fichiers de valeurs
         fichiers = list(fichiers_valeurs)  # Liste des fichiers pour un échantillon donné
 
         for i, fichier_1 in enumerate(fichiers):  # Itération sur les fichiers de cet échantillon
+
             valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs du premier fichier
 
             for fichier_2 in fichiers[i + 1:]:  # Compare ce fichier avec les fichiers restants dans l'échantillon
                 valeurs_2 = fichiers_valeurs[fichier_2]  # Récupère les valeurs du deuxième fichier
 
-                # Vérifie si les valeurs sont : '<DUP>', '<DEL>', ou '<INS>'
-                if valeurs_1.get(0) and valeurs_2.get(0) and valeurs_1[0][0] in ('<DUP>', '<DEL>', '<INS>') and valeurs_1[0][0] == valeurs_2[0][0]:
-                    # Compte les occurrences de clés avec des conditions spécifiques
-                    compteur_communs = sum(
-                        1
-                        for cle1, valeur1 in valeurs_1.items()
-                        for cle2, valeur2 in valeurs_2.items()
-                        if (
-                            abs(int(cle1) - int(cle2)) <= decalage  # Vérifie l'écart entre les clés
-                            and valeur1[0] == valeur2[0]  # Vérifie les valeurs de la colonne 4 (position et type de variation)
-                            and valeur1[0][1] == valeur2[0][1]  # Vérifie les longueurs (SVLEN)
-                        )
-                    )
-                else:  # Autres valeurs (séquences de nucléotides)
-                    # Compte les clés similaires avec des critères différents
-                    compteur_communs = sum(
-                        1
-                        for cle1, valeur1 in valeurs_1.items()
-                        for cle2, valeur2 in valeurs_2.items()
-                        if (
-                            abs(int(cle1) - int(cle2)) <= decalage  # Vérifie l'écart entre les clés
-                            and (sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= pourcentage  # Vérifie un pourcentage de similarité
-                            and cle1 == cle2  # Vérifie si les clés sont identiques
+                lval1 = []
+                for cle,val in valeurs_1.items():
+                    for v in val:
+                        lval1.append((cle, v[0]))
+
+                lval2 = []
+                for cle,val in valeurs_2.items():
+                    for v in val:
+                        lval2.append((cle, v[0]))
+                
+                compteur_communs = sum(
+                    1
+                    for cle1, valeur1 in lval1
+                    for cle2, valeur2 in lval2
+                    if( abs(int(cle1) - int(cle2)) <= decalage and
+                        ((type(valeur1) == tuple and type(valeur2) == tuple and valeur1[0] == valeur2[0] and valeur1[1] == valeur2[1]) or
+                        ((sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= pourcentage))
                         )
                     )
 
+
+                # Vérifie si les valeurs sont : '<DUP>', '<DEL>', ou '<INS>'
+                
                 cle_comparaison = f"{fichier_1} - {fichier_2}"  # Clé pour stocker la comparaison
 
                 comparaisons[cle_comparaison] = compteur_communs  # Stocke le résultat dans le dictionnaire des comparaisons
@@ -144,32 +144,29 @@ def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
 
 
 def main():
-    # Prend le chemin du fichier en argument
+    # Premier fichier est le chemin du repertoire des vcf
     chemin = sys.argv[1]
 
-    # Vérifie le nombre d'arguments passés en ligne de commande
-    if len(sys.argv) == 4:  # S'il y a 4 arguments, alors :
+    if len(sys.argv) == 4: 
         decalage = int(sys.argv[2])  # Prend le deuxième argument comme décalage
         pourcentage = int(sys.argv[3])  # Prend le troisième argument comme pourcentage
-    elif len(sys.argv) == 3:  # Sinon, s'il y a 3 arguments :
+    elif len(sys.argv) == 3:  
         decalage = int(sys.argv[2])  # Prend le deuxième argument comme décalage
         pourcentage = 100  # Initialise le pourcentage à 100
-    else:  # Sinon (moins de 3 arguments) :
+    else: 
         decalage = 0  # Initialise le décalage à 0
         pourcentage = 100  # Initialise le pourcentage à 100   
 
-    # Crée une phrase décrivant les paramètres
     phrase = "Bienvenue dans ce programme qui analyse le nombre de variants communs entre chaque réplicats deux à deux au sein d'un échantillon.\nLes paramètres sont les suivants :\n\n\tPourcentage de similarité minimum entre les séquences communes : " + str(pourcentage) + "\n\tDécalage d'alignement maximum entre les variants (shift) : " + str(decalage)
-    # Obtient les échantillons et les réplicats à partir du chemin fourni
     echantillon_et_replicats = parcourir.parc(chemin)    
-    # Compare les dictionnaires pour trouver les variants communs
+    
     resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats), decalage, pourcentage)    
-    # Affiche les résultats avec la phrase décrivant les paramètres
-    print(mise_en_forme(resultat, phrase))
+   
+    # print(mise_en_forme(resultat, phrase))
 
 
     # Chemin où sauvegarder le fichier de resultat
-    chemin_sortie = str(sys.argv[1]) + "/Resultat_comparaison_VCF.txt"
+    chemin_sortie = "Resultat_comparaison_VCF.txt"
 
     # Écriture le contenu dans le fichier
     ecrire_dans_fichier(chemin_sortie, mise_en_forme(resultat, phrase))
