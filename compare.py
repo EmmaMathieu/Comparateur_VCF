@@ -22,7 +22,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                         continue
                     colonne = ligne.split('\t')
                     valeur_colonne_1, valeur_colonne_4, valeur_colonne_7 = colonne[1], colonne[4], colonne[7]
-
+                    
                     freq = valeur_colonne_7.split('AF=')[1].split(';')[0] if 'AF=' in valeur_colonne_7 else None
 
                     # Si la valeur de la colonne 4 est '<DUP>', '<DEL>', ou '<INS>'.
@@ -35,7 +35,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                             valeurs_colonnes[valeur_colonne_1] = []
 
                         # Ajoute la valeur de la colonne 1, 4 et SVLEN à la liste correspondante dans le dictionnaire.
-                        valeurs_colonnes[valeur_colonne_1].append([(valeur_colonne_4, svlen), freq])
+                        valeurs_colonnes[valeur_colonne_1].append([(valeur_colonne_4, svlen), float(freq)])
 
                     # Si la valeur de la colonne 4 est une séquence de nucléotides.
                     else:
@@ -43,7 +43,8 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                         if valeur_colonne_1 not in valeurs_colonnes:
                             valeurs_colonnes[valeur_colonne_1] = []
                         # Ajoute la valeur de la colonne 1 et 4 à la liste correspondante dans le dictionnaire.
-                        valeurs_colonnes[valeur_colonne_1].append([valeur_colonne_4, freq])
+
+                        valeurs_colonnes[valeur_colonne_1].append([valeur_colonne_4, float(freq)])
                         # print(valeurs_colonnes[valeur_colonne_1])
 
             # Associe les valeurs des colonnes 1 et 4 au nom du fichier.
@@ -71,6 +72,57 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 #			'P15-1': {'1210': ['TGTGATGTATTG'], '11375': ['GTAAGGTGTCCTCC']}, 
 #			'P15-2': {'11375': ['GTAAGTACATCTGT'], '178820': [('<DEL>', '-12')]}}                                              
 # }
+
+def assemblageParDictionnaire(resultat_final: dict, decalage, pourcentage) -> dict:
+    dict_assemble = dict()
+
+    #Parcours de l'ensemble des Passages
+    for file_key, file in resultat_final.items():
+        dict_passage = dict()
+
+        #Parcours de l'ensemble des réplicats
+        for passage_key, passage_val in file.items():
+            dict_replicat = dict()
+            l = list()
+
+            #Parcours de l'ensemble des variants avec transformations du dictionnaires en liste
+            for key,val in passage_val.items():
+                for v in val:
+                    l.append([key, v[0], v[1]])
+
+
+            # Reconstruction du dictionnaire en assemblant les variants communs
+            for cle, valeur, freq in l:
+                if(cle not in dict_replicat):
+                    dict_replicat[cle] = [[valeur, freq]]
+                else:
+                    t = False
+                    for i, variants in enumerate(dict_replicat[cle]):
+                        if (((type(variants[0])==tuple and variants[0][0]=="<INS>") or (type(variants[0])==str and variants[0] != "N")) and 
+                        ((type(valeur)==tuple and valeur[0]=="<INS>") or (type(valeur)==str and valeur != "N"))):
+                            if(len(dict_replicat[cle])==1):
+                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3)]]
+                            else:
+                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3)]
+                            t = True
+                            break
+                        elif (((type(variants[0])==tuple and variants[0][0]=="<DEL>") or (type(variants[0])==str and variants[0] == "N")) and
+                        ((type(valeur)==tuple and valeur[0]=="<DEL>") or (type(valeur)==str and valeur == "N"))):
+                            if(len(dict_replicat[cle])==1):
+                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3)]]
+                            else:
+                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3)]
+                            t = True
+                            break
+                    if(not t):
+                        dict_replicat[cle].append([valeur, freq])
+
+            dict_passage[passage_key] = dict_replicat
+        dict_assemble[file_key] = dict_passage
+       
+    return dict_assemble
+    
+
 
 
 def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
@@ -142,6 +194,14 @@ def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
     with open(chemin_sortie, 'w') as fichier:
         fichier.write(resultat_concatene)
 
+def printDico(dico):
+    for cle, valeur in dico.items():
+        print(cle, ":")
+        for cle2, valeur2 in valeur.items():
+            print(cle2, ":")
+            for cle3, valeur3 in valeur2.items():
+                print("\t", cle3, ":", valeur3)
+
 
 def main():
     # Premier fichier est le chemin du repertoire des vcf
@@ -159,8 +219,13 @@ def main():
 
     phrase = "Bienvenue dans ce programme qui analyse le nombre de variants communs entre chaque réplicats deux à deux au sein d'un échantillon.\nLes paramètres sont les suivants :\n\n\tPourcentage de similarité minimum entre les séquences communes : " + str(pourcentage) + "\n\tDécalage d'alignement maximum entre les variants (shift) : " + str(decalage)
     echantillon_et_replicats = parcourir.parc(chemin)    
+
+    dico = dictionnaire_final(echantillon_et_replicats)
+    printDico(dico)
+    print("LA")
+    printDico(assemblageParDictionnaire(dico, decalage, pourcentage))
     
-    resultat = comparer_dictionnaires(dictionnaire_final(echantillon_et_replicats), decalage, pourcentage)    
+    resultat = comparer_dictionnaires(dico, decalage, pourcentage)    
    
     # print(mise_en_forme(resultat, phrase))
 
