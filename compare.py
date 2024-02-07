@@ -4,7 +4,7 @@ import re
 import parcourir
 
 
-def dictionnaire_final(echantillon_et_replicats) -> dict:
+def dictionnaire_final(echantillon_et_replicats, cover_acceptation) -> dict:
     resultat_final = {}
 
     # Crée un dictionnaire pour chaque échantillon.
@@ -21,9 +21,10 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                     if ligne.startswith('#'):
                         continue
                     colonne = ligne.split('\t')
-                    valeur_colonne_1, valeur_colonne_4, valeur_colonne_7 = colonne[1], colonne[4], colonne[7]
-                    
+                    valeur_colonne_1, valeur_colonne_4, valeur_colonne_7, valeur_colonne_9 = colonne[1], colonne[4], colonne[7], colonne[9]
+
                     freq = valeur_colonne_7.split('AF=')[1].split(';')[0] if 'AF=' in valeur_colonne_7 else None
+                    prof = int(valeur_colonne_9.split(':')[2]) + int(valeur_colonne_9.split(':')[3])
 
                     # Si la valeur de la colonne 4 est '<DUP>', '<DEL>', ou '<INS>'.
                     if valeur_colonne_4 in ('<DUP>', '<DEL>', '<INS>'):
@@ -35,7 +36,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                             valeurs_colonnes[valeur_colonne_1] = []
 
                         # Ajoute la valeur de la colonne 1, 4 et SVLEN à la liste correspondante dans le dictionnaire.
-                        valeurs_colonnes[valeur_colonne_1].append([(valeur_colonne_4, svlen), float(freq)])
+                        valeurs_colonnes[valeur_colonne_1].append([(valeur_colonne_4, svlen), float(freq), prof])
 
                     # Si la valeur de la colonne 4 est une séquence de nucléotides.
                     else:
@@ -44,7 +45,7 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
                             valeurs_colonnes[valeur_colonne_1] = []
                         # Ajoute la valeur de la colonne 1 et 4 à la liste correspondante dans le dictionnaire.
 
-                        valeurs_colonnes[valeur_colonne_1].append([valeur_colonne_4, float(freq)])
+                        valeurs_colonnes[valeur_colonne_1].append([valeur_colonne_4, float(freq), prof])
                         # print(valeurs_colonnes[valeur_colonne_1])
 
             # Associe les valeurs des colonnes 1 et 4 au nom du fichier.
@@ -73,6 +74,70 @@ def dictionnaire_final(echantillon_et_replicats) -> dict:
 #			'P15-2': {'11375': ['GTAAGTACATCTGT'], '178820': [('<DEL>', '-12')]}}                                              
 # }
 
+def verifseq(seq) :
+    if type(seq) is str :
+        taillemaxrep=int(len(seq)/2)
+        repe=seq
+        nb=1
+        for i in range(1,taillemaxrep,1) :
+            rep=seq[0:i]
+            nbrep=seq.count(rep)
+            taillerep=len(rep)*nbrep
+            if len(seq) == taillerep :
+                if i == 1 :
+                    repe=rep
+                    nb=nbrep
+                elif i >= 2 :
+                    repe=rep
+                    nb=nbrep
+                    break
+            elif len(seq)*0.75 <= taillerep :
+                repe=rep
+                nb=nbrep
+                break
+        testmodulo=len(repe)*nb
+        testmodulo=testmodulo%3
+        return repe,testmodulo
+    elif type(seq) is tuple :
+        testmodulo=int(seq[1])%3
+        return seq[0],testmodulo
+
+
+def interrogff(position) :
+	fichier=open("sequence.gff3","r")
+	lignes=fichier.readlines()
+	i=1
+	position=int(position)
+	liste=[]
+	for l in lignes :
+		if i > 7 :
+			if len(l) > 1 :
+				coord=l.split("\t")
+				region=coord[2]
+			if region == "gene" :
+				deb=int(coord[3])
+				fi=int(coord[4])
+				etape1=coord[8]
+				etape1=etape1.split(";")
+				etape2=etape1[0]
+				etape2=etape2.split("=")
+				typ=etape2[1]
+				if ":" in typ :
+					typ=typ.split(":")
+					typ=typ[0]
+				if position >= deb and position <= fi:
+					liste.append(typ)
+					break
+				elif position > deb and position >= fi :
+					Typ=typ
+				elif position <= deb and position < fi :
+					liste.append(Typ)
+					liste.append(typ)
+					break
+		i+=1
+	return liste
+
+
 def assemblageParDictionnaire(resultat_final: dict, decalage, pourcentage) -> dict:
     dict_assemble = dict()
 
@@ -88,34 +153,44 @@ def assemblageParDictionnaire(resultat_final: dict, decalage, pourcentage) -> di
             #Parcours de l'ensemble des variants avec transformations du dictionnaires en liste
             for key,val in passage_val.items():
                 for v in val:
-                    l.append([key, v[0], v[1]])
-
+                    v[0]=verifseq(v[0])
+                    l.append([key, v[0], v[1], v[2]])
 
             # Reconstruction du dictionnaire en assemblant les variants communs
-            for cle, valeur, freq in l:
+            for cle, valeur, freq, prof in l:
+                gff=interrogff(cle)
                 if(cle not in dict_replicat):
-                    dict_replicat[cle] = [[valeur, freq]]
+                    dict_replicat[cle] = [[valeur, freq, prof]]
                 else:
                     t = False
                     for i, variants in enumerate(dict_replicat[cle]):
                         if (((type(variants[0])==tuple and variants[0][0]=="<INS>") or (type(variants[0])==str and variants[0] != "N")) and 
                         ((type(valeur)==tuple and valeur[0]=="<INS>") or (type(valeur)==str and valeur != "N"))):
                             if(len(dict_replicat[cle])==1):
-                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3)]]
+                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3), prof + dict_replicat[cle][0][2]]]
                             else:
-                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3)]
+                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3), prof + dict_replicat[cle][i][2]]
                             t = True
                             break
                         elif (((type(variants[0])==tuple and variants[0][0]=="<DEL>") or (type(variants[0])==str and variants[0] == "N")) and
                         ((type(valeur)==tuple and valeur[0]=="<DEL>") or (type(valeur)==str and valeur == "N"))):
                             if(len(dict_replicat[cle])==1):
-                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3)]]
+                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3), prof + dict_replicat[cle][0][2]]]
                             else:
-                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3)]
+                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3), prof + dict_replicat[cle][i][2]]
                             t = True
                             break
+                        elif ((type(variants[0])==tuple and variants[0][0]=="<DUP>") and (type(valeur)==tuple and valeur[0]=="<DUP>")):
+                            if(len(dict_replicat[cle])==1):
+                                dict_replicat[cle] = [[variants[0], round(freq + dict_replicat[cle][0][1], 3), prof + dict_replicat[cle][0][2]]]
+                            else:
+                                dict_replicat[cle][i] = [variants[0], round(freq + dict_replicat[cle][i][1], 3), prof + dict_replicat[cle][i][2]]
+                            t = True
+                            break
+                        else:
+                            Warning("Erreur dans le type de variant")
                     if(not t):
-                        dict_replicat[cle].append([valeur, freq])
+                        dict_replicat[cle].append([valeur, freq, prof])
 
             dict_passage[passage_key] = dict_replicat
         dict_assemble[file_key] = dict_passage
@@ -193,6 +268,25 @@ def mise_en_forme(comparaisons: dict, str) -> str:
 def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
     with open(chemin_sortie, 'w') as fichier:
         fichier.write(resultat_concatene)
+        
+
+def filtre_dico(dico):
+    for valeurs_passage in dico.values():
+        for keys_replicat, valeurs_replicat in valeurs_passage.items():
+            dico_tmp = {}
+            for clef, valeurs in valeurs_replicat.items():
+                nouveaux_tuples = []
+
+                for valeur in valeurs:
+                    if valeur[2] > 5 or valeur[1] > 0.1:
+                        nouveaux_tuples.append(valeur)
+                    
+                if nouveaux_tuples:
+                    dico_tmp[clef] = nouveaux_tuples
+        valeurs_passage[keys_replicat] = dico_tmp      
+    return dico
+    
+    
 
 def printDico(dico):
     for cle, valeur in dico.items():
@@ -210,20 +304,34 @@ def main():
     if len(sys.argv) == 4: 
         decalage = int(sys.argv[2])  # Prend le deuxième argument comme décalage
         pourcentage = int(sys.argv[3])  # Prend le troisième argument comme pourcentage
+        cover_acceptation = 0.0
     elif len(sys.argv) == 3:  
         decalage = int(sys.argv[2])  # Prend le deuxième argument comme décalage
         pourcentage = 100  # Initialise le pourcentage à 100
+        cover_acceptation = 0.0
+    elif len(sys.argv) == 5:
+        decalage = int(sys.argv[2])
+        pourcentage = int(sys.argv[3])
+        cover_acceptation = float(sys.argv[4])
     else: 
         decalage = 0  # Initialise le décalage à 0
-        pourcentage = 100  # Initialise le pourcentage à 100   
+        pourcentage = 100  # Initialise le pourcentage à 100
+        cover_acceptation = 0.0   
 
     phrase = "Bienvenue dans ce programme qui analyse le nombre de variants communs entre chaque réplicats deux à deux au sein d'un échantillon.\nLes paramètres sont les suivants :\n\n\tPourcentage de similarité minimum entre les séquences communes : " + str(pourcentage) + "\n\tDécalage d'alignement maximum entre les variants (shift) : " + str(decalage)
     echantillon_et_replicats = parcourir.parc(chemin)    
 
-    dico = dictionnaire_final(echantillon_et_replicats)
+    dico = dictionnaire_final(echantillon_et_replicats, cover_acceptation)
+    print("Dictionnaire de base")
     printDico(dico)
-    print("LA")
-    printDico(assemblageParDictionnaire(dico, decalage, pourcentage))
+    dico = assemblageParDictionnaire(dico, decalage, pourcentage)
+    print("Apres assemblage")
+    printDico(dico)
+    # print(dico)
+    dico = filtre_dico(dico)
+    print("Apres filtre")
+    printDico(dico)
+    
     
     resultat = comparer_dictionnaires(dico, decalage, pourcentage)    
    
