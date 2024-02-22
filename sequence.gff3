@@ -1,0 +1,456 @@
+##gff-version 3
+#!gff-spec-version 1.21
+#!processor NCBI annotwriter
+##sequence-region DQ657948.1 1 295146
+##species https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=180230
+DQ657948.1	Genbank	region	1	295146	.	+	.	ID=DQ657948.1:1..295146;Dbxref=taxon:180230;acronym=KHV;collection-date=2003;country=USA;gbkey=Src;isolation-source=moribund koi from a producer in the eastern USA who had attended a koi show in New York;mol_type=genomic DNA;nat-host=Cyprinus carpio;note=5 CDSs are frameshifted (ORF26%2C ORF27%2C ORF30%2C ORF40 and ORF94);strain=KHV-U
+DQ657948.1	Genbank	repeat_region	1	22469	.	+	.	ID=id-DQ657948.1:1..22469;gbkey=repeat_region;rpt_type=terminal
+DQ657948.1	Genbank	repeat_region	57	149	.	+	.	ID=id-DQ657948.1:57..149;Note=telomere-like;gbkey=repeat_region;rpt_type=tandem
+DQ657948.1	Genbank	gene	426	1245	.	+	.	ID=gene-CyHV3_ORF1_1;Name=CyHV3_ORF1_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF1_1
+DQ657948.1	Genbank	CDS	426	1199	.	+	0	ID=cds-ABG42832.1;Parent=gene-CyHV3_ORF1_1;Dbxref=NCBI_GP:ABG42832.1;Name=ABG42832.1;gbkey=CDS;locus_tag=CyHV3_ORF1_1;product=protein ORF1;protein_id=ABG42832.1
+DQ657948.1	Genbank	region	1240	1245	.	+	.	ID=id-CyHV3_ORF1_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF1_1
+DQ657948.1	Genbank	gene	1573	3503	.	-	.	ID=gene-CyHV3_ORF2_1;Name=CyHV3_ORF2_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF2_1
+DQ657948.1	Genbank	CDS	1635	3503	.	-	0	ID=cds-ABG42833.1;Parent=gene-CyHV3_ORF2_1;Dbxref=NCBI_GP:ABG42833.1;Name=ABG42833.1;Note=ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF2_1;product=protein ORF2;protein_id=ABG42833.1
+DQ657948.1	Genbank	region	1573	1578	.	-	.	ID=id-CyHV3_ORF2_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF2_1
+DQ657948.1	Genbank	gene	4299	7008	.	+	.	ID=gene-CyHV3_ORF3_1;Name=CyHV3_ORF3_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF3_1
+DQ657948.1	Genbank	CDS	4299	6914	.	+	0	ID=cds-ABG42834.1;Parent=gene-CyHV3_ORF3_1;Dbxref=NCBI_GP:ABG42834.1;Name=ABG42834.1;Note=possibly ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF3_1;product=protein ORF3;protein_id=ABG42834.1
+DQ657948.1	Genbank	region	7003	7008	.	+	.	ID=id-CyHV3_ORF3_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF3_1
+DQ657948.1	Genbank	gene	7386	8419	.	+	.	ID=gene-CyHV3_ORF4_1;Name=CyHV3_ORF4_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF4_1
+DQ657948.1	Genbank	CDS	7386	8327	.	+	0	ID=cds-ABG42835.1;Parent=gene-CyHV3_ORF4_1;Dbxref=NCBI_GP:ABG42835.1;Name=ABG42835.1;Note=TNFR family;gbkey=CDS;locus_tag=CyHV3_ORF4_1;product=protein ORF4;protein_id=ABG42835.1
+DQ657948.1	Genbank	region	8414	8419	.	+	.	ID=id-CyHV3_ORF4_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF4_1
+DQ657948.1	Genbank	gene	8606	11029	.	+	.	ID=gene-CyHV3_ORF5_1;Name=CyHV3_ORF5_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF5_1
+DQ657948.1	Genbank	CDS	8606	9949	.	+	0	ID=cds-ABG42836.1;Parent=gene-CyHV3_ORF5_1;Dbxref=NCBI_GP:ABG42836.1;Name=ABG42836.1;gbkey=CDS;locus_tag=CyHV3_ORF5_1;product=protein ORF5;protein_id=ABG42836.1
+DQ657948.1	Genbank	region	11024	11029	.	+	.	ID=id-CyHV3_ORF5_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF5_1
+DQ657948.1	Genbank	gene	11322	13754	.	-	.	ID=gene-CyHV3_ORF6_1;Name=CyHV3_ORF6_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF6_1
+DQ657948.1	Genbank	CDS	11975	13754	.	-	0	ID=cds-ABG42837.2;Parent=gene-CyHV3_ORF6_1;Dbxref=NCBI_GP:ABG42837.2;Name=ABG42837.2;gbkey=CDS;locus_tag=CyHV3_ORF6_1;product=protein ORF6;protein_id=ABG42837.2
+DQ657948.1	Genbank	CDS	11491	11888	.	-	2	ID=cds-ABG42837.2;Parent=gene-CyHV3_ORF6_1;Dbxref=NCBI_GP:ABG42837.2;Name=ABG42837.2;gbkey=CDS;locus_tag=CyHV3_ORF6_1;product=protein ORF6;protein_id=ABG42837.2
+DQ657948.1	Genbank	region	11322	11327	.	-	.	ID=id-CyHV3_ORF6_1;gbkey=polyA_signal;locus_tag=CyHV3_ORF6_1
+DQ657948.1	Genbank	gene	14687	18718	.	-	.	ID=gene-CyHV3_ORF8_1;Name=CyHV3_ORF8_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF8_1
+DQ657948.1	Genbank	CDS	17849	18718	.	-	0	ID=cds-ABG42839.1;Parent=gene-CyHV3_ORF8_1;Dbxref=NCBI_GP:ABG42839.1;Name=ABG42839.1;gbkey=CDS;locus_tag=CyHV3_ORF8_1;product=protein ORF8;protein_id=ABG42839.1
+DQ657948.1	Genbank	gene	14687	17497	.	-	.	ID=gene-CyHV3_ORF7_1;Name=CyHV3_ORF7_1;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF7_1
+DQ657948.1	Genbank	CDS	16216	17497	.	-	0	ID=cds-ABG42838.1;Parent=gene-CyHV3_ORF7_1;Dbxref=NCBI_GP:ABG42838.1;Name=ABG42838.1;gbkey=CDS;locus_tag=CyHV3_ORF7_1;product=protein ORF7;protein_id=ABG42838.1
+DQ657948.1	Genbank	CDS	14864	16008	.	-	2	ID=cds-ABG42838.1;Parent=gene-CyHV3_ORF7_1;Dbxref=NCBI_GP:ABG42838.1;Name=ABG42838.1;gbkey=CDS;locus_tag=CyHV3_ORF7_1;product=protein ORF7;protein_id=ABG42838.1
+DQ657948.1	Genbank	region	14687	14692	.	-	.	ID=id-DQ657948.1:14687..14692;Note=ORF7%2C ORF8;gbkey=polyA_signal
+DQ657948.1	Genbank	repeat_region	21869	22396	.	+	.	ID=id-DQ657948.1:21869..22396;Note=telomere-like;gbkey=repeat_region;rpt_type=tandem
+DQ657948.1	Genbank	gene	22802	24724	.	-	.	ID=gene-CyHV3_ORF9;Name=CyHV3_ORF9;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF9
+DQ657948.1	Genbank	CDS	22928	24724	.	-	0	ID=cds-ABG42840.1;Parent=gene-CyHV3_ORF9;Dbxref=NCBI_GP:ABG42840.1;Name=ABG42840.1;Note=ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF9;product=protein ORF9;protein_id=ABG42840.1
+DQ657948.1	Genbank	region	22802	22807	.	-	.	ID=id-CyHV3_ORF9;gbkey=polyA_signal;locus_tag=CyHV3_ORF9
+DQ657948.1	Genbank	gene	24962	29232	.	+	.	ID=gene-CyHV3_ORF10;Name=CyHV3_ORF10;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF10
+DQ657948.1	Genbank	CDS	24962	25538	.	+	0	ID=cds-ABG42841.1;Parent=gene-CyHV3_ORF10;Dbxref=NCBI_GP:ABG42841.1;Name=ABG42841.1;gbkey=CDS;locus_tag=CyHV3_ORF10;product=protein ORF10;protein_id=ABG42841.1
+DQ657948.1	Genbank	CDS	25642	29147	.	+	2	ID=cds-ABG42841.1;Parent=gene-CyHV3_ORF10;Dbxref=NCBI_GP:ABG42841.1;Name=ABG42841.1;gbkey=CDS;locus_tag=CyHV3_ORF10;product=protein ORF10;protein_id=ABG42841.1
+DQ657948.1	Genbank	region	29227	29232	.	+	.	ID=id-CyHV3_ORF10;gbkey=polyA_signal;locus_tag=CyHV3_ORF10
+DQ657948.1	Genbank	gene	29216	30181	.	-	.	ID=gene-CyHV3_ORF12;Name=CyHV3_ORF12;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF12
+DQ657948.1	Genbank	CDS	29795	30181	.	-	0	ID=cds-ABG42843.1;Parent=gene-CyHV3_ORF12;Dbxref=NCBI_GP:ABG42843.1;Name=ABG42843.1;Note=TNFR family;gbkey=CDS;locus_tag=CyHV3_ORF12;product=protein ORF12;protein_id=ABG42843.1
+DQ657948.1	Genbank	gene	29216	29666	.	-	.	ID=gene-CyHV3_ORF11;Name=CyHV3_ORF11;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF11
+DQ657948.1	Genbank	CDS	29304	29666	.	-	0	ID=cds-ABG42842.1;Parent=gene-CyHV3_ORF11;Dbxref=NCBI_GP:ABG42842.1;Name=ABG42842.1;gbkey=CDS;locus_tag=CyHV3_ORF11;product=protein ORF11;protein_id=ABG42842.1
+DQ657948.1	Genbank	region	29216	29221	.	-	.	ID=id-DQ657948.1:29216..29221;Note=ORF11%2C ORF12;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	30236	31065	.	-	.	ID=gene-CyHV3_ORF15;Name=CyHV3_ORF15;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF15
+DQ657948.1	Genbank	CDS	30877	31065	.	-	0	ID=cds-ABG42846.1;Parent=gene-CyHV3_ORF15;Dbxref=NCBI_GP:ABG42846.1;Name=ABG42846.1;gbkey=CDS;locus_tag=CyHV3_ORF15;product=protein ORF15;protein_id=ABG42846.1
+DQ657948.1	Genbank	gene	30236	30790	.	-	.	ID=gene-CyHV3_ORF14;Name=CyHV3_ORF14;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF14
+DQ657948.1	Genbank	CDS	30506	30790	.	-	0	ID=cds-ABG42845.1;Parent=gene-CyHV3_ORF14;Dbxref=NCBI_GP:ABG42845.1;Name=ABG42845.1;gbkey=CDS;locus_tag=CyHV3_ORF14;product=protein ORF14;protein_id=ABG42845.1
+DQ657948.1	Genbank	gene	30236	30503	.	-	.	ID=gene-CyHV3_ORF13;Name=CyHV3_ORF13;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF13
+DQ657948.1	Genbank	CDS	30270	30503	.	-	0	ID=cds-ABG42844.1;Parent=gene-CyHV3_ORF13;Dbxref=NCBI_GP:ABG42844.1;Name=ABG42844.1;gbkey=CDS;locus_tag=CyHV3_ORF13;product=protein ORF13;protein_id=ABG42844.1
+DQ657948.1	Genbank	region	30236	30241	.	-	.	ID=id-DQ657948.1:30236..30241;Note=ORF13%2C ORF14%2C ORF15;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	31289	32417	.	-	.	ID=gene-CyHV3_ORF16;Name=CyHV3_ORF16;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF16
+DQ657948.1	Genbank	CDS	31341	32417	.	-	0	ID=cds-ABG42847.1;Parent=gene-CyHV3_ORF16;Dbxref=NCBI_GP:ABG42847.1;Name=ABG42847.1;gbkey=CDS;locus_tag=CyHV3_ORF16;product=membrane protein ORF16;protein_id=ABG42847.1
+DQ657948.1	Genbank	region	31289	31294	.	-	.	ID=id-CyHV3_ORF16;gbkey=polyA_signal;locus_tag=CyHV3_ORF16
+DQ657948.1	Genbank	gene	32442	34596	.	-	.	ID=gene-CyHV3_ORF17;Name=CyHV3_ORF17;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF17
+DQ657948.1	Genbank	CDS	32572	34596	.	-	0	ID=cds-ABG42848.1;Parent=gene-CyHV3_ORF17;Dbxref=NCBI_GP:ABG42848.1;Name=ABG42848.1;gbkey=CDS;locus_tag=CyHV3_ORF17;product=protein ORF17;protein_id=ABG42848.1
+DQ657948.1	Genbank	region	32442	32447	.	-	.	ID=id-CyHV3_ORF17;gbkey=polyA_signal;locus_tag=CyHV3_ORF17
+DQ657948.1	Genbank	gene	34756	37049	.	-	.	ID=gene-CyHV3_ORF18;Name=CyHV3_ORF18;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF18
+DQ657948.1	Genbank	CDS	34812	37049	.	-	0	ID=cds-ABG42849.1;Parent=gene-CyHV3_ORF18;Dbxref=NCBI_GP:ABG42849.1;Name=ABG42849.1;gbkey=CDS;locus_tag=CyHV3_ORF18;product=protein ORF18;protein_id=ABG42849.1
+DQ657948.1	Genbank	region	34756	34761	.	-	.	ID=id-CyHV3_ORF18;gbkey=polyA_signal;locus_tag=CyHV3_ORF18
+DQ657948.1	Genbank	gene	37148	37976	.	+	.	ID=gene-CyHV3_ORF19;Name=CyHV3_ORF19;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF19
+DQ657948.1	Genbank	CDS	37148	37873	.	+	0	ID=cds-ABG42850.1;Parent=gene-CyHV3_ORF19;Dbxref=NCBI_GP:ABG42850.1;Name=ABG42850.1;gbkey=CDS;locus_tag=CyHV3_ORF19;product=deoxyguanosine kinase;protein_id=ABG42850.1
+DQ657948.1	Genbank	region	37971	37976	.	+	.	ID=id-CyHV3_ORF19;gbkey=polyA_signal;locus_tag=CyHV3_ORF19
+DQ657948.1	Genbank	gene	38010	39091	.	-	.	ID=gene-CyHV3_ORF20;Name=CyHV3_ORF20;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF20
+DQ657948.1	Genbank	CDS	38042	39091	.	-	0	ID=cds-ABG42851.1;Parent=gene-CyHV3_ORF20;Dbxref=NCBI_GP:ABG42851.1;Name=ABG42851.1;gbkey=CDS;locus_tag=CyHV3_ORF20;product=protein ORF20;protein_id=ABG42851.1
+DQ657948.1	Genbank	region	38010	38015	.	-	.	ID=id-CyHV3_ORF20;gbkey=polyA_signal;locus_tag=CyHV3_ORF20
+DQ657948.1	Genbank	gene	39209	42143	.	+	.	ID=gene-CyHV3_ORF21;Name=CyHV3_ORF21;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF21
+DQ657948.1	Genbank	CDS	39209	40219	.	+	0	ID=cds-ABG42852.1;Parent=gene-CyHV3_ORF21;Dbxref=NCBI_GP:ABG42852.1;Name=ABG42852.1;gbkey=CDS;locus_tag=CyHV3_ORF21;product=protein ORF21;protein_id=ABG42852.1
+DQ657948.1	Genbank	gene	40216	42143	.	+	.	ID=gene-CyHV3_ORF22;Name=CyHV3_ORF22;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF22
+DQ657948.1	Genbank	CDS	40216	41982	.	+	0	ID=cds-ABG42853.1;Parent=gene-CyHV3_ORF22;Dbxref=NCBI_GP:ABG42853.1;Name=ABG42853.1;Note=ORF22 family;gbkey=CDS;locus_tag=CyHV3_ORF22;product=protein ORF22;protein_id=ABG42853.1
+DQ657948.1	Genbank	region	42138	42143	.	+	.	ID=id-DQ657948.1:42138..42143;Note=ORF21%2C ORF22;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	42201	43221	.	+	.	ID=gene-CyHV3_ORF23;Name=CyHV3_ORF23;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF23
+DQ657948.1	Genbank	CDS	42201	43208	.	+	0	ID=cds-ABG42854.1;Parent=gene-CyHV3_ORF23;Dbxref=NCBI_GP:ABG42854.1;Name=ABG42854.1;gbkey=CDS;locus_tag=CyHV3_ORF23;product=ribonucleotide reductase subunit 2;protein_id=ABG42854.1
+DQ657948.1	Genbank	region	43216	43221	.	+	.	ID=id-CyHV3_ORF23;gbkey=polyA_signal;locus_tag=CyHV3_ORF23
+DQ657948.1	Genbank	gene	43672	45468	.	+	.	ID=gene-CyHV3_ORF24;Name=CyHV3_ORF24;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF24
+DQ657948.1	Genbank	CDS	43672	45411	.	+	0	ID=cds-ABG42855.1;Parent=gene-CyHV3_ORF24;Dbxref=NCBI_GP:ABG42855.1;Name=ABG42855.1;Note=ORF22 family;gbkey=CDS;locus_tag=CyHV3_ORF24;product=protein ORF24;protein_id=ABG42855.1
+DQ657948.1	Genbank	region	45463	45468	.	+	.	ID=id-CyHV3_ORF24;gbkey=polyA_signal;locus_tag=CyHV3_ORF24
+DQ657948.1	Genbank	gene	45570	48457	.	+	.	ID=gene-CyHV3_ORF25;Name=CyHV3_ORF25;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF25
+DQ657948.1	Genbank	CDS	45570	47375	.	+	0	ID=cds-ABG42856.1;Parent=gene-CyHV3_ORF25;Dbxref=NCBI_GP:ABG42856.1;Name=ABG42856.1;Note=ORF25 family;gbkey=CDS;locus_tag=CyHV3_ORF25;product=membrane protein ORF25;protein_id=ABG42856.1
+DQ657948.1	Genbank	gene	47474	48457	.	+	.	ID=gene-CyHV3_ORF26;Name=CyHV3_ORF26;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF26
+DQ657948.1	Genbank	CDS	47474	47644	.	+	0	ID=cds-AFD97198.1;Parent=gene-CyHV3_ORF26;Dbxref=NCBI_GP:AFD97198.1;Name=AFD97198.1;Note=ORF25 family%3B frameshifted;gbkey=CDS;locus_tag=CyHV3_ORF26;product=truncated membrane protein ORF26;protein_id=AFD97198.1
+DQ657948.1	Genbank	region	48452	48457	.	+	.	ID=id-DQ657948.1:48452..48457;Note=ORF25%2C ORF26;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	48534	49938	.	+	.	ID=gene-CyHV3_ORF27;Name=CyHV3_ORF27;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF27
+DQ657948.1	Genbank	CDS	48534	48740	.	+	0	ID=cds-AFD97199.1;Parent=gene-CyHV3_ORF27;Dbxref=NCBI_GP:AFD97199.1;Name=AFD97199.1;Note=ORF25 family%3B frameshifted;gbkey=CDS;locus_tag=CyHV3_ORF27;product=truncated membrane protein ORF27;protein_id=AFD97199.1
+DQ657948.1	Genbank	region	49933	49938	.	+	.	ID=id-CyHV3_ORF27;Note=ORF27;gbkey=polyA_signal;locus_tag=CyHV3_ORF27
+DQ657948.1	Genbank	gene	49968	51109	.	-	.	ID=gene-CyHV3_ORF28;Name=CyHV3_ORF28;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF28
+DQ657948.1	Genbank	CDS	49991	51109	.	-	0	ID=cds-ABG42857.1;Parent=gene-CyHV3_ORF28;Dbxref=NCBI_GP:ABG42857.1;Name=ABG42857.1;gbkey=CDS;locus_tag=CyHV3_ORF28;product=protein ORF28;protein_id=ABG42857.1
+DQ657948.1	Genbank	region	49968	49973	.	-	.	ID=id-CyHV3_ORF28;gbkey=polyA_signal;locus_tag=CyHV3_ORF28
+DQ657948.1	Genbank	gene	51637	52802	.	+	.	ID=gene-CyHV3_ORF29;Name=CyHV3_ORF29;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF29
+DQ657948.1	Genbank	CDS	51637	52740	.	+	0	ID=cds-ABG42858.1;Parent=gene-CyHV3_ORF29;Dbxref=NCBI_GP:ABG42858.1;Name=ABG42858.1;gbkey=CDS;locus_tag=CyHV3_ORF29;product=membrane protein ORF29;protein_id=ABG42858.1
+DQ657948.1	Genbank	region	52797	52802	.	+	.	ID=id-CyHV3_ORF29;gbkey=polyA_signal;locus_tag=CyHV3_ORF29
+DQ657948.1	Genbank	gene	52909	55353	.	+	.	ID=gene-CyHV3_ORF30;Name=CyHV3_ORF30;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF30
+DQ657948.1	Genbank	CDS	52909	53709	.	+	0	ID=cds-AFD97200.1;Parent=gene-CyHV3_ORF30;Dbxref=NCBI_GP:AFD97200.1;Name=AFD97200.1;Note=frameshifted by a 23 bp deletion;gbkey=CDS;locus_tag=CyHV3_ORF30;product=truncated membrane protein ORF30;protein_id=AFD97200.1
+DQ657948.1	Genbank	gene	53750	84245	.	-	.	ID=gene-CyHV3_ORF33;Name=CyHV3_ORF33;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF33
+DQ657948.1	Genbank	CDS	83445	84221	.	-	0	ID=cds-ABG42861.2;Parent=gene-CyHV3_ORF33;Dbxref=NCBI_GP:ABG42861.2;Name=ABG42861.2;gbkey=CDS;locus_tag=CyHV3_ORF33;product=DNA packaging terminase subunit 1;protein_id=ABG42861.2
+DQ657948.1	Genbank	CDS	83162	83365	.	-	0	ID=cds-ABG42861.2;Parent=gene-CyHV3_ORF33;Dbxref=NCBI_GP:ABG42861.2;Name=ABG42861.2;gbkey=CDS;locus_tag=CyHV3_ORF33;product=DNA packaging terminase subunit 1;protein_id=ABG42861.2
+DQ657948.1	Genbank	CDS	55128	56513	.	-	0	ID=cds-ABG42861.2;Parent=gene-CyHV3_ORF33;Dbxref=NCBI_GP:ABG42861.2;Name=ABG42861.2;gbkey=CDS;locus_tag=CyHV3_ORF33;product=DNA packaging terminase subunit 1;protein_id=ABG42861.2
+DQ657948.1	Genbank	gene	53750	54336	.	-	.	ID=gene-CyHV3_ORF31;Name=CyHV3_ORF31;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF31
+DQ657948.1	Genbank	CDS	53968	54336	.	-	0	ID=cds-ABG42859.1;Parent=gene-CyHV3_ORF31;Dbxref=NCBI_GP:ABG42859.1;Name=ABG42859.1;gbkey=CDS;locus_tag=CyHV3_ORF31;product=protein ORF31;protein_id=ABG42859.1
+DQ657948.1	Genbank	region	53750	53755	.	-	.	ID=id-DQ657948.1:53750..53755;Note=ORF31%2C ORF33;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	54492	55353	.	+	.	ID=gene-CyHV3_ORF32;Name=CyHV3_ORF32;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF32
+DQ657948.1	Genbank	CDS	54492	55073	.	+	0	ID=cds-ABG42860.1;Parent=gene-CyHV3_ORF32;Dbxref=NCBI_GP:ABG42860.1;Name=ABG42860.1;gbkey=CDS;locus_tag=CyHV3_ORF32;product=protein ORF32;protein_id=ABG42860.1
+DQ657948.1	Genbank	region	55348	55353	.	+	.	ID=id-DQ657948.1:55348..55353;Note=ORF30%2C ORF32;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	56545	58752	.	+	.	ID=gene-CyHV3_ORF34;Name=CyHV3_ORF34;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF34
+DQ657948.1	Genbank	CDS	56545	57000	.	+	0	ID=cds-ABG42862.1;Parent=gene-CyHV3_ORF34;Dbxref=NCBI_GP:ABG42862.1;Name=ABG42862.1;gbkey=CDS;locus_tag=CyHV3_ORF34;product=protein ORF34;protein_id=ABG42862.1
+DQ657948.1	Genbank	gene	57082	58752	.	+	.	ID=gene-CyHV3_ORF35;Name=CyHV3_ORF35;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF35
+DQ657948.1	Genbank	CDS	57082	58050	.	+	0	ID=cds-ABG42863.1;Parent=gene-CyHV3_ORF35;Dbxref=NCBI_GP:ABG42863.1;Name=ABG42863.1;gbkey=CDS;locus_tag=CyHV3_ORF35;product=protein ORF35;protein_id=ABG42863.1
+DQ657948.1	Genbank	gene	58097	58752	.	+	.	ID=gene-CyHV3_ORF36;Name=CyHV3_ORF36;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF36
+DQ657948.1	Genbank	CDS	58097	58576	.	+	0	ID=cds-ABG42864.1;Parent=gene-CyHV3_ORF36;Dbxref=NCBI_GP:ABG42864.1;Name=ABG42864.1;gbkey=CDS;locus_tag=CyHV3_ORF36;product=protein ORF36;protein_id=ABG42864.1
+DQ657948.1	Genbank	gene	58637	58977	.	-	.	ID=gene-CyHV3_ORF37;Name=CyHV3_ORF37;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF37
+DQ657948.1	Genbank	CDS	58645	58977	.	-	0	ID=cds-ABG42865.1;Parent=gene-CyHV3_ORF37;Dbxref=NCBI_GP:ABG42865.1;Name=ABG42865.1;gbkey=CDS;locus_tag=CyHV3_ORF37;product=protein ORF37;protein_id=ABG42865.1
+DQ657948.1	Genbank	region	58637	58642	.	-	.	ID=id-CyHV3_ORF37;gbkey=polyA_signal;locus_tag=CyHV3_ORF37
+DQ657948.1	Genbank	region	58747	58752	.	+	.	ID=id-DQ657948.1:58747..58752;Note=ORF34%2C ORF35%2C ORF36;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	59035	59793	.	-	.	ID=gene-CyHV3_ORF39;Name=CyHV3_ORF39;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF39
+DQ657948.1	Genbank	CDS	59488	59793	.	-	0	ID=cds-ABG42867.1;Parent=gene-CyHV3_ORF39;Dbxref=NCBI_GP:ABG42867.1;Name=ABG42867.1;gbkey=CDS;locus_tag=CyHV3_ORF39;product=membrane protein ORF39;protein_id=ABG42867.1
+DQ657948.1	Genbank	gene	59035	59486	.	-	.	ID=gene-CyHV3_ORF38;Name=CyHV3_ORF38;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF38
+DQ657948.1	Genbank	CDS	59055	59486	.	-	0	ID=cds-ABG42866.1;Parent=gene-CyHV3_ORF38;Dbxref=NCBI_GP:ABG42866.1;Name=ABG42866.1;gbkey=CDS;locus_tag=CyHV3_ORF38;product=protein ORF38;protein_id=ABG42866.1
+DQ657948.1	Genbank	region	59035	59040	.	-	.	ID=id-DQ657948.1:59035..59040;Note=ORF38%2C ORF39;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	59887	62153	.	-	.	ID=gene-CyHV3_ORF41;Name=CyHV3_ORF41;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF41
+DQ657948.1	Genbank	CDS	60627	62153	.	-	0	ID=cds-ABG42868.1;Parent=gene-CyHV3_ORF41;Dbxref=NCBI_GP:ABG42868.1;Name=ABG42868.1;Note=RING family;gbkey=CDS;locus_tag=CyHV3_ORF41;product=protein ORF41;protein_id=ABG42868.1
+DQ657948.1	Genbank	gene	59887	60598	.	-	.	ID=gene-CyHV3_ORF40;Name=CyHV3_ORF40;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF40
+DQ657948.1	Genbank	CDS	60044	60598	.	-	0	ID=cds-AFD97201.1;Parent=gene-CyHV3_ORF40;Dbxref=NCBI_GP:AFD97201.1;Name=AFD97201.1;Note=frameshifted;gbkey=CDS;locus_tag=CyHV3_ORF40;product=truncated membrane protein ORF40;protein_id=AFD97201.1
+DQ657948.1	Genbank	region	59887	59892	.	-	.	ID=id-DQ657948.1:59887..59892;Note=ORF40%2C ORF41;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	62971	69325	.	-	.	ID=gene-CyHV3_ORF42;Name=CyHV3_ORF42;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF42
+DQ657948.1	Genbank	CDS	62972	69325	.	-	0	ID=cds-ABG42869.1;Parent=gene-CyHV3_ORF42;Dbxref=NCBI_GP:ABG42869.1;Name=ABG42869.1;gbkey=CDS;locus_tag=CyHV3_ORF42;product=protein ORF42;protein_id=ABG42869.1
+DQ657948.1	Genbank	region	62971	62976	.	-	.	ID=id-CyHV3_ORF42;gbkey=polyA_signal;locus_tag=CyHV3_ORF42
+DQ657948.1	Genbank	gene	69324	73756	.	+	.	ID=gene-CyHV3_ORF43;Name=CyHV3_ORF43;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF43
+DQ657948.1	Genbank	CDS	69324	73685	.	+	0	ID=cds-ABG42870.1;Parent=gene-CyHV3_ORF43;Dbxref=NCBI_GP:ABG42870.1;Name=ABG42870.1;gbkey=CDS;locus_tag=CyHV3_ORF43;product=protein ORF43;protein_id=ABG42870.1
+DQ657948.1	Genbank	region	73751	73756	.	+	.	ID=id-CyHV3_ORF43;gbkey=polyA_signal;locus_tag=CyHV3_ORF43
+DQ657948.1	Genbank	gene	74077	83399	.	+	.	ID=gene-CyHV3_ORF44;Name=CyHV3_ORF44;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF44
+DQ657948.1	Genbank	CDS	74077	74901	.	+	0	ID=cds-ABG42871.1;Parent=gene-CyHV3_ORF44;Dbxref=NCBI_GP:ABG42871.1;Name=ABG42871.1;gbkey=CDS;locus_tag=CyHV3_ORF44;product=protein ORF44;protein_id=ABG42871.1
+DQ657948.1	Genbank	gene	74760	83399	.	+	.	ID=gene-CyHV3_ORF45;Name=CyHV3_ORF45;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF45
+DQ657948.1	Genbank	CDS	74760	76658	.	+	0	ID=cds-ABG42872.1;Parent=gene-CyHV3_ORF45;Dbxref=NCBI_GP:ABG42872.1;Name=ABG42872.1;gbkey=CDS;locus_tag=CyHV3_ORF45;product=protein ORF45;protein_id=ABG42872.1
+DQ657948.1	Genbank	gene	76615	83399	.	+	.	ID=gene-CyHV3_ORF46;Name=CyHV3_ORF46;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF46
+DQ657948.1	Genbank	CDS	76615	79059	.	+	0	ID=cds-ABG42873.1;Parent=gene-CyHV3_ORF46;Dbxref=NCBI_GP:ABG42873.1;Name=ABG42873.1;gbkey=CDS;locus_tag=CyHV3_ORF46;product=helicase-primase primase subunit;protein_id=ABG42873.1
+DQ657948.1	Genbank	gene	78960	83399	.	+	.	ID=gene-CyHV3_ORF47;Name=CyHV3_ORF47;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF47
+DQ657948.1	Genbank	CDS	78960	80966	.	+	0	ID=cds-ABG42874.1;Parent=gene-CyHV3_ORF47;Dbxref=NCBI_GP:ABG42874.1;Name=ABG42874.1;gbkey=CDS;locus_tag=CyHV3_ORF47;product=protein Allo64;protein_id=ABG42874.1
+DQ657948.1	Genbank	gene	80575	83399	.	+	.	ID=gene-CyHV3_ORF48;Name=CyHV3_ORF48;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF48
+DQ657948.1	Genbank	CDS	80575	83208	.	+	0	ID=cds-ABG42875.1;Parent=gene-CyHV3_ORF48;Dbxref=NCBI_GP:ABG42875.1;Name=ABG42875.1;gbkey=CDS;locus_tag=CyHV3_ORF48;product=protein ORF48;protein_id=ABG42875.1
+DQ657948.1	Genbank	region	83394	83399	.	+	.	ID=id-DQ657948.1:83394..83399;Note=ORF44%2C ORF45%2C ORF46%2C ORF47%2C ORF48;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	84262	91649	.	+	.	ID=gene-CyHV3_ORF49;Name=CyHV3_ORF49;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF49
+DQ657948.1	Genbank	CDS	84262	84966	.	+	0	ID=cds-ABG42876.1;Parent=gene-CyHV3_ORF49;Dbxref=NCBI_GP:ABG42876.1;Name=ABG42876.1;gbkey=CDS;locus_tag=CyHV3_ORF49;product=protein ORF49;protein_id=ABG42876.1
+DQ657948.1	Genbank	gene	84665	90448	.	-	.	ID=gene-CyHV3_ORF51;Name=CyHV3_ORF51;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF51
+DQ657948.1	Genbank	CDS	85871	90448	.	-	0	ID=cds-ABG42878.1;Parent=gene-CyHV3_ORF51;Dbxref=NCBI_GP:ABG42878.1;Name=ABG42878.1;gbkey=CDS;locus_tag=CyHV3_ORF51;product=protein ORF51;protein_id=ABG42878.1
+DQ657948.1	Genbank	gene	84665	85680	.	-	.	ID=gene-CyHV3_ORF50;Name=CyHV3_ORF50;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF50
+DQ657948.1	Genbank	CDS	85024	85680	.	-	0	ID=cds-ABG42877.1;Parent=gene-CyHV3_ORF50;Dbxref=NCBI_GP:ABG42877.1;Name=ABG42877.1;gbkey=CDS;locus_tag=CyHV3_ORF50;product=protein ORF50;protein_id=ABG42877.1
+DQ657948.1	Genbank	region	84665	84670	.	-	.	ID=id-DQ657948.1:84665..84670;Note=ORF50%2C ORF51;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	90633	91649	.	+	.	ID=gene-CyHV3_ORF52;Name=CyHV3_ORF52;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF52
+DQ657948.1	Genbank	CDS	90633	91607	.	+	0	ID=cds-ABG42879.1;Parent=gene-CyHV3_ORF52;Dbxref=NCBI_GP:ABG42879.1;Name=ABG42879.1;gbkey=CDS;locus_tag=CyHV3_ORF52;product=protein ORF52;protein_id=ABG42879.1
+DQ657948.1	Genbank	region	91644	91649	.	+	.	ID=id-DQ657948.1:91644..91649;Note=ORF49%2C ORF52;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	91802	93542	.	-	.	ID=gene-CyHV3_ORF53;Name=CyHV3_ORF53;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF53
+DQ657948.1	Genbank	CDS	91824	93542	.	-	0	ID=cds-ABG42880.1;Parent=gene-CyHV3_ORF53;Dbxref=NCBI_GP:ABG42880.1;Name=ABG42880.1;gbkey=CDS;locus_tag=CyHV3_ORF53;product=protein ORF53;protein_id=ABG42880.1
+DQ657948.1	Genbank	region	91802	91807	.	-	.	ID=id-CyHV3_ORF53;gbkey=polyA_signal;locus_tag=CyHV3_ORF53
+DQ657948.1	Genbank	gene	93596	95711	.	-	.	ID=gene-CyHV3_ORF54;Name=CyHV3_ORF54;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF54
+DQ657948.1	Genbank	CDS	93681	95711	.	-	0	ID=cds-ABG42881.1;Parent=gene-CyHV3_ORF54;Dbxref=NCBI_GP:ABG42881.1;Name=ABG42881.1;gbkey=CDS;locus_tag=CyHV3_ORF54;product=protein ORF54;protein_id=ABG42881.1
+DQ657948.1	Genbank	region	93596	93601	.	-	.	ID=id-CyHV3_ORF54;gbkey=polyA_signal;locus_tag=CyHV3_ORF54
+DQ657948.1	Genbank	gene	95866	96538	.	+	.	ID=gene-CyHV3_ORF55;Name=CyHV3_ORF55;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF55
+DQ657948.1	Genbank	CDS	95866	96516	.	+	0	ID=cds-ABG42882.1;Parent=gene-CyHV3_ORF55;Dbxref=NCBI_GP:ABG42882.1;Name=ABG42882.1;gbkey=CDS;locus_tag=CyHV3_ORF55;product=thymidine kinase;protein_id=ABG42882.1
+DQ657948.1	Genbank	region	96533	96538	.	+	.	ID=id-CyHV3_ORF55;gbkey=polyA_signal;locus_tag=CyHV3_ORF55
+DQ657948.1	Genbank	gene	96675	99398	.	-	.	ID=gene-CyHV3_ORF56;Name=CyHV3_ORF56;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF56
+DQ657948.1	Genbank	CDS	96705	99275	.	-	0	ID=cds-ABG42883.2;Parent=gene-CyHV3_ORF56;Dbxref=NCBI_GP:ABG42883.2;Name=ABG42883.2;gbkey=CDS;locus_tag=CyHV3_ORF56;product=protein ORF56;protein_id=ABG42883.2
+DQ657948.1	Genbank	region	96675	96680	.	-	.	ID=id-CyHV3_ORF56;gbkey=polyA_signal;locus_tag=CyHV3_ORF56
+DQ657948.1	Genbank	gene	99382	100830	.	+	.	ID=gene-CyHV3_ORF57;Name=CyHV3_ORF57;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF57
+DQ657948.1	Genbank	CDS	99382	100803	.	+	0	ID=cds-ABG42884.1;Parent=gene-CyHV3_ORF57;Dbxref=NCBI_GP:ABG42884.1;Name=ABG42884.1;gbkey=CDS;locus_tag=CyHV3_ORF57;product=protein ORF57;protein_id=ABG42884.1
+DQ657948.1	Genbank	region	100825	100830	.	+	.	ID=id-CyHV3_ORF57;gbkey=polyA_signal;locus_tag=CyHV3_ORF57
+DQ657948.1	Genbank	gene	100864	106538	.	-	.	ID=gene-CyHV3_ORF61;Name=CyHV3_ORF61;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF61
+DQ657948.1	Genbank	CDS	103974	106538	.	-	0	ID=cds-ABG42888.1;Parent=gene-CyHV3_ORF61;Dbxref=NCBI_GP:ABG42888.1;Name=ABG42888.1;gbkey=CDS;locus_tag=CyHV3_ORF61;product=protein Allo54;protein_id=ABG42888.1
+DQ657948.1	Genbank	gene	100864	104130	.	-	.	ID=gene-CyHV3_ORF60;Name=CyHV3_ORF60;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF60
+DQ657948.1	Genbank	CDS	102511	104130	.	-	0	ID=cds-ABG42887.1;Parent=gene-CyHV3_ORF60;Dbxref=NCBI_GP:ABG42887.1;Name=ABG42887.1;gbkey=CDS;locus_tag=CyHV3_ORF60;product=protein ORF60;protein_id=ABG42887.1
+DQ657948.1	Genbank	gene	100864	102446	.	-	.	ID=gene-CyHV3_ORF59;Name=CyHV3_ORF59;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF59
+DQ657948.1	Genbank	CDS	102036	102446	.	-	0	ID=cds-ABG42886.1;Parent=gene-CyHV3_ORF59;Dbxref=NCBI_GP:ABG42886.1;Name=ABG42886.1;gbkey=CDS;locus_tag=CyHV3_ORF59;product=protein ORF59;protein_id=ABG42886.1
+DQ657948.1	Genbank	region	100864	100869	.	-	.	ID=id-DQ657948.1:100864..100869;Note=ORF59%2C ORF60%2C ORF61;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	106572	118648	.	+	.	ID=gene-CyHV3_ORF62;Name=CyHV3_ORF62;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF62
+DQ657948.1	Genbank	CDS	106572	118532	.	+	0	ID=cds-ABG42889.1;Parent=gene-CyHV3_ORF62;Dbxref=NCBI_GP:ABG42889.1;Name=ABG42889.1;gbkey=CDS;locus_tag=CyHV3_ORF62;product=protein ORF62;protein_id=ABG42889.1
+DQ657948.1	Genbank	region	118643	118648	.	+	.	ID=id-CyHV3_ORF62;gbkey=polyA_signal;locus_tag=CyHV3_ORF62
+DQ657948.1	Genbank	gene	118663	119799	.	+	.	ID=gene-CyHV3_ORF63;Name=CyHV3_ORF63;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF63
+DQ657948.1	Genbank	CDS	118663	119751	.	+	0	ID=cds-ABG42890.1;Parent=gene-CyHV3_ORF63;Dbxref=NCBI_GP:ABG42890.1;Name=ABG42890.1;gbkey=CDS;locus_tag=CyHV3_ORF63;product=protein ORF63;protein_id=ABG42890.1
+DQ657948.1	Genbank	region	119794	119799	.	+	.	ID=id-CyHV3_ORF63;gbkey=polyA_signal;locus_tag=CyHV3_ORF63
+DQ657948.1	Genbank	gene	119864	122067	.	+	.	ID=gene-CyHV3_ORF64;Name=CyHV3_ORF64;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF64
+DQ657948.1	Genbank	CDS	119864	122032	.	+	0	ID=cds-ABG42891.1;Parent=gene-CyHV3_ORF64;Dbxref=NCBI_GP:ABG42891.1;Name=ABG42891.1;gbkey=CDS;locus_tag=CyHV3_ORF64;product=membrane protein ORF64;protein_id=ABG42891.1
+DQ657948.1	Genbank	region	122062	122067	.	+	.	ID=id-CyHV3_ORF64;gbkey=polyA_signal;locus_tag=CyHV3_ORF64
+DQ657948.1	Genbank	gene	122092	123910	.	-	.	ID=gene-CyHV3_ORF65;Name=CyHV3_ORF65;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF65
+DQ657948.1	Genbank	CDS	122120	123910	.	-	0	ID=cds-ABG42892.1;Parent=gene-CyHV3_ORF65;Dbxref=NCBI_GP:ABG42892.1;Name=ABG42892.1;Note=ORF25 family;gbkey=CDS;locus_tag=CyHV3_ORF65;product=membrane protein ORF65;protein_id=ABG42892.1
+DQ657948.1	Genbank	region	122092	122097	.	-	.	ID=id-CyHV3_ORF65;gbkey=polyA_signal;locus_tag=CyHV3_ORF65
+DQ657948.1	Genbank	gene	124029	134445	.	-	.	ID=gene-CyHV3_ORF69;Name=CyHV3_ORF69;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF69
+DQ657948.1	Genbank	CDS	132865	134445	.	-	0	ID=cds-ABG42896.1;Parent=gene-CyHV3_ORF69;Dbxref=NCBI_GP:ABG42896.1;Name=ABG42896.1;gbkey=CDS;locus_tag=CyHV3_ORF69;product=protein ORF69;protein_id=ABG42896.1
+DQ657948.1	Genbank	gene	124029	132925	.	-	.	ID=gene-CyHV3_ORF68;Name=CyHV3_ORF68;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF68
+DQ657948.1	Genbank	CDS	126122	132925	.	-	0	ID=cds-ABG42895.1;Parent=gene-CyHV3_ORF68;Dbxref=NCBI_GP:ABG42895.1;Name=ABG42895.1;gbkey=CDS;locus_tag=CyHV3_ORF68;product=protein ORF68;protein_id=ABG42895.1
+DQ657948.1	Genbank	gene	124029	126144	.	-	.	ID=gene-CyHV3_ORF67;Name=CyHV3_ORF67;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF67
+DQ657948.1	Genbank	CDS	125251	126144	.	-	0	ID=cds-ABG42894.1;Parent=gene-CyHV3_ORF67;Dbxref=NCBI_GP:ABG42894.1;Name=ABG42894.1;gbkey=CDS;locus_tag=CyHV3_ORF67;product=protein ORF67;protein_id=ABG42894.1
+DQ657948.1	Genbank	gene	124029	125309	.	-	.	ID=gene-CyHV3_ORF66;Name=CyHV3_ORF66;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF66
+DQ657948.1	Genbank	CDS	124119	125309	.	-	0	ID=cds-ABG42893.1;Parent=gene-CyHV3_ORF66;Dbxref=NCBI_GP:ABG42893.1;Name=ABG42893.1;gbkey=CDS;locus_tag=CyHV3_ORF66;product=capsid triplex subunit 1;protein_id=ABG42893.1
+DQ657948.1	Genbank	region	124029	124034	.	-	.	ID=id-DQ657948.1:124029..124034;Note=ORF66%2C ORF67%2C ORF68%2C ORF69;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	134494	139090	.	+	.	ID=gene-CyHV3_ORF70;Name=CyHV3_ORF70;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF70
+DQ657948.1	Genbank	CDS	134494	135840	.	+	0	ID=cds-ABG42897.1;Parent=gene-CyHV3_ORF70;Dbxref=NCBI_GP:ABG42897.1;Name=ABG42897.1;gbkey=CDS;locus_tag=CyHV3_ORF70;product=protein ORF70;protein_id=ABG42897.1
+DQ657948.1	Genbank	gene	135907	139090	.	+	.	ID=gene-CyHV3_ORF71;Name=CyHV3_ORF71;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF71
+DQ657948.1	Genbank	CDS	135907	137829	.	+	0	ID=cds-ABG42898.1;Parent=gene-CyHV3_ORF71;Dbxref=NCBI_GP:ABG42898.1;Name=ABG42898.1;gbkey=CDS;locus_tag=CyHV3_ORF71;product=helicase-primase helicase subunit;protein_id=ABG42898.1
+DQ657948.1	Genbank	gene	137928	139090	.	+	.	ID=gene-CyHV3_ORF72;Name=CyHV3_ORF72;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF72
+DQ657948.1	Genbank	CDS	137928	139040	.	+	0	ID=cds-ABG42899.1;Parent=gene-CyHV3_ORF72;Dbxref=NCBI_GP:ABG42899.1;Name=ABG42899.1;gbkey=CDS;locus_tag=CyHV3_ORF72;product=capsid triplex subunit 2;protein_id=ABG42899.1
+DQ657948.1	Genbank	region	139085	139090	.	+	.	ID=id-DQ657948.1:139085..139090;Note=ORF70%2C ORF71%2C ORF72;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	139115	141562	.	-	.	ID=gene-CyHV3_ORF76;Name=CyHV3_ORF76;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF76
+DQ657948.1	Genbank	CDS	140693	141562	.	-	0	ID=cds-ABG42903.1;Parent=gene-CyHV3_ORF76;Dbxref=NCBI_GP:ABG42903.1;Name=ABG42903.1;gbkey=CDS;locus_tag=CyHV3_ORF76;product=protein ORF76;protein_id=ABG42903.1
+DQ657948.1	Genbank	gene	139115	140063	.	-	.	ID=gene-CyHV3_ORF74;Name=CyHV3_ORF74;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF74
+DQ657948.1	Genbank	CDS	139497	140063	.	-	0	ID=cds-ABG42901.1;Parent=gene-CyHV3_ORF74;Dbxref=NCBI_GP:ABG42901.1;Name=ABG42901.1;gbkey=CDS;locus_tag=CyHV3_ORF74;product=protein ORF74;protein_id=ABG42901.1
+DQ657948.1	Genbank	gene	139115	139551	.	-	.	ID=gene-CyHV3_ORF73;Name=CyHV3_ORF73;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF73
+DQ657948.1	Genbank	CDS	139141	139551	.	-	0	ID=cds-ABG42900.1;Parent=gene-CyHV3_ORF73;Dbxref=NCBI_GP:ABG42900.1;Name=ABG42900.1;gbkey=CDS;locus_tag=CyHV3_ORF73;product=protein ORF73;protein_id=ABG42900.1
+DQ657948.1	Genbank	region	139115	139120	.	-	.	ID=id-CyHV3_ORF73;Note=ORF73%2C ORF74%2C ORF76;gbkey=polyA_signal;locus_tag=CyHV3_ORF73
+DQ657948.1	Genbank	gene	140044	144667	.	+	.	ID=gene-CyHV3_ORF75;Name=CyHV3_ORF75;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF75
+DQ657948.1	Genbank	CDS	140044	140781	.	+	0	ID=cds-ABG42902.1;Parent=gene-CyHV3_ORF75;Dbxref=NCBI_GP:ABG42902.1;Name=ABG42902.1;gbkey=CDS;locus_tag=CyHV3_ORF75;product=protein ORF75;protein_id=ABG42902.1
+DQ657948.1	Genbank	gene	141635	144667	.	+	.	ID=gene-CyHV3_ORF77;Name=CyHV3_ORF77;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF77
+DQ657948.1	Genbank	CDS	141635	142402	.	+	0	ID=cds-ABG42904.1;Parent=gene-CyHV3_ORF77;Dbxref=NCBI_GP:ABG42904.1;Name=ABG42904.1;gbkey=CDS;locus_tag=CyHV3_ORF77;product=protein ORF77;protein_id=ABG42904.1
+DQ657948.1	Genbank	gene	142353	144667	.	+	.	ID=gene-CyHV3_ORF78;Name=CyHV3_ORF78;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF78
+DQ657948.1	Genbank	CDS	142353	144593	.	+	0	ID=cds-ABG42905.1;Parent=gene-CyHV3_ORF78;Dbxref=NCBI_GP:ABG42905.1;Name=ABG42905.1;gbkey=CDS;locus_tag=CyHV3_ORF78;product=capsid maturation protease;protein_id=ABG42905.1
+DQ657948.1	Genbank	region	144662	144667	.	+	.	ID=id-DQ657948.1:144662..144667;Note=ORF75%2C ORF77%2C ORF78;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	144730	151755	.	+	.	ID=gene-CyHV3_ORF79;Name=CyHV3_ORF79;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF79
+DQ657948.1	Genbank	CDS	144730	149859	.	+	0	ID=cds-ABG42906.1;Parent=gene-CyHV3_ORF79;Dbxref=NCBI_GP:ABG42906.1;Name=ABG42906.1;gbkey=CDS;locus_tag=CyHV3_ORF79;product=DNA polymerase catalytic subunit;protein_id=ABG42906.1
+DQ657948.1	Genbank	gene	149379	153480	.	-	.	ID=gene-CyHV3_ORF83;Name=CyHV3_ORF83;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF83
+DQ657948.1	Genbank	CDS	152794	153480	.	-	0	ID=cds-ABG42910.1;Parent=gene-CyHV3_ORF83;Dbxref=NCBI_GP:ABG42910.1;Name=ABG42910.1;gbkey=CDS;locus_tag=CyHV3_ORF83;product=membrane protein ORF83;protein_id=ABG42910.1
+DQ657948.1	Genbank	gene	149379	152807	.	-	.	ID=gene-CyHV3_ORF82;Name=CyHV3_ORF82;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF82
+DQ657948.1	Genbank	CDS	151836	152807	.	-	0	ID=cds-ABG42909.1;Parent=gene-CyHV3_ORF82;Dbxref=NCBI_GP:ABG42909.1;Name=ABG42909.1;gbkey=CDS;locus_tag=CyHV3_ORF82;product=membrane protein ORF82;protein_id=ABG42909.1
+DQ657948.1	Genbank	gene	149379	150760	.	-	.	ID=gene-CyHV3_ORF80;Name=CyHV3_ORF80;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF80
+DQ657948.1	Genbank	CDS	149708	150760	.	-	0	ID=cds-ABG42907.1;Parent=gene-CyHV3_ORF80;Dbxref=NCBI_GP:ABG42907.1;Name=ABG42907.1;gbkey=CDS;locus_tag=CyHV3_ORF80;product=protein Allo60;protein_id=ABG42907.1
+DQ657948.1	Genbank	region	149379	149384	.	-	.	ID=id-DQ657948.1:149379..149384;Note=ORF80%2C ORF82%2C ORF83;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	150797	151755	.	+	.	ID=gene-CyHV3_ORF81;Name=CyHV3_ORF81;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF81
+DQ657948.1	Genbank	CDS	150797	151567	.	+	0	ID=cds-ABG42908.1;Parent=gene-CyHV3_ORF81;Dbxref=NCBI_GP:ABG42908.1;Name=ABG42908.1;gbkey=CDS;locus_tag=CyHV3_ORF81;product=membrane protein ORF81;protein_id=ABG42908.1
+DQ657948.1	Genbank	region	151750	151755	.	+	.	ID=id-DQ657948.1:151750..151755;Note=ORF79%2C ORF81;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	153522	157196	.	-	.	ID=gene-CyHV3_ORF85;Name=CyHV3_ORF85;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF85
+DQ657948.1	Genbank	CDS	155913	157196	.	-	0	ID=cds-ABG42912.1;Parent=gene-CyHV3_ORF85;Dbxref=NCBI_GP:ABG42912.1;Name=ABG42912.1;gbkey=CDS;locus_tag=CyHV3_ORF85;product=protein ORF85;protein_id=ABG42912.1
+DQ657948.1	Genbank	gene	153522	155916	.	-	.	ID=gene-CyHV3_ORF84;Name=CyHV3_ORF84;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF84
+DQ657948.1	Genbank	CDS	153583	155916	.	-	0	ID=cds-ABG42911.1;Parent=gene-CyHV3_ORF84;Dbxref=NCBI_GP:ABG42911.1;Name=ABG42911.1;gbkey=CDS;locus_tag=CyHV3_ORF84;product=protein ORF84;protein_id=ABG42911.1
+DQ657948.1	Genbank	region	153522	153527	.	-	.	ID=id-DQ657948.1:153522..153527;Note=ORF84%2C ORF85;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	157087	161135	.	-	.	ID=gene-CyHV3_ORF87;Name=CyHV3_ORF87;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF87
+DQ657948.1	Genbank	CDS	157650	161135	.	-	0	ID=cds-ABG42914.1;Parent=gene-CyHV3_ORF87;Dbxref=NCBI_GP:ABG42914.1;Name=ABG42914.1;gbkey=CDS;locus_tag=CyHV3_ORF87;product=protein ORF87;protein_id=ABG42914.1
+DQ657948.1	Genbank	gene	157087	157840	.	-	.	ID=gene-CyHV3_ORF86;Name=CyHV3_ORF86;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF86
+DQ657948.1	Genbank	CDS	157148	157840	.	-	0	ID=cds-ABG42913.1;Parent=gene-CyHV3_ORF86;Dbxref=NCBI_GP:ABG42913.1;Name=ABG42913.1;gbkey=CDS;locus_tag=CyHV3_ORF86;product=protein ORF86;protein_id=ABG42913.1
+DQ657948.1	Genbank	region	157087	157092	.	-	.	ID=id-DQ657948.1:157087..157092;Note=ORF86%2C ORF87;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	161194	163966	.	+	.	ID=gene-CyHV3_ORF88;Name=CyHV3_ORF88;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF88
+DQ657948.1	Genbank	CDS	161194	163914	.	+	0	ID=cds-ABG42915.1;Parent=gene-CyHV3_ORF88;Dbxref=NCBI_GP:ABG42915.1;Name=ABG42915.1;gbkey=CDS;locus_tag=CyHV3_ORF88;product=protein ORF88;protein_id=ABG42915.1
+DQ657948.1	Genbank	region	163961	163966	.	+	.	ID=id-CyHV3_ORF88;gbkey=polyA_signal;locus_tag=CyHV3_ORF88
+DQ657948.1	Genbank	gene	164040	165532	.	+	.	ID=gene-CyHV3_ORF89;Name=CyHV3_ORF89;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF89
+DQ657948.1	Genbank	CDS	164040	165497	.	+	0	ID=cds-ABG42916.1;Parent=gene-CyHV3_ORF89;Dbxref=NCBI_GP:ABG42916.1;Name=ABG42916.1;gbkey=CDS;locus_tag=CyHV3_ORF89;product=protein ORF89;protein_id=ABG42916.1
+DQ657948.1	Genbank	region	165527	165532	.	+	.	ID=id-CyHV3_ORF89;gbkey=polyA_signal;locus_tag=CyHV3_ORF89
+DQ657948.1	Genbank	gene	165507	167955	.	-	.	ID=gene-CyHV3_ORF90;Name=CyHV3_ORF90;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF90
+DQ657948.1	Genbank	CDS	166840	167955	.	-	0	ID=cds-ABG42917.1;Parent=gene-CyHV3_ORF90;Dbxref=NCBI_GP:ABG42917.1;Name=ABG42917.1;gbkey=CDS;locus_tag=CyHV3_ORF90;product=protein Allo37;protein_id=ABG42917.1
+DQ657948.1	Genbank	CDS	165574	166764	.	-	0	ID=cds-ABG42917.1;Parent=gene-CyHV3_ORF90;Dbxref=NCBI_GP:ABG42917.1;Name=ABG42917.1;gbkey=CDS;locus_tag=CyHV3_ORF90;product=protein Allo37;protein_id=ABG42917.1
+DQ657948.1	Genbank	region	165507	165512	.	-	.	ID=id-CyHV3_ORF90;gbkey=polyA_signal;locus_tag=CyHV3_ORF90
+DQ657948.1	Genbank	gene	167979	173455	.	+	.	ID=gene-CyHV3_ORF91;Name=CyHV3_ORF91;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF91
+DQ657948.1	Genbank	CDS	167979	168665	.	+	0	ID=cds-ABG42918.1;Parent=gene-CyHV3_ORF91;Dbxref=NCBI_GP:ABG42918.1;Name=ABG42918.1;gbkey=CDS;locus_tag=CyHV3_ORF91;product=protein ORF91;protein_id=ABG42918.1
+DQ657948.1	Genbank	gene	168831	173455	.	+	.	ID=gene-CyHV3_ORF92;Name=CyHV3_ORF92;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF92
+DQ657948.1	Genbank	CDS	168831	172637	.	+	0	ID=cds-ABG42919.1;Parent=gene-CyHV3_ORF92;Dbxref=NCBI_GP:ABG42919.1;Name=ABG42919.1;gbkey=CDS;locus_tag=CyHV3_ORF92;product=major capsid protein;protein_id=ABG42919.1
+DQ657948.1	Genbank	gene	172697	173455	.	+	.	ID=gene-CyHV3_ORF93;Name=CyHV3_ORF93;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF93
+DQ657948.1	Genbank	CDS	172697	173359	.	+	0	ID=cds-ABG42920.1;Parent=gene-CyHV3_ORF93;Dbxref=NCBI_GP:ABG42920.1;Name=ABG42920.1;gbkey=CDS;locus_tag=CyHV3_ORF93;product=protein ORF93;protein_id=ABG42920.1
+DQ657948.1	Genbank	gene	173385	174483	.	-	.	ID=gene-CyHV3_ORF94;Name=CyHV3_ORF94;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF94
+DQ657948.1	Genbank	CDS	173386	174483	.	-	0	ID=cds-ABG42921.2;Parent=gene-CyHV3_ORF94;Dbxref=NCBI_GP:ABG42921.2;Name=ABG42921.2;Note=frameshifted;gbkey=CDS;locus_tag=CyHV3_ORF94;product=truncated protein ORF94;protein_id=ABG42921.2
+DQ657948.1	Genbank	region	173385	173390	.	-	.	ID=id-CyHV3_ORF94;gbkey=polyA_signal;locus_tag=CyHV3_ORF94
+DQ657948.1	Genbank	region	173450	173455	.	+	.	ID=id-DQ657948.1:173450..173455;Note=ORF91%2C ORF92%2C ORF93;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	174296	180861	.	-	.	ID=gene-CyHV3_ORF97;Name=CyHV3_ORF97;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF97
+DQ657948.1	Genbank	CDS	177739	180861	.	-	0	ID=cds-ABG42924.1;Parent=gene-CyHV3_ORF97;Dbxref=NCBI_GP:ABG42924.1;Name=ABG42924.1;gbkey=CDS;locus_tag=CyHV3_ORF97;product=protein ORF97;protein_id=ABG42924.1
+DQ657948.1	Genbank	gene	174296	177545	.	-	.	ID=gene-CyHV3_ORF96;Name=CyHV3_ORF96;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF96
+DQ657948.1	Genbank	CDS	175089	177545	.	-	0	ID=cds-ABG42923.1;Parent=gene-CyHV3_ORF96;Dbxref=NCBI_GP:ABG42923.1;Name=ABG42923.1;gbkey=CDS;locus_tag=CyHV3_ORF96;product=protein ORF96;protein_id=ABG42923.1
+DQ657948.1	Genbank	gene	174296	175096	.	-	.	ID=gene-CyHV3_ORF95;Name=CyHV3_ORF95;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF95
+DQ657948.1	Genbank	CDS	174446	175096	.	-	0	ID=cds-ABG42922.1;Parent=gene-CyHV3_ORF95;Dbxref=NCBI_GP:ABG42922.1;Name=ABG42922.1;gbkey=CDS;locus_tag=CyHV3_ORF95;product=protein ORF95;protein_id=ABG42922.1
+DQ657948.1	Genbank	region	174296	174301	.	-	.	ID=id-CyHV3_ORF95;Note=ORF95%2C ORF96%2C ORF97;gbkey=polyA_signal;locus_tag=CyHV3_ORF95
+DQ657948.1	Genbank	gene	180807	181840	.	+	.	ID=gene-CyHV3_ORF98;Name=CyHV3_ORF98;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF98
+DQ657948.1	Genbank	CDS	180807	181772	.	+	0	ID=cds-ABG42925.1;Parent=gene-CyHV3_ORF98;Dbxref=NCBI_GP:ABG42925.1;Name=ABG42925.1;gbkey=CDS;locus_tag=CyHV3_ORF98;product=uracil-DNA glycosylase;protein_id=ABG42925.1
+DQ657948.1	Genbank	region	181835	181840	.	+	.	ID=id-CyHV3_ORF98;gbkey=polyA_signal;locus_tag=CyHV3_ORF98
+DQ657948.1	Genbank	gene	181926	186592	.	+	.	ID=gene-CyHV3_ORF99;Name=CyHV3_ORF99;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF99
+DQ657948.1	Genbank	CDS	181926	186551	.	+	0	ID=cds-ABG42926.1;Parent=gene-CyHV3_ORF99;Dbxref=NCBI_GP:ABG42926.1;Name=ABG42926.1;gbkey=CDS;locus_tag=CyHV3_ORF99;product=membrane protein Allo46;protein_id=ABG42926.1
+DQ657948.1	Genbank	region	186587	186592	.	+	.	ID=id-CyHV3_ORF99;gbkey=polyA_signal;locus_tag=CyHV3_ORF99
+DQ657948.1	Genbank	gene	186574	187743	.	-	.	ID=gene-CyHV3_ORF100;Name=CyHV3_ORF100;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF100
+DQ657948.1	Genbank	CDS	186598	187743	.	-	0	ID=cds-ABG42927.1;Parent=gene-CyHV3_ORF100;Dbxref=NCBI_GP:ABG42927.1;Name=ABG42927.1;gbkey=CDS;locus_tag=CyHV3_ORF100;product=protein ORF100;protein_id=ABG42927.1
+DQ657948.1	Genbank	region	186574	186579	.	-	.	ID=id-CyHV3_ORF100;gbkey=polyA_signal;locus_tag=CyHV3_ORF100
+DQ657948.1	Genbank	gene	188007	194915	.	+	.	ID=gene-CyHV3_ORF101;Name=CyHV3_ORF101;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF101
+DQ657948.1	Genbank	CDS	188007	190676	.	+	0	ID=cds-ABG42928.1;Parent=gene-CyHV3_ORF101;Dbxref=NCBI_GP:ABG42928.1;Name=ABG42928.1;gbkey=CDS;locus_tag=CyHV3_ORF101;product=protein ORF101;protein_id=ABG42928.1
+DQ657948.1	Genbank	gene	189496	191588	.	-	.	ID=gene-CyHV3_ORF102;Name=CyHV3_ORF102;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF102
+DQ657948.1	Genbank	CDS	189924	191588	.	-	0	ID=cds-ABG42929.1;Parent=gene-CyHV3_ORF102;Dbxref=NCBI_GP:ABG42929.1;Name=ABG42929.1;gbkey=CDS;locus_tag=CyHV3_ORF102;product=protein ORF102;protein_id=ABG42929.1
+DQ657948.1	Genbank	region	189496	189501	.	-	.	ID=id-CyHV3_ORF102;gbkey=polyA_signal;locus_tag=CyHV3_ORF102
+DQ657948.1	Genbank	gene	191317	194915	.	+	.	ID=gene-CyHV3_ORF103;Name=CyHV3_ORF103;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF103
+DQ657948.1	Genbank	CDS	191317	193491	.	+	0	ID=cds-ABG42930.1;Parent=gene-CyHV3_ORF103;Dbxref=NCBI_GP:ABG42930.1;Name=ABG42930.1;gbkey=CDS;locus_tag=CyHV3_ORF103;product=protein ORF103;protein_id=ABG42930.1
+DQ657948.1	Genbank	gene	192830	194915	.	+	.	ID=gene-CyHV3_ORF104;Name=CyHV3_ORF104;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF104
+DQ657948.1	Genbank	CDS	192830	194806	.	+	0	ID=cds-ABG42931.1;Parent=gene-CyHV3_ORF104;Dbxref=NCBI_GP:ABG42931.1;Name=ABG42931.1;gbkey=CDS;locus_tag=CyHV3_ORF104;product=protein ORF104;protein_id=ABG42931.1
+DQ657948.1	Genbank	gene	194842	201102	.	+	.	ID=gene-CyHV3_ORF105;Name=CyHV3_ORF105;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF105
+DQ657948.1	Genbank	CDS	195001	195633	.	+	0	ID=cds-ABG42932.2;Parent=gene-CyHV3_ORF105;Dbxref=NCBI_GP:ABG42932.2;Name=ABG42932.2;Note=marginal CDS;gbkey=CDS;locus_tag=CyHV3_ORF105;product=protein ORF105;protein_id=ABG42932.2
+DQ657948.1	Genbank	region	194910	194915	.	+	.	ID=id-DQ657948.1:194910..194915;Note=ORF101%2C ORF103%2C ORF104;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	195777	201102	.	+	.	ID=gene-CyHV3_ORF106;Name=CyHV3_ORF106;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF106
+DQ657948.1	Genbank	CDS	195777	196013	.	+	0	ID=cds-ABG42933.1;Parent=gene-CyHV3_ORF106;Dbxref=NCBI_GP:ABG42933.1;Name=ABG42933.1;gbkey=CDS;locus_tag=CyHV3_ORF106;product=protein ORF106;protein_id=ABG42933.1
+DQ657948.1	Genbank	gene	196156	201102	.	+	.	ID=gene-CyHV3_ORF107;Name=CyHV3_ORF107;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF107
+DQ657948.1	Genbank	CDS	196156	201024	.	+	0	ID=cds-ABG42934.1;Parent=gene-CyHV3_ORF107;Dbxref=NCBI_GP:ABG42934.1;Name=ABG42934.1;gbkey=CDS;locus_tag=CyHV3_ORF107;product=protein Allo56;protein_id=ABG42934.1
+DQ657948.1	Genbank	region	201097	201102	.	+	.	ID=id-DQ657948.1:201097..201102;Note=ORF105%2C ORF106%2C ORF107;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	201231	201865	.	+	.	ID=gene-CyHV3_ORF108;Name=CyHV3_ORF108;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF108
+DQ657948.1	Genbank	CDS	201231	201818	.	+	0	ID=cds-ABG42935.1;Parent=gene-CyHV3_ORF108;Dbxref=NCBI_GP:ABG42935.1;Name=ABG42935.1;gbkey=CDS;locus_tag=CyHV3_ORF108;product=protein ORF108;protein_id=ABG42935.1
+DQ657948.1	Genbank	region	201860	201865	.	+	.	ID=id-CyHV3_ORF108;gbkey=polyA_signal;locus_tag=CyHV3_ORF108
+DQ657948.1	Genbank	gene	201825	202816	.	-	.	ID=gene-CyHV3_ORF109;Name=CyHV3_ORF109;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF109
+DQ657948.1	Genbank	CDS	201872	202816	.	-	0	ID=cds-ABG42936.1;Parent=gene-CyHV3_ORF109;Dbxref=NCBI_GP:ABG42936.1;Name=ABG42936.1;gbkey=CDS;locus_tag=CyHV3_ORF109;product=protein ORF109;protein_id=ABG42936.1
+DQ657948.1	Genbank	region	201825	201830	.	-	.	ID=id-CyHV3_ORF109;gbkey=polyA_signal;locus_tag=CyHV3_ORF109
+DQ657948.1	Genbank	gene	202777	207235	.	+	.	ID=gene-CyHV3_ORF110;Name=CyHV3_ORF110;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF110
+DQ657948.1	Genbank	CDS	202777	203493	.	+	0	ID=cds-ABG42937.1;Parent=gene-CyHV3_ORF110;Dbxref=NCBI_GP:ABG42937.1;Name=ABG42937.1;gbkey=CDS;locus_tag=CyHV3_ORF110;product=protein ORF110;protein_id=ABG42937.1
+DQ657948.1	Genbank	gene	203581	207235	.	+	.	ID=gene-CyHV3_ORF111;Name=CyHV3_ORF111;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF111
+DQ657948.1	Genbank	CDS	203581	205014	.	+	0	ID=cds-ABG42938.1;Parent=gene-CyHV3_ORF111;Dbxref=NCBI_GP:ABG42938.1;Name=ABG42938.1;gbkey=CDS;locus_tag=CyHV3_ORF111;product=protein ORF111;protein_id=ABG42938.1
+DQ657948.1	Genbank	gene	205019	207235	.	+	.	ID=gene-CyHV3_ORF112;Name=CyHV3_ORF112;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF112
+DQ657948.1	Genbank	CDS	205019	205861	.	+	0	ID=cds-ABG42939.1;Parent=gene-CyHV3_ORF112;Dbxref=NCBI_GP:ABG42939.1;Name=ABG42939.1;gbkey=CDS;locus_tag=CyHV3_ORF112;product=protein ORF112;protein_id=ABG42939.1
+DQ657948.1	Genbank	gene	205931	207235	.	+	.	ID=gene-CyHV3_ORF113;Name=CyHV3_ORF113;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF113
+DQ657948.1	Genbank	CDS	205931	207127	.	+	0	ID=cds-ABG42940.1;Parent=gene-CyHV3_ORF113;Dbxref=NCBI_GP:ABG42940.1;Name=ABG42940.1;gbkey=CDS;locus_tag=CyHV3_ORF113;product=protein ORF113;protein_id=ABG42940.1
+DQ657948.1	Genbank	region	207230	207235	.	+	.	ID=id-DQ657948.1:207230..207235;Note=ORF110%2C ORF111%2C ORF112%2C ORF113;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	207270	208199	.	-	.	ID=gene-CyHV3_ORF114;Name=CyHV3_ORF114;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF114
+DQ657948.1	Genbank	CDS	207306	208199	.	-	0	ID=cds-ABG42941.1;Parent=gene-CyHV3_ORF114;Dbxref=NCBI_GP:ABG42941.1;Name=ABG42941.1;gbkey=CDS;locus_tag=CyHV3_ORF114;product=membrane protein ORF114;protein_id=ABG42941.1
+DQ657948.1	Genbank	region	207270	207275	.	-	.	ID=id-CyHV3_ORF114;gbkey=polyA_signal;locus_tag=CyHV3_ORF114
+DQ657948.1	Genbank	gene	208227	210567	.	+	.	ID=gene-CyHV3_ORF115;Name=CyHV3_ORF115;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF115
+DQ657948.1	Genbank	CDS	208227	210566	.	+	0	ID=cds-ABG42942.1;Parent=gene-CyHV3_ORF115;Dbxref=NCBI_GP:ABG42942.1;Name=ABG42942.1;gbkey=CDS;locus_tag=CyHV3_ORF115;product=membrane protein ORF115;protein_id=ABG42942.1
+DQ657948.1	Genbank	region	210562	210567	.	+	.	ID=id-CyHV3_ORF115;gbkey=polyA_signal;locus_tag=CyHV3_ORF115
+DQ657948.1	Genbank	gene	210605	211960	.	-	.	ID=gene-CyHV3_ORF117;Name=CyHV3_ORF117;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF117
+DQ657948.1	Genbank	CDS	211553	211960	.	-	0	ID=cds-ABG42944.1;Parent=gene-CyHV3_ORF117;Dbxref=NCBI_GP:ABG42944.1;Name=ABG42944.1;gbkey=CDS;locus_tag=CyHV3_ORF117;product=protein ORF117;protein_id=ABG42944.1
+DQ657948.1	Genbank	gene	210605	211504	.	-	.	ID=gene-CyHV3_ORF116;Name=CyHV3_ORF116;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF116
+DQ657948.1	Genbank	CDS	210650	211504	.	-	0	ID=cds-ABG42943.1;Parent=gene-CyHV3_ORF116;Dbxref=NCBI_GP:ABG42943.1;Name=ABG42943.1;gbkey=CDS;locus_tag=CyHV3_ORF116;product=membrane protein ORF116;protein_id=ABG42943.1
+DQ657948.1	Genbank	region	210605	210610	.	-	.	ID=id-DQ657948.1:210605..210610;Note=ORF116%2C ORF117;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	211985	215534	.	+	.	ID=gene-CyHV3_ORF118;Name=CyHV3_ORF118;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF118
+DQ657948.1	Genbank	CDS	211985	212998	.	+	0	ID=cds-ABG42945.1;Parent=gene-CyHV3_ORF118;Dbxref=NCBI_GP:ABG42945.1;Name=ABG42945.1;gbkey=CDS;locus_tag=CyHV3_ORF118;product=protein ORF118;protein_id=ABG42945.1
+DQ657948.1	Genbank	gene	213012	215534	.	+	.	ID=gene-CyHV3_ORF119;Name=CyHV3_ORF119;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF119
+DQ657948.1	Genbank	CDS	213084	213437	.	+	0	ID=cds-ABG42946.2;Parent=gene-CyHV3_ORF119;Dbxref=NCBI_GP:ABG42946.2;Name=ABG42946.2;gbkey=CDS;locus_tag=CyHV3_ORF119;product=protein ORF119;protein_id=ABG42946.2
+DQ657948.1	Genbank	gene	213535	215534	.	+	.	ID=gene-CyHV3_ORF120;Name=CyHV3_ORF120;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF120
+DQ657948.1	Genbank	CDS	213535	214323	.	+	0	ID=cds-ABG42947.1;Parent=gene-CyHV3_ORF120;Dbxref=NCBI_GP:ABG42947.1;Name=ABG42947.1;gbkey=CDS;locus_tag=CyHV3_ORF120;product=protein ORF120;protein_id=ABG42947.1
+DQ657948.1	Genbank	gene	214501	215534	.	+	.	ID=gene-CyHV3_ORF121;Name=CyHV3_ORF121;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF121
+DQ657948.1	Genbank	CDS	214501	215400	.	+	0	ID=cds-ABG42948.1;Parent=gene-CyHV3_ORF121;Dbxref=NCBI_GP:ABG42948.1;Name=ABG42948.1;gbkey=CDS;locus_tag=CyHV3_ORF121;product=protein ORF121;protein_id=ABG42948.1
+DQ657948.1	Genbank	region	215529	215534	.	+	.	ID=id-DQ657948.1:215529..215534;Note=ORF118%2C ORF119%2C ORF120%2C ORF121;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	215654	217484	.	+	.	ID=gene-CyHV3_ORF122;Name=CyHV3_ORF122;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF122
+DQ657948.1	Genbank	CDS	215654	216547	.	+	0	ID=cds-ABG42949.1;Parent=gene-CyHV3_ORF122;Dbxref=NCBI_GP:ABG42949.1;Name=ABG42949.1;gbkey=CDS;locus_tag=CyHV3_ORF122;product=protein ORF122;protein_id=ABG42949.1
+DQ657948.1	Genbank	gene	216590	217484	.	+	.	ID=gene-CyHV3_ORF123;Name=CyHV3_ORF123;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF123
+DQ657948.1	Genbank	CDS	216590	217411	.	+	0	ID=cds-ABG42950.1;Parent=gene-CyHV3_ORF123;Dbxref=NCBI_GP:ABG42950.1;Name=ABG42950.1;gbkey=CDS;locus_tag=CyHV3_ORF123;product=deoxyuridine triphosphatase;protein_id=ABG42950.1
+DQ657948.1	Genbank	region	217479	217484	.	+	.	ID=id-DQ657948.1:217479..217484;Note=ORF122%2C ORF123;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	217559	218506	.	+	.	ID=gene-CyHV3_ORF124;Name=CyHV3_ORF124;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF124
+DQ657948.1	Genbank	CDS	217559	218404	.	+	0	ID=cds-ABG42951.1;Parent=gene-CyHV3_ORF124;Dbxref=NCBI_GP:ABG42951.1;Name=ABG42951.1;gbkey=CDS;locus_tag=CyHV3_ORF124;product=membrane protein ORF124;protein_id=ABG42951.1
+DQ657948.1	Genbank	region	218501	218506	.	+	.	ID=id-CyHV3_ORF124;gbkey=polyA_signal;locus_tag=CyHV3_ORF124
+DQ657948.1	Genbank	gene	218607	220816	.	+	.	ID=gene-CyHV3_ORF125;Name=CyHV3_ORF125;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF125
+DQ657948.1	Genbank	CDS	218607	219173	.	+	0	ID=cds-ABG42952.1;Parent=gene-CyHV3_ORF125;Dbxref=NCBI_GP:ABG42952.1;Name=ABG42952.1;gbkey=CDS;locus_tag=CyHV3_ORF125;product=protein ORF125;protein_id=ABG42952.1
+DQ657948.1	Genbank	gene	219317	220816	.	+	.	ID=gene-CyHV3_ORF126;Name=CyHV3_ORF126;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF126
+DQ657948.1	Genbank	CDS	219317	220138	.	+	0	ID=cds-ABG42953.1;Parent=gene-CyHV3_ORF126;Dbxref=NCBI_GP:ABG42953.1;Name=ABG42953.1;gbkey=CDS;locus_tag=CyHV3_ORF126;product=membrane protein ORF126;protein_id=ABG42953.1
+DQ657948.1	Genbank	gene	220216	220816	.	+	.	ID=gene-CyHV3_ORF127;Name=CyHV3_ORF127;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF127
+DQ657948.1	Genbank	CDS	220216	220776	.	+	0	ID=cds-ABG42954.1;Parent=gene-CyHV3_ORF127;Dbxref=NCBI_GP:ABG42954.1;Name=ABG42954.1;gbkey=CDS;locus_tag=CyHV3_ORF127;product=protein ORF127;protein_id=ABG42954.1
+DQ657948.1	Genbank	region	220811	220816	.	+	.	ID=id-DQ657948.1:220811..220816;Note=ORF125%2C ORF126%2C ORF127;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	220848	223687	.	-	.	ID=gene-CyHV3_ORF129;Name=CyHV3_ORF129;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF129
+DQ657948.1	Genbank	CDS	222419	223687	.	-	0	ID=cds-ABG42956.1;Parent=gene-CyHV3_ORF129;Dbxref=NCBI_GP:ABG42956.1;Name=ABG42956.1;Note=possibly ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF129;product=protein ORF129;protein_id=ABG42956.1
+DQ657948.1	Genbank	gene	220848	222291	.	-	.	ID=gene-CyHV3_ORF128;Name=CyHV3_ORF128;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF128
+DQ657948.1	Genbank	CDS	220933	222291	.	-	0	ID=cds-ABG42955.1;Parent=gene-CyHV3_ORF128;Dbxref=NCBI_GP:ABG42955.1;Name=ABG42955.1;Note=RING family;gbkey=CDS;locus_tag=CyHV3_ORF128;product=protein ORF128;protein_id=ABG42955.1
+DQ657948.1	Genbank	region	220848	220853	.	-	.	ID=id-DQ657948.1:220848..220853;Note=ORF128%2C ORF129;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	223766	226993	.	-	.	ID=gene-CyHV3_ORF131;Name=CyHV3_ORF131;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF131
+DQ657948.1	Genbank	CDS	226921	226993	.	-	0	ID=cds-ABG42958.2;Parent=gene-CyHV3_ORF131;Dbxref=NCBI_GP:ABG42958.2;Name=ABG42958.2;Note=exons 1 and 2 are similar to exons 1 and 2 of Danio rerio LOC562542;gbkey=CDS;locus_tag=CyHV3_ORF131;product=membrane protein ORF131;protein_id=ABG42958.2
+DQ657948.1	Genbank	CDS	226508	226792	.	-	2	ID=cds-ABG42958.2;Parent=gene-CyHV3_ORF131;Dbxref=NCBI_GP:ABG42958.2;Name=ABG42958.2;Note=exons 1 and 2 are similar to exons 1 and 2 of Danio rerio LOC562542;gbkey=CDS;locus_tag=CyHV3_ORF131;product=membrane protein ORF131;protein_id=ABG42958.2
+DQ657948.1	Genbank	CDS	225485	226416	.	-	2	ID=cds-ABG42958.2;Parent=gene-CyHV3_ORF131;Dbxref=NCBI_GP:ABG42958.2;Name=ABG42958.2;Note=exons 1 and 2 are similar to exons 1 and 2 of Danio rerio LOC562542;gbkey=CDS;locus_tag=CyHV3_ORF131;product=membrane protein ORF131;protein_id=ABG42958.2
+DQ657948.1	Genbank	gene	223766	225366	.	-	.	ID=gene-CyHV3_ORF130;Name=CyHV3_ORF130;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF130
+DQ657948.1	Genbank	CDS	223870	225366	.	-	0	ID=cds-ABG42957.1;Parent=gene-CyHV3_ORF130;Dbxref=NCBI_GP:ABG42957.1;Name=ABG42957.1;Note=ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF130;product=protein ORF130;protein_id=ABG42957.1
+DQ657948.1	Genbank	region	223766	223771	.	-	.	ID=id-DQ657948.1:223766..223771;Note=ORF130%2C ORF131;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	227387	227956	.	-	.	ID=gene-CyHV3_ORF132;Name=CyHV3_ORF132;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF132
+DQ657948.1	Genbank	CDS	227444	227956	.	-	0	ID=cds-ABG42959.1;Parent=gene-CyHV3_ORF132;Dbxref=NCBI_GP:ABG42959.1;Name=ABG42959.1;gbkey=CDS;locus_tag=CyHV3_ORF132;product=membrane protein ORF132;protein_id=ABG42959.1
+DQ657948.1	Genbank	region	227387	227392	.	-	.	ID=id-CyHV3_ORF132;gbkey=polyA_signal;locus_tag=CyHV3_ORF132
+DQ657948.1	Genbank	gene	228226	229255	.	+	.	ID=gene-CyHV3_ORF133;Name=CyHV3_ORF133;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF133
+DQ657948.1	Genbank	CDS	228226	229212	.	+	0	ID=cds-ABG42960.1;Parent=gene-CyHV3_ORF133;Dbxref=NCBI_GP:ABG42960.1;Name=ABG42960.1;gbkey=CDS;locus_tag=CyHV3_ORF133;product=protein ORF133;protein_id=ABG42960.1
+DQ657948.1	Genbank	region	229250	229255	.	+	.	ID=id-CyHV3_ORF133;gbkey=polyA_signal;locus_tag=CyHV3_ORF133
+DQ657948.1	Genbank	gene	229228	229885	.	-	.	ID=gene-CyHV3_ORF134;Name=CyHV3_ORF134;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF134
+DQ657948.1	Genbank	CDS	229514	229885	.	-	0	ID=cds-ABG42961.1;Parent=gene-CyHV3_ORF134;Dbxref=NCBI_GP:ABG42961.1;Name=ABG42961.1;gbkey=CDS;locus_tag=CyHV3_ORF134;product=interleukin-10;protein_id=ABG42961.1
+DQ657948.1	Genbank	CDS	229262	229429	.	-	0	ID=cds-ABG42961.1;Parent=gene-CyHV3_ORF134;Dbxref=NCBI_GP:ABG42961.1;Name=ABG42961.1;gbkey=CDS;locus_tag=CyHV3_ORF134;product=interleukin-10;protein_id=ABG42961.1
+DQ657948.1	Genbank	region	229228	229233	.	-	.	ID=id-CyHV3_ORF134;gbkey=polyA_signal;locus_tag=CyHV3_ORF134
+DQ657948.1	Genbank	gene	230127	231265	.	+	.	ID=gene-CyHV3_ORF135;Name=CyHV3_ORF135;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF135
+DQ657948.1	Genbank	CDS	230127	231221	.	+	0	ID=cds-ABG42962.1;Parent=gene-CyHV3_ORF135;Dbxref=NCBI_GP:ABG42962.1;Name=ABG42962.1;Note=possibly ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF135;product=protein ORF135;protein_id=ABG42962.1
+DQ657948.1	Genbank	region	231260	231265	.	+	.	ID=id-CyHV3_ORF135;gbkey=polyA_signal;locus_tag=CyHV3_ORF135
+DQ657948.1	Genbank	gene	231339	231825	.	+	.	ID=gene-CyHV3_ORF136;Name=CyHV3_ORF136;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF136
+DQ657948.1	Genbank	CDS	231339	231800	.	+	0	ID=cds-ABG42963.1;Parent=gene-CyHV3_ORF136;Dbxref=NCBI_GP:ABG42963.1;Name=ABG42963.1;gbkey=CDS;locus_tag=CyHV3_ORF136;product=membrane protein ORF136;protein_id=ABG42963.1
+DQ657948.1	Genbank	region	231820	231825	.	+	.	ID=id-CyHV3_ORF136;gbkey=polyA_signal;locus_tag=CyHV3_ORF136
+DQ657948.1	Genbank	gene	231948	235115	.	-	.	ID=gene-CyHV3_ORF138;Name=CyHV3_ORF138;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF138
+DQ657948.1	Genbank	CDS	233937	235115	.	-	0	ID=cds-ABG42965.1;Parent=gene-CyHV3_ORF138;Dbxref=NCBI_GP:ABG42965.1;Name=ABG42965.1;gbkey=CDS;locus_tag=CyHV3_ORF138;product=membrane protein ORF138;protein_id=ABG42965.1
+DQ657948.1	Genbank	gene	231948	233823	.	-	.	ID=gene-CyHV3_ORF137;Name=CyHV3_ORF137;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF137
+DQ657948.1	Genbank	CDS	232003	233823	.	-	0	ID=cds-ABG42964.1;Parent=gene-CyHV3_ORF137;Dbxref=NCBI_GP:ABG42964.1;Name=ABG42964.1;Note=ORF22 family;gbkey=CDS;locus_tag=CyHV3_ORF137;product=protein ORF137;protein_id=ABG42964.1
+DQ657948.1	Genbank	region	231948	231953	.	-	.	ID=id-DQ657948.1:231948..231953;Note=ORF137%2C ORF138;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	235263	242510	.	-	.	ID=gene-CyHV3_ORF139;Name=CyHV3_ORF139;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF139
+DQ657948.1	Genbank	CDS	238362	242510	.	-	0	ID=cds-ABG42966.1;Parent=gene-CyHV3_ORF139;Dbxref=NCBI_GP:ABG42966.1;Name=ABG42966.1;gbkey=CDS;locus_tag=CyHV3_ORF139;product=membrane protein ORF139;protein_id=ABG42966.1
+DQ657948.1	Genbank	CDS	235361	238291	.	-	0	ID=cds-ABG42966.1;Parent=gene-CyHV3_ORF139;Dbxref=NCBI_GP:ABG42966.1;Name=ABG42966.1;gbkey=CDS;locus_tag=CyHV3_ORF139;product=membrane protein ORF139;protein_id=ABG42966.1
+DQ657948.1	Genbank	region	235263	235268	.	-	.	ID=id-CyHV3_ORF139;gbkey=polyA_signal;locus_tag=CyHV3_ORF139
+DQ657948.1	Genbank	gene	242781	243521	.	+	.	ID=gene-CyHV3_ORF140;Name=CyHV3_ORF140;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF140
+DQ657948.1	Genbank	CDS	242781	243482	.	+	0	ID=cds-ABG42967.1;Parent=gene-CyHV3_ORF140;Dbxref=NCBI_GP:ABG42967.1;Name=ABG42967.1;gbkey=CDS;locus_tag=CyHV3_ORF140;product=thymidylate kinase;protein_id=ABG42967.1
+DQ657948.1	Genbank	region	243516	243521	.	+	.	ID=id-CyHV3_ORF140;gbkey=polyA_signal;locus_tag=CyHV3_ORF140
+DQ657948.1	Genbank	gene	243551	246033	.	-	.	ID=gene-CyHV3_ORF141;Name=CyHV3_ORF141;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF141
+DQ657948.1	Genbank	CDS	243613	246033	.	-	0	ID=cds-ABG42968.1;Parent=gene-CyHV3_ORF141;Dbxref=NCBI_GP:ABG42968.1;Name=ABG42968.1;gbkey=CDS;locus_tag=CyHV3_ORF141;product=ribonucleotide reductase subunit 1;protein_id=ABG42968.1
+DQ657948.1	Genbank	region	243551	243556	.	-	.	ID=id-CyHV3_ORF141;gbkey=polyA_signal;locus_tag=CyHV3_ORF141
+DQ657948.1	Genbank	gene	246191	246778	.	-	.	ID=gene-CyHV3_ORF142;Name=CyHV3_ORF142;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF142
+DQ657948.1	Genbank	CDS	246266	246778	.	-	0	ID=cds-ABG42969.1;Parent=gene-CyHV3_ORF142;Dbxref=NCBI_GP:ABG42969.1;Name=ABG42969.1;gbkey=CDS;locus_tag=CyHV3_ORF142;product=protein ORF142;protein_id=ABG42969.1
+DQ657948.1	Genbank	region	246191	246196	.	-	.	ID=id-CyHV3_ORF142;gbkey=polyA_signal;locus_tag=CyHV3_ORF142
+DQ657948.1	Genbank	gene	246965	248934	.	-	.	ID=gene-CyHV3_ORF144;Name=CyHV3_ORF144;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF144
+DQ657948.1	Genbank	CDS	248059	248934	.	-	0	ID=cds-ABG42971.1;Parent=gene-CyHV3_ORF144;Dbxref=NCBI_GP:ABG42971.1;Name=ABG42971.1;Note=RING family;gbkey=CDS;locus_tag=CyHV3_ORF144;product=protein ORF144;protein_id=ABG42971.1
+DQ657948.1	Genbank	gene	246965	247975	.	-	.	ID=gene-CyHV3_ORF143;Name=CyHV3_ORF143;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF143
+DQ657948.1	Genbank	CDS	247040	247975	.	-	0	ID=cds-ABG42970.1;Parent=gene-CyHV3_ORF143;Dbxref=NCBI_GP:ABG42970.1;Name=ABG42970.1;gbkey=CDS;locus_tag=CyHV3_ORF143;product=protein ORF143;protein_id=ABG42970.1
+DQ657948.1	Genbank	region	246965	246970	.	-	.	ID=id-DQ657948.1:246965..246970;Note=ORF143%2C ORF144;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	249023	251624	.	-	.	ID=gene-CyHV3_ORF145;Name=CyHV3_ORF145;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF145
+DQ657948.1	Genbank	CDS	249114	251624	.	-	0	ID=cds-ABG42972.1;Parent=gene-CyHV3_ORF145;Dbxref=NCBI_GP:ABG42972.1;Name=ABG42972.1;gbkey=CDS;locus_tag=CyHV3_ORF145;product=protein ORF145;protein_id=ABG42972.1
+DQ657948.1	Genbank	region	249023	249028	.	-	.	ID=id-CyHV3_ORF145;gbkey=polyA_signal;locus_tag=CyHV3_ORF145
+DQ657948.1	Genbank	gene	251863	255779	.	-	.	ID=gene-CyHV3_ORF148;Name=CyHV3_ORF148;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF148
+DQ657948.1	Genbank	CDS	253956	255779	.	-	0	ID=cds-ABG42975.1;Parent=gene-CyHV3_ORF148;Dbxref=NCBI_GP:ABG42975.1;Name=ABG42975.1;Note=ORF25 family;gbkey=CDS;locus_tag=CyHV3_ORF148;product=membrane protein ORF148;protein_id=ABG42975.1
+DQ657948.1	Genbank	gene	251863	253810	.	-	.	ID=gene-CyHV3_ORF147;Name=CyHV3_ORF147;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF147
+DQ657948.1	Genbank	CDS	253031	253810	.	-	0	ID=cds-ABG42974.1;Parent=gene-CyHV3_ORF147;Dbxref=NCBI_GP:ABG42974.1;Name=ABG42974.1;gbkey=CDS;locus_tag=CyHV3_ORF147;product=protein ORF147;protein_id=ABG42974.1
+DQ657948.1	Genbank	gene	251863	252909	.	-	.	ID=gene-CyHV3_ORF146;Name=CyHV3_ORF146;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF146
+DQ657948.1	Genbank	CDS	251911	252909	.	-	0	ID=cds-ABG42973.1;Parent=gene-CyHV3_ORF146;Dbxref=NCBI_GP:ABG42973.1;Name=ABG42973.1;gbkey=CDS;locus_tag=CyHV3_ORF146;product=membrane protein ORF146;protein_id=ABG42973.1
+DQ657948.1	Genbank	region	251863	251868	.	-	.	ID=id-DQ657948.1:251863..251868;Note=ORF146%2C ORF147%2C ORF148;gbkey=polyA_signal
+DQ657948.1	Genbank	gene	255870	257996	.	-	.	ID=gene-CyHV3_ORF149;Name=CyHV3_ORF149;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF149
+DQ657948.1	Genbank	CDS	255936	257996	.	-	0	ID=cds-ABG42976.1;Parent=gene-CyHV3_ORF149;Dbxref=NCBI_GP:ABG42976.1;Name=ABG42976.1;Note=ORF25 family;gbkey=CDS;locus_tag=CyHV3_ORF149;product=membrane protein ORF149;protein_id=ABG42976.1
+DQ657948.1	Genbank	region	255870	255875	.	-	.	ID=id-CyHV3_ORF149;gbkey=polyA_signal;locus_tag=CyHV3_ORF149
+DQ657948.1	Genbank	gene	258345	260343	.	+	.	ID=gene-CyHV3_ORF150;Name=CyHV3_ORF150;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF150
+DQ657948.1	Genbank	CDS	258345	260231	.	+	0	ID=cds-ABG42977.1;Parent=gene-CyHV3_ORF150;Dbxref=NCBI_GP:ABG42977.1;Name=ABG42977.1;Note=RING family;gbkey=CDS;locus_tag=CyHV3_ORF150;product=protein ORF150;protein_id=ABG42977.1
+DQ657948.1	Genbank	region	260338	260343	.	+	.	ID=id-CyHV3_ORF150;gbkey=polyA_signal;locus_tag=CyHV3_ORF150
+DQ657948.1	Genbank	gene	260552	261569	.	+	.	ID=gene-CyHV3_ORF151;Name=CyHV3_ORF151;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF151
+DQ657948.1	Genbank	CDS	260552	261508	.	+	0	ID=cds-ABG42978.1;Parent=gene-CyHV3_ORF151;Dbxref=NCBI_GP:ABG42978.1;Name=ABG42978.1;gbkey=CDS;locus_tag=CyHV3_ORF151;product=protein ORF151;protein_id=ABG42978.1
+DQ657948.1	Genbank	region	261564	261569	.	+	.	ID=id-CyHV3_ORF151;gbkey=polyA_signal;locus_tag=CyHV3_ORF151
+DQ657948.1	Genbank	gene	261832	263518	.	+	.	ID=gene-CyHV3_ORF152;Name=CyHV3_ORF152;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF152
+DQ657948.1	Genbank	CDS	261832	263451	.	+	0	ID=cds-ABG42979.1;Parent=gene-CyHV3_ORF152;Dbxref=NCBI_GP:ABG42979.1;Name=ABG42979.1;gbkey=CDS;locus_tag=CyHV3_ORF152;product=protein ORF152;protein_id=ABG42979.1
+DQ657948.1	Genbank	region	263513	263518	.	+	.	ID=id-CyHV3_ORF152;gbkey=polyA_signal;locus_tag=CyHV3_ORF152
+DQ657948.1	Genbank	gene	263756	264457	.	+	.	ID=gene-CyHV3_ORF153;Name=CyHV3_ORF153;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF153
+DQ657948.1	Genbank	CDS	263756	264427	.	+	0	ID=cds-ABG42980.1;Parent=gene-CyHV3_ORF153;Dbxref=NCBI_GP:ABG42980.1;Name=ABG42980.1;Note=ORF153 family;gbkey=CDS;locus_tag=CyHV3_ORF153;product=membrane protein ORF153;protein_id=ABG42980.1
+DQ657948.1	Genbank	region	264452	264457	.	+	.	ID=id-CyHV3_ORF153;gbkey=polyA_signal;locus_tag=CyHV3_ORF153
+DQ657948.1	Genbank	gene	264628	265162	.	-	.	ID=gene-CyHV3_ORF154;Name=CyHV3_ORF154;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF154
+DQ657948.1	Genbank	CDS	264821	265162	.	-	0	ID=cds-ABG42981.1;Parent=gene-CyHV3_ORF154;Dbxref=NCBI_GP:ABG42981.1;Name=ABG42981.1;gbkey=CDS;locus_tag=CyHV3_ORF154;product=protein ORF154;protein_id=ABG42981.1
+DQ657948.1	Genbank	region	264628	264633	.	-	.	ID=id-CyHV3_ORF154;gbkey=polyA_signal;locus_tag=CyHV3_ORF154
+DQ657948.1	Genbank	gene	265333	270469	.	-	.	ID=gene-CyHV3_ORF155;Name=CyHV3_ORF155;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF155
+DQ657948.1	Genbank	CDS	265938	270469	.	-	0	ID=cds-ABG42982.1;Parent=gene-CyHV3_ORF155;Dbxref=NCBI_GP:ABG42982.1;Name=ABG42982.1;gbkey=CDS;locus_tag=CyHV3_ORF155;product=protein ORF155;protein_id=ABG42982.1
+DQ657948.1	Genbank	CDS	265486	265825	.	-	1	ID=cds-ABG42982.1;Parent=gene-CyHV3_ORF155;Dbxref=NCBI_GP:ABG42982.1;Name=ABG42982.1;gbkey=CDS;locus_tag=CyHV3_ORF155;product=protein ORF155;protein_id=ABG42982.1
+DQ657948.1	Genbank	region	265333	265338	.	-	.	ID=id-CyHV3_ORF155;gbkey=polyA_signal;locus_tag=CyHV3_ORF155
+DQ657948.1	Genbank	gene	270773	272424	.	-	.	ID=gene-CyHV3_ORF156;Name=CyHV3_ORF156;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF156
+DQ657948.1	Genbank	CDS	270919	272424	.	-	0	ID=cds-ABG42983.1;Parent=gene-CyHV3_ORF156;Dbxref=NCBI_GP:ABG42983.1;Name=ABG42983.1;gbkey=CDS;locus_tag=CyHV3_ORF156;product=protein ORF156;protein_id=ABG42983.1
+DQ657948.1	Genbank	region	270773	270778	.	-	.	ID=id-CyHV3_ORF156;gbkey=polyA_signal;locus_tag=CyHV3_ORF156
+DQ657948.1	Genbank	repeat_region	272678	295146	.	+	.	ID=id-DQ657948.1:272678..295146;gbkey=repeat_region;rpt_type=terminal
+DQ657948.1	Genbank	repeat_region	272734	272826	.	+	.	ID=id-DQ657948.1:272734..272826;Note=telomere-like;gbkey=repeat_region;rpt_type=tandem
+DQ657948.1	Genbank	gene	273103	273922	.	+	.	ID=gene-CyHV3_ORF1_2;Name=CyHV3_ORF1_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF1_2
+DQ657948.1	Genbank	CDS	273103	273876	.	+	0	ID=cds-ABG42984.1;Parent=gene-CyHV3_ORF1_2;Dbxref=NCBI_GP:ABG42984.1;Name=ABG42984.1;gbkey=CDS;locus_tag=CyHV3_ORF1_2;product=protein ORF1;protein_id=ABG42984.1
+DQ657948.1	Genbank	region	273917	273922	.	+	.	ID=id-CyHV3_ORF1_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF1_2
+DQ657948.1	Genbank	gene	274250	276180	.	-	.	ID=gene-CyHV3_ORF2_2;Name=CyHV3_ORF2_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF2_2
+DQ657948.1	Genbank	CDS	274312	276180	.	-	0	ID=cds-ABG42985.1;Parent=gene-CyHV3_ORF2_2;Dbxref=NCBI_GP:ABG42985.1;Name=ABG42985.1;Note=ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF2_2;product=protein ORF2;protein_id=ABG42985.1
+DQ657948.1	Genbank	region	274250	274255	.	-	.	ID=id-CyHV3_ORF2_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF2_2
+DQ657948.1	Genbank	gene	276976	279685	.	+	.	ID=gene-CyHV3_ORF3_2;Name=CyHV3_ORF3_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF3_2
+DQ657948.1	Genbank	CDS	276976	279591	.	+	0	ID=cds-ABG42986.1;Parent=gene-CyHV3_ORF3_2;Dbxref=NCBI_GP:ABG42986.1;Name=ABG42986.1;Note=possibly ORF2 family;gbkey=CDS;locus_tag=CyHV3_ORF3_2;product=protein ORF3;protein_id=ABG42986.1
+DQ657948.1	Genbank	region	279680	279685	.	+	.	ID=id-CyHV3_ORF3_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF3_2
+DQ657948.1	Genbank	gene	280063	281096	.	+	.	ID=gene-CyHV3_ORF4_2;Name=CyHV3_ORF4_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF4_2
+DQ657948.1	Genbank	CDS	280063	281004	.	+	0	ID=cds-ABG42987.1;Parent=gene-CyHV3_ORF4_2;Dbxref=NCBI_GP:ABG42987.1;Name=ABG42987.1;Note=TNFR family;gbkey=CDS;locus_tag=CyHV3_ORF4_2;product=protein ORF4;protein_id=ABG42987.1
+DQ657948.1	Genbank	region	281091	281096	.	+	.	ID=id-CyHV3_ORF4_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF4_2
+DQ657948.1	Genbank	gene	281283	283706	.	+	.	ID=gene-CyHV3_ORF5_2;Name=CyHV3_ORF5_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF5_2
+DQ657948.1	Genbank	CDS	281283	282626	.	+	0	ID=cds-ABG42988.1;Parent=gene-CyHV3_ORF5_2;Dbxref=NCBI_GP:ABG42988.1;Name=ABG42988.1;gbkey=CDS;locus_tag=CyHV3_ORF5_2;product=protein ORF5;protein_id=ABG42988.1
+DQ657948.1	Genbank	region	283701	283706	.	+	.	ID=id-CyHV3_ORF5_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF5_2
+DQ657948.1	Genbank	gene	283999	286431	.	-	.	ID=gene-CyHV3_ORF6_2;Name=CyHV3_ORF6_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF6_2
+DQ657948.1	Genbank	CDS	284652	286431	.	-	0	ID=cds-ABG42989.2;Parent=gene-CyHV3_ORF6_2;Dbxref=NCBI_GP:ABG42989.2;Name=ABG42989.2;gbkey=CDS;locus_tag=CyHV3_ORF6_2;product=protein ORF6;protein_id=ABG42989.2
+DQ657948.1	Genbank	CDS	284168	284565	.	-	2	ID=cds-ABG42989.2;Parent=gene-CyHV3_ORF6_2;Dbxref=NCBI_GP:ABG42989.2;Name=ABG42989.2;gbkey=CDS;locus_tag=CyHV3_ORF6_2;product=protein ORF6;protein_id=ABG42989.2
+DQ657948.1	Genbank	region	283999	284004	.	-	.	ID=id-CyHV3_ORF6_2;gbkey=polyA_signal;locus_tag=CyHV3_ORF6_2
+DQ657948.1	Genbank	gene	287364	291395	.	-	.	ID=gene-CyHV3_ORF8_2;Name=CyHV3_ORF8_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF8_2
+DQ657948.1	Genbank	CDS	290526	291395	.	-	0	ID=cds-ABG42991.1;Parent=gene-CyHV3_ORF8_2;Dbxref=NCBI_GP:ABG42991.1;Name=ABG42991.1;gbkey=CDS;locus_tag=CyHV3_ORF8_2;product=protein ORF8;protein_id=ABG42991.1
+DQ657948.1	Genbank	gene	287364	290174	.	-	.	ID=gene-CyHV3_ORF7_2;Name=CyHV3_ORF7_2;gbkey=Gene;gene_biotype=protein_coding;locus_tag=CyHV3_ORF7_2
+DQ657948.1	Genbank	CDS	288893	290174	.	-	0	ID=cds-ABG42990.1;Parent=gene-CyHV3_ORF7_2;Dbxref=NCBI_GP:ABG42990.1;Name=ABG42990.1;gbkey=CDS;locus_tag=CyHV3_ORF7_2;product=protein ORF7;protein_id=ABG42990.1
+DQ657948.1	Genbank	CDS	287541	288685	.	-	2	ID=cds-ABG42990.1;Parent=gene-CyHV3_ORF7_2;Dbxref=NCBI_GP:ABG42990.1;Name=ABG42990.1;gbkey=CDS;locus_tag=CyHV3_ORF7_2;product=protein ORF7;protein_id=ABG42990.1
+DQ657948.1	Genbank	region	287364	287369	.	-	.	ID=id-DQ657948.1:287364..287369;Note=ORF7%2C ORF8;gbkey=polyA_signal
+DQ657948.1	Genbank	repeat_region	294546	295073	.	+	.	ID=id-DQ657948.1:294546..295073;Note=telomere-like;gbkey=repeat_region;rpt_type=tandem
+
