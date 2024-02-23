@@ -152,111 +152,53 @@ def test(variants, valeur):
     elif (variants=="<DUP>" and valeur=="<DUP>"):
             return True
     return False
+
+def assemblageDeVariants(dico, decalage) -> dict:
     
-
-
-def assemblageParDictionnaire(resultat_final: dict, pourcentage) -> dict:
-    """
-    assemblageParDictionnaire(resultat_final)
-    \nEntree:
-        resultat_final: Dictionnaire contenant tout les variants pour chaque réplicat de chaque échantillon.
-    \nSortie:
-        dictionnaire_assemble: Dictionnaire contenant les variants assemblés par position. Prend en compte la position dans
-                                le génome et la similarité entre les séquences.
-    \nExemple:
-        Entree:
-            {'P15': 
-                {'P15-1': {'1': [('A', 1, 1, 0.1), ('T', 1, 1, 0.2)], '2': [('C', 1, 1, 0.3)]}, 
-                'P15-2': {'1': [('A', 1, 1, 0.1), ('A', 1, 1, 0.2)]} }, 
-            'P30': 
-                {'P30-1': {'1': [('TTG', 3, 1, 0.1), ('TTG', 3, 1, 0.2)]} }
-            }
-        Sortie:
-            {'P15':
-                {'P15-1': {'1': [('A', 1, 1, 0.3), ('T', 1, 1, 0.2)], '2': [('C', 1, 1, 0.3)]}, 
-                'P15-2': {'1': [('A', 1, 1, 0.3)]} },
-            'P30':
-                {'P30-1': {'1': [('TTG', 3, 1, 0.3)]}
-            }
-    """
-    dict_assemble = dict()
-
-    #Parcours de l'ensemble des Passages
-    for file_key, file in resultat_final.items():
-        dict_passage = dict()
-
-        #Parcours de l'ensemble des réplicats
-        for passage_key, passage_val in file.items():
-            dict_replicat = dict()
-            l = list()
-
-            #Parcours de l'ensemble des variants avec transformations du dictionnaires en liste
-            for key,val in passage_val.items():
-                for v in val:
-                    v[0] = verifseq(v[0], v[1])
-                    l.append([key, v[0], v[1], v[2], v[3]])
-
-            # Reconstruction du dictionnaire en assemblant les variants communs
-            for cle, valeur, taille, freq, prof in l:
-                gff=interrogff(cle)
-                # print(gff)
-                if(cle not in dict_replicat):
-                    dict_replicat[cle] = [[valeur, taille, freq, prof]]
-                else:
-                    t = False
-                    for i, variants in enumerate(dict_replicat[cle]):
-                        if(test(variants[0][0], valeur[0])):
-                            # TODO : Au lieux de tester une egalite stricte, on devrait tester la similarite entre les deux sequences
-                            if len(gff) == 1 : #Dans un gène
-                                if valeur[0] == variants[0][0] and valeur[1] == variants[0][1]:
-                                    dict_replicat[cle][i] = [variants[0], dict_replicat[cle][i][1], round(freq + dict_replicat[cle][i][2], 3), prof + dict_replicat[cle][i][3]]
-                                    t = True
-                                    break
-                            else : #entre 2 gènes
-                                if valeur[0] == variants[0][0] :
-                                    dict_replicat[cle][i] = [variants[0], dict_replicat[cle][i][1], round(freq + dict_replicat[cle][i][1], 3), prof + dict_replicat[cle][i][2]]
-                                    t = True
-                                    break
-                    if(not t):
-                        dict_replicat[cle].append([valeur, taille, freq, prof])
-
-            dict_passage[passage_key] = dict_replicat
-        dict_assemble[file_key] = dict_passage
-        
-    return dict_assemble
-
-def assemblageParProximite(dico, decalage) -> dict:
     for value_passage in dico.values():
-        for value_replicat in value_passage.values():
-            l_position = list(value_replicat.keys())
+        for replicat, value_replicat in value_passage.items():
+            dictionnaire_replicat = dict()
+            l_variants = list()
+            for position, variants in value_replicat.items():
+                for variant in variants:
+                    l_variants.append((position, variant))
+            # print(l_variants)
 
-            for d in range(1, decalage + 1):
-                l_plusproche = []
-                for i in range(len(l_position)):
-                    if i == 0:
-                        l_plusproche.append([l_position[i+1]]) if l_position[i+1] - l_position[i] == d else l_plusproche.append([])
-                    elif i == len(l_position) - 1:
-                        l_plusproche.append([l_position[i-1]]) if l_position[i] - l_position[i-1] == d else l_plusproche.append([])
-                    else:
-                        l_plusproche.append([l_position[i-1]]) if l_position[i] - l_position[i-1] == d else l_plusproche.append([])
-                        l_plusproche[-1] = l_plusproche[-1] + [l_position[i+1]] if l_position[i+1] - l_position[i] == d else l_plusproche[-1]
-
+            for d in range(0, decalage+1):
                 i = 0
-                while i < len(l_plusproche):
-                    if l_plusproche[i]: 
-                        indice_fusion = l_position.index(l_plusproche[i][0])
-                        
-                        value_replicat[l_position[i]] = value_replicat[l_position[i]] + value_replicat[l_position[indice_fusion]]
-                        
-                        del value_replicat[l_position[indice_fusion]]
-                        del l_plusproche[indice_fusion]
-                        for lst in l_plusproche:
-                            for el in lst:
-                                if el == l_position[indice_fusion]:
-                                    lst[lst.index(el)] = l_position[i]
-                        del l_position[indice_fusion]
+                while i < len(l_variants):
+                    position, variant = l_variants[i]
+                    gff=interrogff(position)
+
+                    j = i+1
+                    while j < len(l_variants):
+                        position2, variant2 = l_variants[j]
+
+                        if position2 - position == d:
+                            if(test(variant[0], variant2[0])):
+                                if len(gff) == 1:
+                                    if(variant[1]%3 == variant2[1]%3 and verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
+                                        l_variants[i] = (position, [variant[0], variant[1], variant[2] + variant2[2], variant[3] + variant2[3]])
+                                        l_variants.pop(j)
+                                        continue
+                                else:
+                                    if(verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
+                                        l_variants[i] = (position, [variant[0], variant[1], variant[2] + variant2[2], variant[3] + variant2[3]])
+                                        l_variants.pop(j)
+                                        continue
+                        if position2 - position > d:
+                            break
+                        j += 1
                     i += 1
-    
+
+            # print(l_variants)
+            
+            for pos, var in l_variants:
+                if pos in dictionnaire_replicat:
+                    dictionnaire_replicat[pos].append(var)
+                else:
+                    dictionnaire_replicat[pos] = [var]
+            value_passage[replicat] = dictionnaire_replicat
     return dico
 
 def filtre_dico(dico):
@@ -420,21 +362,14 @@ def main():
         printTitle("Dictionnaire de base")
         printDico(dictionnaire_de_variants)
 
-    # Deuxieme etape, on assemble les variants qu'on considère comme similaires
-    dictionnaire_avec_variants_assemble_par_position = assemblageParDictionnaire(dictionnaire_de_variants, pourcentage)
+    # Deuxieme etape, on assemble les variants qu'on considère comme similaires        
+    dictionnaire_avec_variants_assemble_par_proximite = assemblageDeVariants(dictionnaire_de_variants, decalage)
 
     if(debug):
-        printTitle("Apres assemblage par position")
-        printDico(dictionnaire_avec_variants_assemble_par_position)
-
-    # Troisieme etape, on assemble les variants par proximite de positions et similarite
-    dictionnaire_avec_variants_assemble_par_proximite = assemblageParProximite(dictionnaire_avec_variants_assemble_par_position, decalage)
-
-    if(debug):
-        printTitle("Apres assemblage par proximite")
+        printTitle("Apres assemblage")
         printDico(dictionnaire_avec_variants_assemble_par_proximite)
 
-    # Quatrieme etape, on filtre les variants pour ne garder que ceux qui ont une fréquence supérieure à 10%
+    # Troisieme etape, on filtre les variants pour ne garder que ceux qui ont une fréquence supérieure à 10%
     dictionnaire_final = filtre_dico(dictionnaire_avec_variants_assemble_par_proximite)
 
     if(debug):
