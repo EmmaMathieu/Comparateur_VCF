@@ -201,7 +201,7 @@ def assemblageDeVariants(dico, decalage) -> dict:
             value_passage[replicat] = dictionnaire_replicat
     return dico
 
-def filtre_dico(dico):
+def filtre_dico(dico, pourcentage=0.1):
     """
     filtre_dico(dico)
     \nEntree:
@@ -227,7 +227,7 @@ def filtre_dico(dico):
                 nouveaux_tuples = []
 
                 for valeur in valeurs:
-                    if valeur[2] > 0.1:
+                    if valeur[2] > pourcentage:
                         nouveaux_tuples.append(valeur)
                     
                 if nouveaux_tuples:
@@ -236,6 +236,34 @@ def filtre_dico(dico):
     return dico
 
 
+def infovariants(dico, name="InfoVariants.txt"):
+    with open(name, 'w') as fichier:
+        for passage, value_passage in dico.items():
+            fichier.write("- Passage " + str(passage) + " :\n\n")
+            comp = 0
+            for replicat, value_replicat in value_passage.items():
+                tmp = 0
+                for variants in value_replicat.values():
+                    for variant in variants:
+                        tmp += 1
+                fichier.write("Replicat " + str(replicat) + " a " + str(tmp) + " variantions\n")
+                comp += tmp
+            fichier.write("\nIl y a " + str(comp) + " variantions en tout\n")
+            fichier.write("La moyenne est de " + str(comp/len(dico[passage].keys())) + " variantions par replicat\n\n\n")
+
+def ecrireVariants(dico, name="Variants.txt"):
+    with open(name, 'w') as fichier:
+        fichier.write("Passage\tReplicat\tPosition\tVariants\n")
+        for passage, value_passage in dico.items():
+            for replicat, value_replicat in value_passage.items():
+                for position, variants in value_replicat.items():
+                    for variant in variants:
+                        fichier.write(str(passage) + "\t" + str(replicat) + "\t" + str(position) + "\t")
+                        for elt in variant:
+                            fichier.write(str(elt) + "\t")
+                        fichier.write("\n")
+                        if(variant[2]>1):
+                            Warning("Attention, la fréquence est supérieure à 1" + str(variant) + str(position) + str(replicat) + str(passage))
 
 def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
     comparaisons = {}  # Dictionnaire pour stocker les comparaisons
@@ -329,7 +357,7 @@ def printTitle(phrase):
 
 def main():
     # DEBUG (Affichage des dictionnaires intermédiaires)
-    debug = True
+    debug = False
 
 
     # Recuperation du chemin contenant les fichiers VCF a analyser
@@ -370,11 +398,19 @@ def main():
         printDico(dictionnaire_avec_variants_assemble_par_proximite)
 
     # Troisieme etape, on filtre les variants pour ne garder que ceux qui ont une fréquence supérieure à 10%
-    dictionnaire_final = filtre_dico(dictionnaire_avec_variants_assemble_par_proximite)
+    for nb in range(0,10):
+        dictionnaire_final = filtre_dico(dictionnaire_avec_variants_assemble_par_proximite, nb/10)
+        infovariants(dictionnaire_final, "Resultats/InfoVariants/InfoVariants_" + str(nb/10) + ".txt")
+        ecrireVariants(dictionnaire_final, "Resultats/Variants/Variants_" + str(nb/10) + ".txt")
 
     if(debug):
         printTitle("Apres filtre")
         printDico(dictionnaire_final)
+
+    
+
+
+
     
     # Cinquieme etape, on compare les dictionnaires    
     resultat = comparer_dictionnaires(dictionnaire_final, decalage, pourcentage)       
