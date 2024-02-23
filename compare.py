@@ -37,7 +37,7 @@ def miseSousFormatDictionnaire(echantillon_et_replicats: dict) -> dict:
                     if ligne.startswith('#'):
                         continue
                     colonne = ligne.split('\t')
-                    valeur_colonne_1, valeur_colonne_4, valeur_colonne_7, valeur_colonne_9 = colonne[1], colonne[4], colonne[7], colonne[9]
+                    valeur_colonne_1, valeur_colonne_4, valeur_colonne_7, valeur_colonne_9 = int(colonne[1]), colonne[4], colonne[7], colonne[9]
 
                     freq = valeur_colonne_7.split('AF=')[1].split(';')[0] if 'AF=' in valeur_colonne_7 else None
                     prof = int(valeur_colonne_9.split(':')[2]) + int(valeur_colonne_9.split(':')[3])
@@ -145,7 +145,6 @@ def test(variants, valeur):
         test("<INS>", "ATG") -> True
         test("<DEL>", "<DUP>") -> False
     """
-    print(variants, valeur)
     if ((variants=="<INS>" or variants != "N") and (valeur=="<INS>" or valeur != "N")):
          return True
     elif ((variants=="<DEL>" or variants == "N") and ( valeur=="<DEL>" or valeur == "N")):
@@ -229,9 +228,34 @@ def assemblageParDictionnaire(resultat_final: dict, pourcentage) -> dict:
 def assemblageParProximite(dico, decalage) -> dict:
     for value_passage in dico.values():
         for value_replicat in value_passage.values():
-            for position, value in value_replicat.items():
-                # print(position)
-                pass
+            l_position = list(value_replicat.keys())
+
+            for d in range(1, decalage + 1):
+                l_plusproche = []
+                for i in range(len(l_position)):
+                    if i == 0:
+                        l_plusproche.append([l_position[i+1]]) if l_position[i+1] - l_position[i] == d else l_plusproche.append([])
+                    elif i == len(l_position) - 1:
+                        l_plusproche.append([l_position[i-1]]) if l_position[i] - l_position[i-1] == d else l_plusproche.append([])
+                    else:
+                        l_plusproche.append([l_position[i-1]]) if l_position[i] - l_position[i-1] == d else l_plusproche.append([])
+                        l_plusproche[-1] = l_plusproche[-1] + [l_position[i+1]] if l_position[i+1] - l_position[i] == d else l_plusproche[-1]
+
+                i = 0
+                while i < len(l_plusproche):
+                    if l_plusproche[i]: 
+                        indice_fusion = l_position.index(l_plusproche[i][0])
+                        
+                        value_replicat[l_position[i]] = value_replicat[l_position[i]] + value_replicat[l_position[indice_fusion]]
+                        
+                        del value_replicat[l_position[indice_fusion]]
+                        del l_plusproche[indice_fusion]
+                        for lst in l_plusproche:
+                            for el in lst:
+                                if el == l_position[indice_fusion]:
+                                    lst[lst.index(el)] = l_position[i]
+                        del l_position[indice_fusion]
+                    i += 1
     
     return dico
 
