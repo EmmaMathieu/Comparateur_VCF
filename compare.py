@@ -186,7 +186,6 @@ def moy(ch1, ch2):
     return (ch1 + ch2) / 2
 
 def assemblageDeVariants(dico, decalage, op=add) -> dict:
-    
     for value_passage in dico.values():
         for replicat, value_replicat in value_passage.items():
             dictionnaire_replicat = dict()
@@ -207,19 +206,10 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
                         position2, variant2 = l_variants[j]
 
                         if position2 - position == d:
-                            if(test(variant[0], variant2[0])):
-                                if len(gff) == 1:
-                                    # if(variant[1]%3 == variant2[1]%3 and verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
-                                    if (mainAlignement(variant[0], variant2[0])):
-                                        l_variants[i] = (position, [variant[0], variant[1], round(op(variant[2],variant2[2]),4), variant[3] + variant2[3]])
-                                        l_variants.pop(j)
-                                        continue
-                                else:
-                                    # if(verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
-                                    if (mainAlignement(variant[0], variant2[0])):
-                                        l_variants[i] = (position, [variant[0], variant[1], round(op(variant[2],variant2[2])), variant[3] + variant2[3]])
-                                        l_variants.pop(j)
-                                        continue
+                            if(test(variant[0], variant2[0]) and mainAlignement(variant[0], variant2[0])):
+                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3])])
+                                l_variants.pop(j)
+                                continue
                         if position2 - position > d:
                             break
                         j += 1
@@ -287,16 +277,19 @@ def infovariants(dico, name="InfoVariants.txt"):
 
 def ecrireVariants(dico, name="Variants.txt"):
     with open(name, 'w') as fichier:
-        fichier.write("Passage\tReplicat\tPosition\tVariants\n")
+        fichier.write("Passage;Replicat;Position;Variants;Taille;Frequence;Profondeur\n")
         for passage, value_passage in dico.items():
             for replicat, value_replicat in value_passage.items():
                 for position, variants in value_replicat.items():
                     for variant in variants:
-                        fichier.write(str(passage) + "\t" + str(replicat) + "\t" + str(position) + "\t")
-                        for elt in variant:
-                            fichier.write(str(elt) + "\t")
+                        fichier.write(str(passage) + ";" + str(replicat) + ";" + str(position) + ";")
+                        for i in range(len(variant)):
+                            if(i != len(variant)-1):
+                                fichier.write(str(variant[i]) + ";")
+                                continue
+                            fichier.write(str(variant[i]))
                         fichier.write("\n")
-                        if(variant[2]>1):
+                        if(variant[2]>1.0):
                             Warning("Attention, la fréquence est supérieure à 1" + str(variant) + str(position) + str(replicat) + str(passage))
 
 def pool(dico):
