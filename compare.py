@@ -1,6 +1,12 @@
 import sys
 import parcourir
 
+d = {'A':0, 'T':1, 'C':2, 'G':3}
+matrice = [[2, -1, -1, 1],
+           [-1, 2, 1, -1],
+           [-1, 1, 2, -1],
+           [1, -1, -1, 2]]
+g = -10
 
 def miseSousFormatDictionnaire(echantillon_et_replicats: dict) -> dict:
     """
@@ -153,7 +159,33 @@ def test(variants, valeur):
             return True
     return False
 
-def assemblageDeVariants(dico, decalage) -> dict:
+def mainAlignement(seq1, seq2):
+    if (seq1=="<INS>" or seq2=="<INS>" or seq1=="<DEL>" or seq2=="<DEL>" or seq1=="<DUP>" or seq2=="<DUP>" or seq1=="N" or seq2=="N"):
+        return True
+    matriceScore = [[0 for i in range(len(seq2)+1)] for j in range(len(seq1)+1)]
+    n = len(seq1)
+    m = len(seq2)
+    for i in range(1,n+1):
+        matriceScore[i][0] = matriceScore[i-1][0] + g
+    for j in range(1,m+1):
+        matriceScore[0][j] = matriceScore[0][j-1] + g
+    for i in range(1,n+1):
+        for j in range(1,m+1):
+            matriceScore[i][j] = max(matriceScore[i-1][j-1] + matrice[d[seq1[i-1]]][d[seq2[j-1]]],matriceScore[i-1][j] + g,matriceScore[i][j-1] + g)
+    maxi = min(len(seq1), len(seq2))*2 + g*(abs(len(seq1)-len(seq2)))
+    mini = (len(seq1) + len(seq2))*g
+    diff = (maxi - mini) * 0.25
+    if matriceScore[n][m] >= maxi - diff:
+        return True
+    return False
+
+def add(ch1, ch2):
+    return ch1 + ch2
+
+def moy(ch1, ch2):
+    return (ch1 + ch2) / 2
+
+def assemblageDeVariants(dico, decalage, op=add) -> dict:
     
     for value_passage in dico.values():
         for replicat, value_replicat in value_passage.items():
@@ -177,13 +209,15 @@ def assemblageDeVariants(dico, decalage) -> dict:
                         if position2 - position == d:
                             if(test(variant[0], variant2[0])):
                                 if len(gff) == 1:
-                                    if(variant[1]%3 == variant2[1]%3 and verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
-                                        l_variants[i] = (position, [variant[0], variant[1], variant[2] + variant2[2], variant[3] + variant2[3]])
+                                    # if(variant[1]%3 == variant2[1]%3 and verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
+                                    if (mainAlignement(variant[0], variant2[0])):
+                                        l_variants[i] = (position, [variant[0], variant[1], round(op(variant[2],variant2[2]),4), variant[3] + variant2[3]])
                                         l_variants.pop(j)
                                         continue
                                 else:
-                                    if(verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
-                                        l_variants[i] = (position, [variant[0], variant[1], variant[2] + variant2[2], variant[3] + variant2[3]])
+                                    # if(verifseq(variant[0], variant[1])[0] == verifseq(variant2[0], variant2[1])[0]):
+                                    if (mainAlignement(variant[0], variant2[0])):
+                                        l_variants[i] = (position, [variant[0], variant[1], round(op(variant[2],variant2[2])), variant[3] + variant2[3]])
                                         l_variants.pop(j)
                                         continue
                         if position2 - position > d:
@@ -264,6 +298,33 @@ def ecrireVariants(dico, name="Variants.txt"):
                         fichier.write("\n")
                         if(variant[2]>1):
                             Warning("Attention, la fréquence est supérieure à 1" + str(variant) + str(position) + str(replicat) + str(passage))
+
+def pool(dico):
+    resultat = {}
+    for passage, value_passage in dico.items():
+        d = {}
+        l = []
+        for replicat, value_replicat in value_passage.items():
+            for position, variants in value_replicat.items():
+                for variant in variants:
+                    l.append((position, variant))
+        
+        l.sort()
+        for pos, var in l:
+            if passage in d:
+                if pos in d[passage]:
+                    d[passage][pos].append(var)
+                else:
+                    d[passage][pos] = [var]
+            else:
+                d[passage] = {pos: [var]}
+        resultat[passage] = d
+    return resultat
+
+                    
+
+
+
 
 def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
     comparaisons = {}  # Dictionnaire pour stocker les comparaisons
@@ -408,8 +469,11 @@ def main():
         printDico(dictionnaire_final)
 
     
+    p = pool(dictionnaire_final)
+    p2 = assemblageDeVariants(p, decalage, moy)
 
-
+    infovariants(p2, "la.txt")
+    ecrireVariants(p2, "le.txt")
 
     
     # Cinquieme etape, on compare les dictionnaires    
