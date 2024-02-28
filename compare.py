@@ -191,7 +191,9 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
             dictionnaire_replicat = dict()
             l_variants = list()
             for position, variants in value_replicat.items():
+                gff=interrogff(position)
                 for variant in variants:
+                    variant.append(gff[0] if len(gff) == 1 else None)
                     l_variants.append((position, variant))
             # print(l_variants)
 
@@ -199,15 +201,13 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
                 i = 0
                 while i < len(l_variants):
                     position, variant = l_variants[i]
-                    gff=interrogff(position)
-
                     j = i+1
                     while j < len(l_variants):
                         position2, variant2 = l_variants[j]
 
                         if position2 - position == d:
                             if(test(variant[0], variant2[0]) and mainAlignement(variant[0], variant2[0])):
-                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3])])
+                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3]), variant[4]])
                                 l_variants.pop(j)
                                 continue
                         if position2 - position > d:
@@ -277,7 +277,7 @@ def infovariants(dico, name="InfoVariants.txt"):
 
 def ecrireVariants(dico, name="Variants.txt"):
     with open(name, 'w') as fichier:
-        fichier.write("Passage;Replicat;Position;Variants;Taille;Frequence;Profondeur\n")
+        fichier.write("Passage;Replicat;Position;Variants;Taille;Frequence;Profondeur;Gene\n")
         for passage, value_passage in dico.items():
             for replicat, value_replicat in value_passage.items():
                 for position, variants in value_replicat.items():
