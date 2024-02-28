@@ -193,7 +193,8 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
             for position, variants in value_replicat.items():
                 gff=interrogff(position)
                 for variant in variants:
-                    variant.append(gff[0] if len(gff) == 1 else None)
+                    if(op==add):
+                        variant.append(gff[0] if len(gff) == 1 else None)
                     l_variants.append((position, variant))
             # print(l_variants)
 
@@ -416,6 +417,7 @@ def main():
 
     # Recuperation du chemin contenant les fichiers VCF a analyser
     chemin = sys.argv[1]
+    #chemin = "PALL/"
 
     if len(sys.argv) == 4: 
         # Prend les arguments 2 et 3 comme décalage et pourcentage
