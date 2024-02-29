@@ -1,5 +1,8 @@
 import sys
 import parcourir
+import matplotlib.pyplot as plt
+
+plt.ion()
 
 d = {'A':0, 'T':1, 'C':2, 'G':3}
 matrice = [[2, -1, -1, 1],
@@ -125,13 +128,7 @@ def interrogff(position) :
 					typ=typ.split(":")
 					typ=typ[0]
 				if position >= deb and position <= fi:
-					liste.append(typ)
-					break
-				elif position > deb and position >= fi :
-					Typ=typ
-				elif position <= deb and position < fi :
-					liste.append(Typ)
-					liste.append(typ)
+					liste.extend([typ, deb, fi])
 					break
 		i+=1
 	fichier.close()
@@ -192,9 +189,13 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
             l_variants = list()
             for position, variants in value_replicat.items():
                 gff=interrogff(position)
+                # print(gff)
                 for variant in variants:
                     if(op==add):
-                        variant.append(gff[0] if len(gff) == 1 else None)
+                        if (len(gff) == 3):
+                            variant.extend(gff)
+                        else:
+                            variant.extend([None,None,None])
                     l_variants.append((position, variant))
             # print(l_variants)
 
@@ -208,7 +209,7 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
 
                         if position2 - position == d:
                             if(test(variant[0], variant2[0]) and mainAlignement(variant[0], variant2[0])):
-                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3]), variant[4]])
+                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3]), variant[4], variant[5], variant[6]]) 
                                 l_variants.pop(j)
                                 continue
                         if position2 - position > d:
@@ -278,7 +279,7 @@ def infovariants(dico, name="InfoVariants.txt"):
 
 def ecrireVariants(dico, name="Variants.txt"):
     with open(name, 'w') as fichier:
-        fichier.write("Passage;Replicat;Position;Variants;Taille;Frequence;Profondeur;Gene\n")
+        fichier.write("Passage;Replicat;Position;Variants;Taille;Frequence;Profondeur;Gene;DebG;FinG\n")
         for passage, value_passage in dico.items():
             for replicat, value_replicat in value_passage.items():
                 for position, variants in value_replicat.items():
@@ -315,63 +316,6 @@ def pool(dico):
         resultat[passage] = d
     return resultat
 
-                    
-
-
-
-
-def comparer_dictionnaires(resultat_final: dict, decalage, pourcentage) -> dict:
-    comparaisons = {}  # Dictionnaire pour stocker les comparaisons
-
-    for fichiers_valeurs in resultat_final.values():  # Parcourt les échantillons et leurs fichiers de valeurs
-        fichiers = list(fichiers_valeurs)  # Liste des fichiers pour un échantillon donné
-
-        for i, fichier_1 in enumerate(fichiers):  # Itération sur les fichiers de cet échantillon
-
-            valeurs_1 = fichiers_valeurs[fichier_1]  # Récupère les valeurs du premier fichier
-
-            for fichier_2 in fichiers[i + 1:]:  # Compare ce fichier avec les fichiers restants dans l'échantillon
-                valeurs_2 = fichiers_valeurs[fichier_2]  # Récupère les valeurs du deuxième fichier
-
-                lval1 = []
-                for cle,val in valeurs_1.items():
-                    for v in val:
-                        lval1.append((cle, v[0]))
-
-                lval2 = []
-                for cle,val in valeurs_2.items():
-                    for v in val:
-                        lval2.append((cle, v[0]))
-                
-                compteur_communs = sum(
-                    1
-                    for cle1, valeur1 in lval1
-                    for cle2, valeur2 in lval2
-                    if( abs(int(cle1) - int(cle2)) <= decalage and
-                        ((type(valeur1) == tuple and type(valeur2) == tuple and valeur1[0] == valeur2[0] and valeur1[1] == valeur2[1]) or
-                        ((sum(1 for a, b in zip(valeur1, valeur2) if a == b) / max(len(valeur1), len(valeur2))) * 100 >= pourcentage))
-                        )
-                    )
-
-
-                # Vérifie si les valeurs sont : '<DUP>', '<DEL>', ou '<INS>'
-                
-                cle_comparaison = f"{fichier_1} - {fichier_2}"  # Clé pour stocker la comparaison
-
-                comparaisons[cle_comparaison] = compteur_communs  # Stocke le résultat dans le dictionnaire des comparaisons
-
-    return comparaisons  # Renvoie le dictionnaire contenant les comparaisons
-
-
-# Exemple :
-# comparaisons = {  'P30-1 - P30-2': 0,
-#                   'P30-1 - P30-3': 7, 
-#                   'P30-2 - P30-3': 0, 
-#                   'P15-3 - P15-1': 14, 
-#                   'P15-3 - P15-2': 3, 
-#                   'P15-1 - P15-2': 3       }  
-
-
 def mise_en_forme(comparaisons: dict, str) -> str:
     resultat = "\n" + str + "\n"
     resultat += "\n-----------------------Premier echantillon-----------------------\n"
@@ -388,11 +332,7 @@ def mise_en_forme(comparaisons: dict, str) -> str:
 def ecrire_dans_fichier(chemin_sortie: str, resultat_concatene: str):
     with open(chemin_sortie, 'w') as fichier:
         fichier.write(resultat_concatene)
-        
 
-
-    
-    
 
 def printDico(dico):
     for cle, valeur in dico.items():
@@ -470,16 +410,36 @@ def main():
     infovariants(p2, "la.txt")
     ecrireVariants(p2, "le.txt")
 
-    
-    # Cinquieme etape, on compare les dictionnaires    
-    resultat = comparer_dictionnaires(dictionnaire_final, decalage, pourcentage)       
+    if(0):
+        variant = []
+        frequences = []
+        zones = []
+        d = {}
+        for value_passage in p2.values():
+            for value_replicat in value_passage.values():
+                for position, variants in value_replicat.items():
+                    for v in variants:
+                        variant.append(position)
+                        frequences.append(v[2])
+                        if (v[4] not in d):
+                            zones.append((v[4], v[5], v[6]))
+                            d[v[4]] = 1
+        
+        plt.figure(figsize=(10, 6))
+        plt.bar(variant, frequences, width=2500 , color='blue', align='center', label='Fréquence')
+        
+        for (gene, start, end) in zones:
+            plt.axvspan(start, end, color='red', alpha=0.3, label=gene)
 
+        plt.xlabel('Position des variants')
+        plt.ylabel('Fréquence')
+        plt.title('Fréquence des variants et zones représentant les gènes')
+        # plt.legend()
 
-    # Chemin où sauvegarder le fichier de resultat
-    chemin_sortie = "Resultat_comparaison_VCF.txt"
+        plt.show()
+        # plt.waitforbuttonpress()
+        input()
 
-    # Écriture le contenu dans le fichier
-    ecrire_dans_fichier(chemin_sortie, mise_en_forme(resultat, phrase))
 
 if __name__ == "__main__":
     # Si le fichier est exécuté en tant que programme principal, appelle la fonction main
