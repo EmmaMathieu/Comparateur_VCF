@@ -184,6 +184,7 @@ def moy(ch1, ch2):
 
 def assemblageDeVariants(dico, decalage, op=add) -> dict:
     for value_passage in dico.values():
+        dico_nom = {}
         for replicat, value_replicat in value_passage.items():
             dictionnaire_replicat = dict()
             l_variants = list()
@@ -192,10 +193,11 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
                 # print(gff)
                 for variant in variants:
                     if(op==add):
-                        if (len(gff) == 3):
+                        if (len(gff) == 3 and gff[0] not in dico_nom):
                             variant.extend(gff)
+                            dico_nom[gff[0]] = 1
                         else:
-                            variant.extend([None,None,None])
+                            variant.extend([None,0,0])
                     l_variants.append((position, variant))
             # print(l_variants)
 
@@ -209,7 +211,7 @@ def assemblageDeVariants(dico, decalage, op=add) -> dict:
 
                         if position2 - position == d:
                             if(test(variant[0], variant2[0]) and mainAlignement(variant[0], variant2[0])):
-                                l_variants[i] = (position, [variant[0], variant[1], min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3]), variant[4], variant[5], variant[6]]) 
+                                l_variants[i] = (position, [variant[0], max(variant[1],variant2[1]) if variant[1] > 0 else min(variant[1], variant2[1]), min(round(op(variant[2],variant2[2]),4),1.0),  op(variant[3],variant2[3]), variant[4], variant[5], variant[6]]) 
                                 l_variants.pop(j)
                                 continue
                         if position2 - position > d:
@@ -394,7 +396,7 @@ def main():
         printDico(dictionnaire_avec_variants_assemble_par_proximite)
 
     # Troisieme etape, on filtre les variants pour ne garder que ceux qui ont une fréquence supérieure à 10%
-    for nb in range(0,10):
+    for nb in range(0,1):
         dictionnaire_final = filtre_dico(dictionnaire_avec_variants_assemble_par_proximite, nb/10)
         infovariants(dictionnaire_final, "Resultats/InfoVariants/InfoVariants_" + str(nb/10) + ".txt")
         ecrireVariants(dictionnaire_final, "Resultats/Variants/Variants_" + str(nb/10) + ".txt")
