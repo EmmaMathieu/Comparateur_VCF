@@ -62,4 +62,4 @@ Ces interprétations sont des pistes pour comprendre la signification biologique
 
 Pour toute question ou difficulté dans l'utilisation du programme, contactez Emma MATHIEU : emma.mathieu02@etu.umontpellier.fr
 
-Merci d'avoir lu et d'utiliser ce programme.
+Merci d'avoir lu et utilisé ce programme.
